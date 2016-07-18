@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Finance.Logic.Crm;
 using Finance.Logic.FinanceCompanies;
 using Finance.Logic.Internal;
@@ -44,5 +46,57 @@ namespace Finance.Logic.Deals
         /// </summary>
         /// <remarks>Can be null which would indicate a direct customer sale</remarks>
         public Dealership Source { get; set; }
+
+        /// <summary>
+        /// What is being used as security for the deal.
+        /// </summary>
+        /// <example>02 Audi A3</example>
+        /// <example>Refinance</example>
+        public string SecurityDescription { get; set; }
+
+        public int TermInMonths { get; set; }
+
+        /// <summary>
+        /// The percentage rate of the finance
+        /// </summary>
+        public decimal Rate { get; set; }
+
+        /// <summary>
+        /// The dollar amount of the deal?
+        /// </summary>
+        public decimal FinanceVolume { get; set; }
+
+        public decimal Commission { get; set; }
+
+        public decimal DocumentationFee { get; set; }
+
+        /// <summary>
+        /// This is a Payment Protection Insurance or Credit Contract Indemnity Insurance for job loss etc
+        /// </summary>
+        public decimal PaymentProtectionInsurance { get; set; }
+
+        /// <summary>
+        /// Insurance against any Loss or Shortfall in the case of where a vehicle is written off or stolen and the amount still owing is greater than the insurance settlement or what the vehicle is assessed to be worth.
+        /// </summary>
+        public decimal GuaranteedAssetProtection { get; set; }
+
+        /// <summary>
+        /// A Mechanical Warranty to insure against any mechanical issues
+        /// </summary>
+        public decimal MechanicalBreakDownInsurance { get; set; }
+
+        public decimal OtherInsurance { get; set; }
+
+        public string OtherInsuranceNote { get; set; }
+
+        public decimal DealershipCommission { get; set; }
+
+        public decimal DealershipClawbackNotes { get; set; }
+
+        #region 1:M Relationships
+
+        public IList<DealNote> DealNotes { get; set; }
+
+        #endregion
     }
 }

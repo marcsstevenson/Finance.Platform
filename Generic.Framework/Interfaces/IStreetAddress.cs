@@ -7,7 +7,7 @@ namespace Generic.Framework.Interfaces
         /// <summary>
         /// The name of the address. Eg: "work" or "Bob Smith"
         /// </summary>
-        string FullName { get; set; }
+        string Name { get; set; }
 
         /// <summary>
         /// A phone number so we can that can be called if there are any problems using this address.

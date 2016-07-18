@@ -3,13 +3,13 @@ using Generic.Framework.AbstractClasses;
 
 namespace Finance.Logic.Crm
 {
-    public class CustomerNote : Entity
+    public class DealershipNote : Entity
     {
         [Required]
         public string Note { get; set; }
 
         [Required]
-        public Customer Customer { get; set; }
+        public Dealership Dealership { get; set; }
 
         /// <summary>
         /// The name of the person who entered this note

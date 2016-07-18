@@ -1,15 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Finance.Logic.Deals;
 using Generic.Framework.AbstractClasses;
 
-namespace Finance.Logic.Crm
+namespace Finance.Logic.FinanceCompanies
 {
-    public class CustomerNote : Entity
+    public class FinanceCompanyNote : Entity
     {
         [Required]
         public string Note { get; set; }
 
         [Required]
-        public Customer Customer { get; set; }
+        public FinanceCompany FinanceCompany { get; set; }
 
         /// <summary>
         /// The name of the person who entered this note

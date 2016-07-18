@@ -66,7 +66,6 @@ namespace Generic.Framework.Helpers.Interfaces
         public static void UpdatePerson(this IPerson to, IPerson from)
         {
             to.UpdateFirstName(from);
-            to.UpdateMiddleName(from);
             to.UpdateLastName(from);
         }
 
