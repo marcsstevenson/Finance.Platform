@@ -12,6 +12,8 @@ using Microsoft.Extensions.Logging;
 using Finance.Api.Services;
 using Finance.Repository.EfCore.Context;
 using Finance.Repository.EfCore.Models;
+using Finance.Repository.EfCore.Repository;
+using Generic.Framework.Interfaces.Entity;
 
 namespace Finance.Api
 {
@@ -48,10 +50,11 @@ namespace Finance.Api
                 .AddDefaultTokenProviders();
 
             services.AddMvc();
-
-            // Add application services.
+            
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
+
+            services.AddTransient<IPersistanceFactory, PersistanceFactory>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

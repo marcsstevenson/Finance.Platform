@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using AutoMapper;
 using Finance.Logic.Shared;
 using Generic.Framework.Enumerations;
 using Generic.Framework.Helpers;
