@@ -44,6 +44,10 @@ namespace Generic.Framework.Helpers
         [ScriptIgnore]
         public Dictionary<IEntity, CommitAction> CommitActions { get; set; }
 
+        [XmlIgnore]
+        [ScriptIgnore]
+        public List<Guid> DeleteActions { get; set; }
+
         public Dictionary<T, CommitAction> GetCommitActionsForType<T>()
             where T : IEntity
         {

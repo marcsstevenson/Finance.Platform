@@ -85,6 +85,10 @@ namespace Finance.Logic.Crm
             Mapper.Map(entity, this);
         }
 
+        //public void Populate(Customer entity)
+        
+        //}
+
         public Customer ToEntity()
         {
             var entity = Mapper.Map<Customer>(this);

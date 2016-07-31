@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Finance.Logic.Shared;
 using Generic.Framework.Enumerations;
 using Generic.Framework.Helpers;
@@ -7,11 +9,22 @@ using Generic.Framework.Interfaces.Entity;
 
 namespace Finance.Logic.Crm
 {
-    public class CustomerService : BaseService
+    public class CustomerService : GenericService<Customer>
     {
         public CustomerService(IPersistanceFactory persistanceFactory)
             : base(persistanceFactory)
         { }
+
+        public CustomerDto Get(Guid id)
+        {
+            var entity = this.RepositoryCustomer.FirstOrDefault(i => i.Id == id);
+            return entity == null ? null : new CustomerDto(entity);
+        }
+
+        public List<CustomerDto> GetAll()
+        {
+            return this.RepositoryCustomer.AllList().Select(i => new CustomerDto(i)).ToList();
+        }
 
         public CommitResult SaveCustomer(CustomerDto customerDto)
         {
