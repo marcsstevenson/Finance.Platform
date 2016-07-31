@@ -1,5 +1,8 @@
+#:E:\Git\PlatinumFinance\Finance.Platform\Generic.Framework\Generic.Framework.xproj
 #:E:\Git\PlatinumFinance\Finance.Platform\Finance.Logic\Finance.Logic.xproj
 E:\Git\PlatinumFinance\Finance.Platform\Finance.Logic\Finance.Logic.xproj|E:\Git\PlatinumFinance\Finance.Platform\Generic.Framework\Generic.Framework.xproj
+#:E:\Git\PlatinumFinance\Finance.Platform\Generic.Repository.EfCore\Generic.Repository.EfCore.xproj
+E:\Git\PlatinumFinance\Finance.Platform\Generic.Repository.EfCore\Generic.Repository.EfCore.xproj|E:\Git\PlatinumFinance\Finance.Platform\Generic.Framework\Generic.Framework.xproj
 #:E:\Git\PlatinumFinance\Finance.Platform\Finance.Repository.EfCore\Finance.Repository.EfCore.xproj
 E:\Git\PlatinumFinance\Finance.Platform\Finance.Repository.EfCore\Finance.Repository.EfCore.xproj|E:\Git\PlatinumFinance\Finance.Platform\Finance.Logic\Finance.Logic.xproj
 E:\Git\PlatinumFinance\Finance.Platform\Finance.Repository.EfCore\Finance.Repository.EfCore.xproj|E:\Git\PlatinumFinance\Finance.Platform\Generic.Framework\Generic.Framework.xproj
@@ -15,3 +18,11 @@ E:\Git\PlatinumFinance\Finance.Platform\Finance.Repository.EfCore\Finance.Reposi
 E:\Git\PlatinumFinance\Finance.Platform\Finance.Repository.EfCore\Finance.Repository.EfCore.xproj|E:\Git\PlatinumFinance\Finance.Platform\Generic.Framework\Generic.Framework.xproj
 E:\Git\PlatinumFinance\Finance.Platform\Finance.Repository.EfCore\Finance.Repository.EfCore.xproj|E:\Git\PlatinumFinance\Finance.Platform\Generic.Repository.EfCore\Generic.Repository.EfCore.xproj
 E:\Git\PlatinumFinance\Finance.Platform\Generic.Repository.EfCore\Generic.Repository.EfCore.xproj|E:\Git\PlatinumFinance\Finance.Platform\Generic.Framework\Generic.Framework.xproj
+#:E:\Git\PlatinumFinance\Finance.Platform\Finance.Logic.Test\Finance.Logic.Test.csproj
+E:\Git\PlatinumFinance\Finance.Platform\Finance.Logic.Test\Finance.Logic.Test.csproj|E:\Git\PlatinumFinance\Finance.Platform\Finance.Logic\Finance.Logic.xproj
+E:\Git\PlatinumFinance\Finance.Platform\Finance.Logic.Test\Finance.Logic.Test.csproj|E:\Git\PlatinumFinance\Finance.Platform\Generic.Framework\Generic.Framework.xproj
+E:\Git\PlatinumFinance\Finance.Platform\Finance.Logic\Finance.Logic.xproj|E:\Git\PlatinumFinance\Finance.Platform\Generic.Framework\Generic.Framework.xproj
+#:E:\Git\PlatinumFinance\Finance.Platform\Finance.Logic.Test\Finance.Logic.Test.csproj
+E:\Git\PlatinumFinance\Finance.Platform\Finance.Logic.Test\Finance.Logic.Test.csproj|E:\Git\PlatinumFinance\Finance.Platform\Finance.Logic\Finance.Logic.xproj
+E:\Git\PlatinumFinance\Finance.Platform\Finance.Logic.Test\Finance.Logic.Test.csproj|E:\Git\PlatinumFinance\Finance.Platform\Generic.Framework\Generic.Framework.xproj
+E:\Git\PlatinumFinance\Finance.Platform\Finance.Logic\Finance.Logic.xproj|E:\Git\PlatinumFinance\Finance.Platform\Generic.Framework\Generic.Framework.xproj

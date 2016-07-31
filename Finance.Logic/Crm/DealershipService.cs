@@ -10,32 +10,32 @@ using Generic.Framework.Interfaces.Entity;
 
 namespace Finance.Logic.Crm
 {
-    public class CustomerService : GenericService<Customer>
+    public class DealershipService : GenericService<Dealership>
     {
-        public CustomerService(IPersistanceFactory persistanceFactory)
+        public DealershipService(IPersistanceFactory persistanceFactory)
             : base(persistanceFactory)
         { }
 
-        public CustomerDto Get(Guid id)
+        public DealershipDto Get(Guid id)
         {
-            var entity = this.RepositoryCustomer.FirstOrDefault(i => i.Id == id);
-            return entity == null ? null : new CustomerDto(entity);
+            var entity = this.RepositoryDealership.FirstOrDefault(i => i.Id == id);
+            return entity == null ? null : new DealershipDto(entity);
         }
 
-        public List<CustomerDto> GetAll()
+        public List<DealershipDto> GetAll()
         {
-            return this.RepositoryCustomer.AllList().Select(i => new CustomerDto(i)).ToList();
+            return this.RepositoryDealership.AllList().Select(i => new DealershipDto(i)).ToList();
         }
 
-        public CommitResult SaveCustomer(CustomerDto dto)
+        public CommitResult SaveDealership(DealershipDto dto)
         {
             var commitAction = CommitAction.None;
-            Customer entity = null;
+            Dealership entity = null;
             
             var commitResult = UnitOfWork.Commit(() =>
             {
                 entity = dto.Id.HasValue
-                    ? this.RepositoryCustomer.FirstOrDefault(i => i.Id == dto.Id)
+                    ? this.RepositoryDealership.FirstOrDefault(i => i.Id == dto.Id)
                     : null;
 
                 //Create a new object if needed
@@ -45,7 +45,7 @@ namespace Finance.Logic.Crm
                     //Update for any changes
                     dto.UpdateEntity(entity);
                 
-                commitAction = RepositoryCustomer.Save(entity);
+                commitAction = RepositoryDealership.Save(entity);
 
                 //Set the track date fields on the view model
                 dto.UpdateTracksTime(entity);

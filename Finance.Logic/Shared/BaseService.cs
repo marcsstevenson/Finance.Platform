@@ -23,6 +23,11 @@ namespace Finance.Logic.Shared
         protected IEntityRepository<Customer> RepositoryCustomer
             => _repositoryCustomer ?? (_repositoryCustomer = PersistanceFactory.BuildEntityRepository<Customer>());
 
+        private IEntityRepository<Dealership> _repositoryDealership;
+
+        protected IEntityRepository<Dealership> RepositoryDealership
+            => _repositoryDealership ?? (_repositoryDealership = PersistanceFactory.BuildEntityRepository<Dealership>());
+
         #endregion
 
         // Flag: Has Dispose already been called? 

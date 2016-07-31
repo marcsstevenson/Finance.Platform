@@ -8,8 +8,11 @@ namespace Finance.Api.Controllers
     {
         protected IPersistanceFactory _persistanceFactory;
 
-        private CustomerService _customerService;
-        protected CustomerService CustomerService => _customerService ?? (_customerService = new CustomerService(_persistanceFactory));
+        private CustomerService _serviceCustomer;
+        protected CustomerService CustomerService => _serviceCustomer ?? (_serviceCustomer = new CustomerService(_persistanceFactory));
+
+        private DealershipService _serviceDealership;
+        protected DealershipService DealershipService => _serviceDealership ?? (_serviceDealership = new DealershipService(_persistanceFactory));
 
         protected BaseController(
             IPersistanceFactory persistanceFactory)
