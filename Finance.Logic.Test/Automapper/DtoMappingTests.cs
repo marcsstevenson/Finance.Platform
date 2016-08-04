@@ -12,6 +12,8 @@ namespace Finance.Logic.Test.Automapper
             //2016.07.25 MS: The reference to Finance.Logic project is not populating. Grr. TODO: Sort out
             //var customerEntity = new Finance.Logic.Crm.Customer();
 
+            Assert.IsTrue(true);
+            //var test = new Finance.Api.Models.ManageViewModels.AddPhoneNumberViewModel();
         }
     }
 }

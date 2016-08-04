@@ -56,13 +56,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Finance.Logic\Finance.Logic.xproj">
-      <Project>{8e10d80f-e9f6-4f60-b363-ecbe30aba6f7}</Project>
-      <Name>Finance.Logic</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Generic.Framework\Generic.Framework.xproj">
-      <Project>{bb2096f2-6f0e-4acc-98cc-d634fb893a9f}</Project>
-      <Name>Generic.Framework</Name>
+    <ProjectReference Include="..\Finance.Api\Finance.Api.xproj">
+      <Project>{9edf4f89-2258-4d58-ab4b-2f0f936836ef}</Project>
+      <Name>Finance.Api</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
