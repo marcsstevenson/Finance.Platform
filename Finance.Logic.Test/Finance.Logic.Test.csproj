@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{80BFD0E5-EF40-4EF0-95A6-9101DA8458A7}</ProjectGuid>
+    <ProjectGuid>{72311E93-F124-4D03-8236-A2ADDC467D4E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Finance.Logic.Test</RootNamespace>
@@ -45,20 +45,22 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
-          <Private>False</Private>
-        </Reference>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
       </ItemGroup>
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Automapper\DtoMappingTests.cs" />
+    <Compile Include="Mapping\CustomerDtoMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Finance.Api\Finance.Api.xproj">
-      <Project>{9edf4f89-2258-4d58-ab4b-2f0f936836ef}</Project>
-      <Name>Finance.Api</Name>
+    <ProjectReference Include="..\Finance.Logic\Finance.Logic.csproj">
+      <Project>{d2efc4ca-ade2-48de-8f12-92e214801e3b}</Project>
+      <Name>Finance.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Generic.Framework\Generic.Framework.csproj">
+      <Project>{4a5cc304-4f7d-4f3b-ab2e-6949703888fa}</Project>
+      <Name>Generic.Framework</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

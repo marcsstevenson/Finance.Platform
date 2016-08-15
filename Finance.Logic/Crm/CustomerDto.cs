@@ -68,16 +68,16 @@ namespace Finance.Logic.Crm
         #endregion
 
         #region IGenericDto
-        //static CustomerDto()
-        //{
-        //    Mapper.Initialize(cfg => cfg.CreateMap<CustomerDto, Customer>()
-        //        //These properties are managed by the repository;
-        //        .ForMember(x => x.DateCreated, opt => opt.Ignore())
-        //        .ForMember(x => x.DateModified, opt => opt.Ignore())
-        //        );
+        static CustomerDto()
+        {
+            Mapper.Initialize(cfg => cfg.CreateMap<CustomerDto, Customer>()
+                //These properties are managed by the repository;
+                .ForMember(x => x.DateCreated, opt => opt.Ignore())
+                .ForMember(x => x.DateModified, opt => opt.Ignore())
+                );
 
-        //    Mapper.Initialize(cfg => cfg.CreateMap<Customer, CustomerDto>());
-        //}
+            Mapper.Initialize(cfg => cfg.CreateMap<Customer, CustomerDto>());
+        }
         public CustomerDto() { }
 
         public CustomerDto(Customer entity)
@@ -95,11 +95,11 @@ namespace Finance.Logic.Crm
         public Customer ToEntity()
         {
             //For reasons unknow the static initialization is not being used. TODO: sort this out or move to a startup method
-            Mapper.Initialize(cfg => cfg.CreateMap<CustomerDto, Customer>()
-                //These properties are managed by the repository;
-                .ForMember(x => x.DateCreated, opt => opt.Ignore())
-                .ForMember(x => x.DateModified, opt => opt.Ignore())
-                );
+            //Mapper.Initialize(cfg => cfg.CreateMap<CustomerDto, Customer>()
+            //    //These properties are managed by the repository;
+            //    .ForMember(x => x.DateCreated, opt => opt.Ignore())
+            //    .ForMember(x => x.DateModified, opt => opt.Ignore())
+            //    );
 
             var entity = Mapper.Map<Customer>(this);
             return entity;
@@ -108,7 +108,7 @@ namespace Finance.Logic.Crm
         public void UpdateEntity(Customer entity)
         { 
             //For reasons unknow the static initialization is not being used. TODO: sort this out or move to a startup method
-            Mapper.Initialize(cfg => cfg.CreateMap<Customer, CustomerDto>());
+            //Mapper.Initialize(cfg => cfg.CreateMap<Customer, CustomerDto>());
 
             Mapper.Map(this, entity);
         }

@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using Generic.Framework.Helpers;
 using Generic.Framework.UnitOfWork;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Generic.Repository.EfCore.Helpers;
 
 namespace Generic.Repository.EfCore.UnitOfWork
 {
@@ -13,10 +14,13 @@ namespace Generic.Repository.EfCore.UnitOfWork
         public UnitOfWork(DbContext dbContext)
         {
             _dbContext = dbContext;
-            dbContext.ChangeTracker.AcceptAllChanges();
         }
-        
-        protected ChangeTracker ChangeTracker => _dbContext.ChangeTracker;
+
+        protected ObjectContext ObjectContext
+        {
+            get { return _dbContext.GetObjectContext(); }
+        }
+
 
         public CommitResult Commit(Action action)
         {
@@ -24,8 +28,7 @@ namespace Generic.Repository.EfCore.UnitOfWork
             {
                 action();
 
-                this._dbContext.SaveChanges(true);
-                //ChangeTracker.AcceptAllChanges();
+                ObjectContext.SaveChanges();
 
                 return new CommitResult();
             }

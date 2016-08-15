@@ -1,0 +1,21 @@
+﻿@model Tuple<bool, string>
+
+@{
+    ViewBag.Title = "Token Tester";
+}
+
+<div class="container fullHeight">
+    <div class="dottedBg paddedCell marginal-bottom">
+        <h2>Result</h2>
+    </div>
+
+    @*@if (Model.Item1)
+    {
+        <Label>Token Response: </Label>@Model
+    }
+    else
+    {
+    }*@
+        @Html.Raw(Model.Item2);
+
+</div>

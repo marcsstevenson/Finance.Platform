@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Finance.Repository.EfCore.Context;
 using Generic.Framework.Enumerations;
 using Generic.Framework.Helpers;
-using Generic.Framework.Interfaces;
 using Generic.Framework.Interfaces.Entity;
-using Microsoft.EntityFrameworkCore;
 
 namespace Finance.Repository.EfCore.Repository
 {
