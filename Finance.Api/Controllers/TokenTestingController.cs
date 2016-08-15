@@ -47,7 +47,7 @@ namespace Finance.Api.Controllers
 
         private string userName = "marcsstevenson@hotmail.com";
         private string password = "go4somebeer";
-        private string url = "http://localhost:1519/";
+        private string url = "http://localhost:1319/";
 
         [HttpGet]
         public virtual JsonResult Register()
@@ -100,6 +100,8 @@ namespace Finance.Api.Controllers
         public string GetTokenResponse()
         {
             string responseValue = null;
+            var tokenUrl = "http://" + Request.Url.Authority + "/Token";
+
             var pairs = new List<KeyValuePair<string, string>>
                         {
                             new KeyValuePair<string, string>( "grant_type", "password" ),
@@ -110,7 +112,7 @@ namespace Finance.Api.Controllers
 
             using (var client = new HttpClient())
             {
-                var response = client.PostAsync(url + "Token", content).Result;
+                var response = client.PostAsync(tokenUrl, content).Result;
                 responseValue = response.Content.ReadAsStringAsync().Result;
             }
 
