@@ -20,7 +20,7 @@ namespace Finance.Logic.Deals
         /// The number for a given time period (month)
         /// </summary>
         [Required]
-        public int Number { get; set; }
+        public string Number { get; set; }
 
         /// <summary>
         /// TODO

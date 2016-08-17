@@ -12,7 +12,7 @@ namespace Generic.Framework.Interfaces
         /// <summary>
         /// A phone number so we can that can be called if there are any problems using this address.
         /// </summary>
-        string ContactPhoneNumber { get; set; }
+        //string ContactPhoneNumber { get; set; }
 
         /// <summary>
         /// Street address, P.O. box, company name, c/o

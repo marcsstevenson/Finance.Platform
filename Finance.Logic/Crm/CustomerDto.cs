@@ -33,7 +33,7 @@ namespace Finance.Logic.Crm
         /// </summary>
         /// <example>CU0008798</example>
         [Required]
-        public int Number { get; set; }
+        public string Number { get; set; }
 
         public string Email { get; set; }
 
