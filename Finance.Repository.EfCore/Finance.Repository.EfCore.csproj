@@ -91,10 +91,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\FinanceDbContext.cs" />
+    <Compile Include="Helpers\FinanceMigrationManager.cs" />
     <Compile Include="Helpers\UnityContainerHelper.cs" />
     <Compile Include="Migrations\201608140203207_Init.cs" />
     <Compile Include="Migrations\201608140203207_Init.Designer.cs">
       <DependentUpon>201608140203207_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608170813059_ChangesToAddressAndNumberProperties.cs" />
+    <Compile Include="Migrations\201608170813059_ChangesToAddressAndNumberProperties.Designer.cs">
+      <DependentUpon>201608170813059_ChangesToAddressAndNumberProperties.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configurations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -123,6 +128,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201608140203207_Init.resx">
       <DependentUpon>201608140203207_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608170813059_ChangesToAddressAndNumberProperties.resx">
+      <DependentUpon>201608170813059_ChangesToAddressAndNumberProperties.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

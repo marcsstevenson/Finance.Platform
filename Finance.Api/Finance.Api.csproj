@@ -203,6 +203,7 @@
     <Compile Include="Api\CustomerController.cs" />
     <Compile Include="Api\DataPopulationController.cs" />
     <Compile Include="Api\DealershipController.cs" />
+    <Compile Include="Api\MigrationsController.cs" />
     <Compile Include="Api\TokenTestingApiController.cs" />
     <Compile Include="App_Start\Bootstrapper.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />

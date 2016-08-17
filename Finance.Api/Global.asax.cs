@@ -1,9 +1,11 @@
-﻿using System.Web;
+﻿using System.Linq;
+using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Finance.Api.App_Start;
+using Finance.Repository.EfCore.Helpers;
 
 namespace Finance.Api
 {
@@ -11,6 +13,16 @@ namespace Finance.Api
     {
         protected void Application_Start()
         {
+            //Run any pending EF migrations
+            //NOTE: This can get very slow with EF6 so it is reccomended to merge migrations when they count over 50 or so
+            var dbMigrator = FinanceMigrationManager.GetMigrator();
+            dbMigrator.Configuration.CommandTimeout = 180;
+            var pendingMigrations = dbMigrator.GetPendingMigrations().ToList();
+
+            //Update the database if we need to
+            if (pendingMigrations.Count > 0)
+                dbMigrator.Update();
+
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

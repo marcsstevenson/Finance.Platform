@@ -18,11 +18,11 @@ namespace Finance.Api.Controllers
     /// </summary>
     /// <remarks>http://cdn.wegotthiscovered.com/wp-content/uploads/PussInBoots1.gif</remarks>
 
-    public partial class TokenTestingController : BaseController
+    public class TokenTestingController : BaseController
     {
         public TokenTestingController()
         {
-            
+
         }
 
         public TokenTestingController(IPersistanceFactory persistanceFactory, ApplicationUserManager userManager)
@@ -47,13 +47,18 @@ namespace Finance.Api.Controllers
 
         private string userName = "marcsstevenson@hotmail.com";
         private string password = "go4somebeer";
-        private string url = "http://localhost:1319/";
+        //private string url = "http://localhost:1319/";
+
+        private string GetHomeUrl()
+        {
+            return "http://" + Request.Url.Authority + "/";
+        }
 
         [HttpGet]
         public virtual JsonResult Register()
         {
             string responseValue = null;
-            var urlRegister = url + "api/Account/Register";
+            var urlRegister = GetHomeUrl() + "api/Account/Register";
             var registerModel = new
 
             {
@@ -77,20 +82,23 @@ namespace Finance.Api.Controllers
         public virtual ActionResult GetToken()
         {
             string responseValue = null;
-            var pairs = new List<KeyValuePair<string, string>>
-                        {
-                            new KeyValuePair<string, string>( "grant_type", "password" ),
-                            new KeyValuePair<string, string>( "username", userName ),
-                            new KeyValuePair<string, string> ( "Password", password )
-                        };
-            //var content = new FormUrlEncodedContent(pairs);
-            var json = JsonConvert.SerializeObject(pairs, Formatting.Indented);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            //NOTE: We must form encode the content. Posting JSON will return "error" : "unsupported_grant_type"
+            //In angular 1.x:
+            /*
+             $http({
+                    url: '/token',
+                    method: 'POST',
+                    data: "userName=" + $scope.username + "&password=" + $scope.password + 
+                          "&grant_type=password"
+            })
+             */
+            var content = new StringContent($"grant_type=password&username={userName}&password={password}", Encoding.UTF8, "application/x-www-form-urlencoded");
 
             using (var client = new HttpClient())
             {
                 var response =
-                    client.PostAsync(url + "Token", content).Result;
+                    client.PostAsync(GetHomeUrl() + "Token", content).Result;
                 responseValue = response.Content.ReadAsStringAsync().Result;
             }
 
@@ -100,7 +108,7 @@ namespace Finance.Api.Controllers
         public string GetTokenResponse()
         {
             string responseValue = null;
-            var tokenUrl = "http://" + Request.Url.Authority + "/Token";
+            var tokenUrl = GetHomeUrl() + "Token";
 
             var pairs = new List<KeyValuePair<string, string>>
                         {
@@ -136,7 +144,7 @@ namespace Finance.Api.Controllers
                     new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 
                 var response =
-                    client.GetAsync(url + "api/TokenTestingApi/TestAuthentication").Result;
+                    client.GetAsync(GetHomeUrl() + "api/TokenTestingApi/TestAuthentication").Result;
                 responseValue = response.Content.ReadAsStringAsync().Result;
             }
 
