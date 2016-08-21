@@ -1,20 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Finance.Logic.Crm;
-using Finance.Logic.FinanceCompanies;
-using Finance.Logic.Internal;
-using Generic.Framework.AbstractClasses;
+using AutoMapper;
+using Generic.Framework.Interfaces;
 
 namespace Finance.Logic.Deals
 {
-    public class Deal : Entity
+    public class DealDto : IGenericDto<Deal>, IGuidNullableId
     {
+        public Guid? Id { get; set; }
+
         /// <summary>
         /// A customer is the person who finances a vehicle
         /// </summary>
         [Required]
-        public Customer Customer { get; set; }
+        public Guid CustomerId { get; set; }
 
         /// <summary>
         /// The number for a given time period (month)
@@ -31,7 +30,7 @@ namespace Finance.Logic.Deals
         /// <summary>
         /// The staff memeber who is assigned to this deal
         /// </summary>
-        public StaffMember AssignedTo { get; set; }
+        public Guid? AssignedToId { get; set; }
 
         [Required]
         public DealStatus DealStatus { get; set; }
@@ -39,13 +38,13 @@ namespace Finance.Logic.Deals
         /// <summary>
         /// The company that is providing finance for this deal
         /// </summary>
-        public FinanceCompany FinanceCompany { get; set; }
+        public Guid? FinanceCompanyId { get; set; }
 
         /// <summary>
         /// The dealership that was the source of this deal
         /// </summary>
         /// <remarks>Can be null which would indicate a direct customer sale</remarks>
-        public Dealership Source { get; set; }
+        public Guid? SourceDealershipId { get; set; }
 
         /// <summary>
         /// What is being used as security for the deal.
@@ -93,9 +92,41 @@ namespace Finance.Logic.Deals
 
         public decimal DealershipClawbackNotes { get; set; }
 
-        #region 1:M Relationships
+        public DateTime DateCreated { get; set; }
+        public DateTime DateModified { get; set; }
 
-        public IList<DealNote> DealNotes { get; set; }
+        #region IGenericDto
+        static DealDto()
+        {
+            Mapper.Initialize(cfg => cfg.CreateMap<DealDto, Deal>()
+                //These properties are managed by the repository;
+                .ForMember(x => x.DateCreated, opt => opt.Ignore())
+                .ForMember(x => x.DateModified, opt => opt.Ignore())
+                );
+
+            Mapper.Initialize(cfg => cfg.CreateMap<Deal, DealDto>());
+        }
+        public DealDto() { }
+
+        public DealDto(Deal entity)
+        {
+            Mapper.Map(entity, this);
+        }
+
+        //public void Populate(Deal entity)
+
+        //}
+
+        public Deal ToEntity()
+        {
+            var entity = Mapper.Map<Deal>(this);
+            return entity;
+        }
+
+        public void UpdateEntity(Deal entity)
+        {
+            Mapper.Map(this, entity);
+        }
 
         #endregion
     }

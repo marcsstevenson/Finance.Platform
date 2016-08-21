@@ -87,7 +87,7 @@ namespace Finance.Api.Controllers
             //In angular 1.x:
             /*
              $http({
-                    url: '/token',
+                    url: 'http://financeplatform.azurewebsites.net/Token',
                     method: 'POST',
                     data: "userName=" + $scope.username + "&password=" + $scope.password + 
                           "&grant_type=password"

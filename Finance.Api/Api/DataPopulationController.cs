@@ -27,6 +27,7 @@ namespace Finance.Api.Controllers
         }
 
         [Route("api/DataPopulation/Customer")]
+        [HttpGet]
         public List<CustomerDto> Customer(int count = 10)
         {
             var customerDtos = new List<CustomerDto>();
@@ -40,7 +41,7 @@ namespace Finance.Api.Controllers
                     DateOfBirth = Clock.Now()
                 };
 
-                this.CustomerService.SaveCustomer(customerDto);
+                this.CustomerService.Save(customerDto);
 
                 customerDtos.Add(customerDto);
             }

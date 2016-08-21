@@ -48,6 +48,10 @@
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="AutoMapper, Version=4.0.4.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.0.4\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -201,9 +205,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\ConfigurationController.cs" />
-    <Compile Include="Api\CustomerController.cs" />
+    <Compile Include="Api\Crm\DealershipNoteController.cs" />
+    <Compile Include="Api\Crm\CustomerNoteController.cs" />
+    <Compile Include="Api\Crm\CustomerController.cs" />
     <Compile Include="Api\DataPopulationController.cs" />
-    <Compile Include="Api\DealershipController.cs" />
+    <Compile Include="Api\Deals\DealController.cs" />
+    <Compile Include="Api\Crm\DealershipController.cs" />
+    <Compile Include="Api\Deals\DealNoteController.cs" />
+    <Compile Include="Api\FinanceCompanies\FinanceCompanyNoteController.cs" />
+    <Compile Include="Api\FinanceCompanies\FinanceCompanyController.cs" />
     <Compile Include="Api\MigrationsController.cs" />
     <Compile Include="Api\TokenTestingApiController.cs" />
     <Compile Include="App_Start\Bootstrapper.cs" />
@@ -254,10 +264,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\CommitResultHelper.cs" />
+    <Compile Include="Helpers\ModelStateExtensions.cs" />
+    <Compile Include="Helpers\ResultHelper.cs" />
     <Compile Include="IoC\ScopeContainer.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AccountViewModels2.cs" />
+    <Compile Include="Models\ApiPostResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />

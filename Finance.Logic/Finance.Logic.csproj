@@ -30,8 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=5.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.5.1.1\lib\net45\AutoMapper.dll</HintPath>
+    <Reference Include="AutoMapper, Version=4.0.4.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.0.4\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -65,8 +65,11 @@
     <Compile Include="Applications\BaseApplication.cs" />
     <Compile Include="BlobStorage\IBlobStorageHelper.cs" />
     <Compile Include="Crm\Customer.cs" />
+    <Compile Include="Crm\DealershipNoteDto.cs" />
+    <Compile Include="Crm\CustomerNoteDto.cs" />
     <Compile Include="Crm\CustomerDto.cs" />
     <Compile Include="Crm\CustomerNote.cs" />
+    <Compile Include="Crm\DealershipNoteService.cs" />
     <Compile Include="Crm\CustomerService.cs" />
     <Compile Include="Crm\CustomerStreetAddress.cs" />
     <Compile Include="Crm\Dealership.cs" />
@@ -74,19 +77,30 @@
     <Compile Include="Crm\DealershipNote.cs" />
     <Compile Include="Crm\DealershipService.cs" />
     <Compile Include="Crm\DealershipStreetAddress.cs" />
+    <Compile Include="Crm\CustomerNoteService.cs" />
     <Compile Include="Deals\Deal.cs" />
+    <Compile Include="Deals\DealDto.cs" />
+    <Compile Include="Deals\DealNoteService.cs" />
+    <Compile Include="Deals\DealNoteDto.cs" />
+    <Compile Include="Deals\DealService.cs" />
     <Compile Include="Deals\DealNote.cs" />
     <Compile Include="Deals\DealStatus.enum.cs" />
     <Compile Include="Email\IEmailService.cs" />
     <Compile Include="Enums\SystemMode.cs" />
+    <Compile Include="FinanceCompanies\FinanceCompanyNoteDto.cs" />
+    <Compile Include="FinanceCompanies\FinanceCompanyNoteService.cs" />
+    <Compile Include="FinanceCompanies\FinanceCompanyService.cs" />
+    <Compile Include="FinanceCompanies\FinanceCompanyDto.cs" />
     <Compile Include="FinanceCompanies\FinanceCompany.cs" />
     <Compile Include="FinanceCompanies\FinanceCompanyNote.cs" />
     <Compile Include="Helpers\ConfigurationHelper.cs" />
+    <Compile Include="Helpers\ReferenceGenerator.cs" />
     <Compile Include="Indentity\IdentityManager.cs" />
     <Compile Include="Indentity\IIdentityManager.cs" />
     <Compile Include="Indentity\PartyIdentityUser.cs" />
     <Compile Include="Indentity\PartyService.cs" />
     <Compile Include="Internal\StaffMember.cs" />
+    <Compile Include="Mappings\AutoMapperConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shared\BaseService.cs" />
     <Compile Include="Shared\Constants.cs" />
@@ -101,7 +115,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,41 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using AutoMapper;
 using Finance.Logic.Shared;
 using Generic.Framework.Enumerations;
 using Generic.Framework.Helpers;
 using Generic.Framework.Helpers.Interfaces;
 using Generic.Framework.Interfaces.Entity;
 
-namespace Finance.Logic.Crm
+namespace Finance.Logic.FinanceCompanies
 {
-    public class DealershipService : GenericService<Dealership>
+    public class FinanceCompanyService : GenericService<FinanceCompany>
     {
-        public DealershipService(IPersistanceFactory persistanceFactory)
+        public FinanceCompanyService(IPersistanceFactory persistanceFactory)
             : base(persistanceFactory)
         { }
 
-        public DealershipDto Get(Guid id)
+        public FinanceCompanyDto Get(Guid id)
         {
-            var entity = this.RepositoryDealership.FirstOrDefault(i => i.Id == id);
-            return entity == null ? null : new DealershipDto(entity);
+            var entity = this.RepositoryFinanceCompany.FirstOrDefault(i => i.Id == id);
+            return entity == null ? null : new FinanceCompanyDto(entity);
         }
 
-        public List<DealershipDto> GetAll()
+        public List<FinanceCompanyDto> GetAll()
         {
-            return this.RepositoryDealership.AllList().Select(i => new DealershipDto(i)).ToList();
+            return this.RepositoryFinanceCompany.AllList().Select(i => new FinanceCompanyDto(i)).ToList();
         }
 
-        public CommitResult Save(DealershipDto dto)
+        public CommitResult Save(FinanceCompanyDto dto)
         {
             var commitAction = CommitAction.None;
-            Dealership entity = null;
+            FinanceCompany entity = null;
             
             var commitResult = UnitOfWork.Commit(() =>
             {
                 entity = dto.Id.HasValue
-                    ? this.RepositoryDealership.FirstOrDefault(i => i.Id == dto.Id)
+                    ? this.RepositoryFinanceCompany.FirstOrDefault(i => i.Id == dto.Id)
                     : null;
 
                 //Create a new object if needed
@@ -45,7 +44,7 @@ namespace Finance.Logic.Crm
                     //Update for any changes
                     dto.UpdateEntity(entity);
                 
-                commitAction = RepositoryDealership.Save(entity);
+                commitAction = RepositoryFinanceCompany.Save(entity);
 
                 //Set the track date fields on the view model
                 dto.UpdateTracksTime(entity);

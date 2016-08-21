@@ -1,5 +1,6 @@
 ﻿using System;
 using Generic.Framework.AbstractClasses;
+using Generic.Framework.Enumerations;
 using Generic.Framework.Helpers;
 using Generic.Framework.Interfaces.Entity;
 
@@ -17,14 +18,23 @@ namespace Finance.Logic.Shared
 
         }
         
-        protected CommitResult Delete(Guid id)
+        public CommitResult Delete(Guid id)
         {
+            var entity = this.RepositoryGeneric.FirstOrDefault(i => i.Id == id);
+
+            var commitAction = CommitAction.None;
+
             var commitResult = UnitOfWork.Commit(() =>
             {
-                RepositoryGeneric.Delete(id);
+                if (entity != null)
+                {
+                    this.RepositoryGeneric.Delete(entity);
+                    commitAction = CommitAction.Delete;
+                }
             });
-            
-            commitResult.DeleteActions.Add(id);
+
+            //Add the result to the commit actions
+            commitResult.CommitActions.Add(entity, commitAction);
 
             return commitResult;
         }

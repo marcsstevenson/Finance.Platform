@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using AutoMapper;
-using Finance.Logic.Helpers;
 using Finance.Logic.Shared;
 using Generic.Framework.Enumerations;
 using Generic.Framework.Helpers;
@@ -11,48 +9,49 @@ using Generic.Framework.Interfaces.Entity;
 
 namespace Finance.Logic.Crm
 {
-    public class CustomerService : GenericService<Customer>
+    public class DealershipNoteService : GenericService<DealershipNote>
     {
-        public CustomerService(IPersistanceFactory persistanceFactory)
+        public DealershipNoteService(IPersistanceFactory persistanceFactory)
             : base(persistanceFactory)
         { }
 
-        public CustomerDto Get(Guid id)
+        public DealershipNoteDto Get(Guid id)
         {
-            var entity = this.RepositoryCustomer.FirstOrDefault(i => i.Id == id);
-            return entity == null ? null : new CustomerDto(entity);
+            var entity = this.RepositoryDealershipNote.FirstOrDefault(i => i.Id == id);
+            return entity == null ? null : new DealershipNoteDto(entity);
         }
 
-        public List<CustomerDto> GetAll()
+        public List<DealershipNoteDto> GetForDealership(Guid customerId)
         {
-            return this.RepositoryCustomer.AllList().Select(i => new CustomerDto(i)).ToList();
+            //var test = this.RepositoryDealershipNote.Where(i => i.Dealership.Id == customerId).ToList();
+
+            return this.RepositoryDealershipNote.Where(i => i.Dealership.Id == customerId).ToList().Select(i => new DealershipNoteDto(i)).ToList();
         }
 
-        public CommitResult Save(CustomerDto dto)
+        public CommitResult Save(DealershipNoteDto dto)
         {
             var commitAction = CommitAction.None;
-            Customer entity = null;
+            DealershipNote entity = null;
             
             var commitResult = UnitOfWork.Commit(() =>
             {
                 entity = dto.Id.HasValue
-                    ? this.RepositoryCustomer.FirstOrDefault(i => i.Id == dto.Id)
+                    ? this.RepositoryDealershipNote.FirstOrDefault(i => i.Id == dto.Id)
                     : null;
-                
+
                 //Create a new object if needed
                 if (entity == null)
                 {
                     entity = dto.ToEntity();
 
-                    //Get a customer number. We need the current count for this
-                    var currentCount = this.RepositoryCustomer.Count();
-                    entity.Number = ReferenceGenerator.GetNextCustomerNumber(currentCount);
+                    //Link the Dealership - required and unalterable
+                    entity.Dealership = this.RepositoryDealership.FirstOrDefault(i => i.Id == dto.DealershipId);
                 }
                 else
                     //Update for any changes
                     dto.UpdateEntity(entity);
                 
-                commitAction = RepositoryCustomer.Save(entity);
+                commitAction = RepositoryDealershipNote.Save(entity);
 
                 //Set the track date fields on the view model
                 dto.UpdateTracksTime(entity);

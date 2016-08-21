@@ -51,23 +51,20 @@ namespace Finance.Logic.Crm
         public DateTime DateModified { get; set; }
 
         #region IGenericDto
-        //static DealershipDto()
-        //{
-        //    Mapper.Initialize(cfg => cfg.CreateMap<DealershipDto, Dealership>()
-        //        //These properties are managed by the repository;
-        //        .ForMember(x => x.DateCreated, opt => opt.Ignore())
-        //        .ForMember(x => x.DateModified, opt => opt.Ignore())
-        //        );
+        static DealershipDto()
+        {
+            Mapper.Initialize(cfg => cfg.CreateMap<DealershipDto, Dealership>()
+                //These properties are managed by the repository;
+                .ForMember(x => x.DateCreated, opt => opt.Ignore())
+                .ForMember(x => x.DateModified, opt => opt.Ignore())
+                );
 
-        //    Mapper.Initialize(cfg => cfg.CreateMap<Dealership, DealershipDto>());
-        //}
+            Mapper.Initialize(cfg => cfg.CreateMap<Dealership, DealershipDto>());
+        }
         public DealershipDto() { }
 
         public DealershipDto(Dealership entity)
         {
-            //For reasons unknow the static initialization is not being used. TODO: sort this out or move to a startup method
-            Mapper.Initialize(cfg => cfg.CreateMap<Dealership, DealershipDto>());
-
             Mapper.Map(entity, this);
         }
 
@@ -77,22 +74,12 @@ namespace Finance.Logic.Crm
 
         public Dealership ToEntity()
         {
-            //For reasons unknow the static initialization is not being used. TODO: sort this out or move to a startup method
-            Mapper.Initialize(cfg => cfg.CreateMap<DealershipDto, Dealership>()
-                //These properties are managed by the repository;
-                .ForMember(x => x.DateCreated, opt => opt.Ignore())
-                .ForMember(x => x.DateModified, opt => opt.Ignore())
-                );
-
             var entity = Mapper.Map<Dealership>(this);
             return entity;
         }
 
         public void UpdateEntity(Dealership entity)
         {
-            //For reasons unknow the static initialization is not being used. TODO: sort this out or move to a startup method
-            Mapper.Initialize(cfg => cfg.CreateMap<Dealership, DealershipDto>());
-
             Mapper.Map(this, entity);
         }
 
