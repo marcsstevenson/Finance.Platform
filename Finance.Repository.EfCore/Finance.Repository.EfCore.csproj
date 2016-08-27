@@ -105,6 +105,10 @@
     <Compile Include="Migrations\201608170813059_ChangesToAddressAndNumberProperties.Designer.cs">
       <DependentUpon>201608170813059_ChangesToAddressAndNumberProperties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608270434387_Customer.LastDeal.cs" />
+    <Compile Include="Migrations\201608270434387_Customer.LastDeal.Designer.cs">
+      <DependentUpon>201608270434387_Customer.LastDeal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configurations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\EntityRepository.cs" />
@@ -135,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608170813059_ChangesToAddressAndNumberProperties.resx">
       <DependentUpon>201608170813059_ChangesToAddressAndNumberProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608270434387_Customer.LastDeal.resx">
+      <DependentUpon>201608270434387_Customer.LastDeal.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

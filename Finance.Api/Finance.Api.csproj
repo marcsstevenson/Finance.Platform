@@ -205,6 +205,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\ConfigurationController.cs" />
+    <Compile Include="Api\Crm\CustomerSearchController.cs" />
     <Compile Include="Api\Crm\DealershipNoteController.cs" />
     <Compile Include="Api\Crm\CustomerNoteController.cs" />
     <Compile Include="Api\Crm\CustomerController.cs" />

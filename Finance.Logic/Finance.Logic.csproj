@@ -65,6 +65,9 @@
     <Compile Include="Applications\BaseApplication.cs" />
     <Compile Include="BlobStorage\IBlobStorageHelper.cs" />
     <Compile Include="Crm\Customer.cs" />
+    <Compile Include="CustomerSearch\CustomerSearchResponseItem.cs" />
+    <Compile Include="CustomerSearch\CustomerSearchResponse.cs" />
+    <Compile Include="CustomerSearch\CustomerSearchRequest.cs" />
     <Compile Include="Crm\DealershipNoteDto.cs" />
     <Compile Include="Crm\CustomerNoteDto.cs" />
     <Compile Include="Crm\CustomerDto.cs" />
@@ -78,6 +81,7 @@
     <Compile Include="Crm\DealershipService.cs" />
     <Compile Include="Crm\DealershipStreetAddress.cs" />
     <Compile Include="Crm\CustomerNoteService.cs" />
+    <Compile Include="CustomerSearch\CustomerSearchService.cs" />
     <Compile Include="Deals\Deal.cs" />
     <Compile Include="Deals\DealDto.cs" />
     <Compile Include="Deals\DealNoteService.cs" />
@@ -106,6 +110,9 @@
     <Compile Include="Shared\Constants.cs" />
     <Compile Include="Shared\GenericService.cs" />
     <Compile Include="Shared\IGenericDto.cs" />
+    <Compile Include="Shared\PagedSearchRequest.cs" />
+    <Compile Include="Shared\PagedSearchResponse.cs" />
+    <Compile Include="Shared\PagedSearchResponseHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Generic.Framework\Generic.Framework.csproj">

@@ -56,11 +56,12 @@ namespace Finance.Repository.EfCore.Context
 
             //Add to this as new classes are added to the EF repository
             //this.OnModelCreatingHtmlCollection(modelBuilder);
-            this.OnModelCreatingProducts(modelBuilder);
+            this.OnModelCreatingDeals(modelBuilder);
+            this.OnModelCreatingCustomer(modelBuilder);
             Precision.ConfigureModelBuilder(modelBuilder);
         }
 
-        protected void OnModelCreatingProducts(DbModelBuilder modelBuilder)
+        protected void OnModelCreatingDeals(DbModelBuilder modelBuilder)
         {
             //Set the precision on the properties that we want to be generated as decimal(18,2)
 
@@ -76,6 +77,16 @@ namespace Finance.Repository.EfCore.Context
             modelBuilder.Entity<Deal>().Property(xx => xx.DealershipCommission).HasPrecision(18, 2);
             modelBuilder.Entity<Deal>().Property(xx => xx.DealershipClawbackNotes).HasPrecision(18, 2);
             
+            base.OnModelCreating(modelBuilder);
+        }
+        protected void OnModelCreatingCustomer(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Deal>()
+                //Construct the relationship between Customer and Deal
+                .HasRequired(i => i.Customer)
+                .WithMany(s => s.Deals)
+                .WillCascadeOnDelete(true);
+
             base.OnModelCreating(modelBuilder);
         }
     }

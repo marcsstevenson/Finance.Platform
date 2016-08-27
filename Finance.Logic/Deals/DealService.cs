@@ -47,11 +47,14 @@ namespace Finance.Logic.Deals
 
                     //Link the customer - required and unalterable
                     entity.Customer = this.RepositoryCustomer.FirstOrDefault(i => i.Id == dto.CustomerId);
+
+                    //Set the last deal
+                    entity.Customer.LastDeal = entity;
                 }
                 else
                     //Update for any changes
                     dto.UpdateEntity(entity);
-
+                
                 //Link in the 1:M properties
                 entity.AssignedTo = dto.AssignedToId.HasValue ? 
                     this.RepositoryStaffMember.FirstOrDefault(i => i.Id == dto.AssignedToId) : 
