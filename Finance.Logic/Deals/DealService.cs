@@ -16,6 +16,11 @@ namespace Finance.Logic.Deals
             : base(persistanceFactory)
         { }
 
+        public List<DealDto> GetAll()
+        {
+            return this.RepositoryDeal.AllList().Select(i => new DealDto(i)).ToList();
+        }
+
         public DealDto Get(Guid id)
         {
             var entity = this.RepositoryDeal.FirstOrDefault(i => i.Id == id);

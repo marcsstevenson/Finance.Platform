@@ -30,6 +30,12 @@ namespace Finance.Api.Api.Deals
         }
 
         [HttpGet]
+        public List<DealDto> GetAll()
+        {
+            return this.DealService.GetAll();
+        }
+
+        [HttpGet]
         public DealDto Get(Guid id)
         {
             return this.DealService.Get(id);
