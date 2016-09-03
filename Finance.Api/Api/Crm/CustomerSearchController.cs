@@ -26,7 +26,7 @@ namespace Finance.Api.Api.Crm
         {
             var request = new CustomerSearchRequest
             {
-                NameContains = "rst",
+                SearchTerm = "rst",
                 PageSize = 3,
                 CurrentPage = 2,
                 OrderBy = "Name"

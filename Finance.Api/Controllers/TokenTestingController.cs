@@ -17,7 +17,6 @@ namespace Finance.Api.Controllers
     /// Don't delete me, I am used for testing
     /// </summary>
     /// <remarks>http://cdn.wegotthiscovered.com/wp-content/uploads/PussInBoots1.gif</remarks>
-
     public class TokenTestingController : BaseController
     {
         public TokenTestingController()
@@ -45,8 +44,8 @@ namespace Finance.Api.Controllers
             }
         }
 
-        private string userName = "marcsstevenson@hotmail.com";
-        private string password = "go4somebeer";
+        private const string UserName = "marcsstevenson@hotmail.com";
+        private const string Password = "go4somebeer";
         //private string url = "http://localhost:1319/";
 
         private string GetHomeUrl()
@@ -62,9 +61,9 @@ namespace Finance.Api.Controllers
             var registerModel = new
 
             {
-                Email = userName,
-                Password = password,
-                ConfirmPassword = password
+                Email = UserName,
+                Password = Password,
+                ConfirmPassword = Password
             };
             using (var client = new HttpClient())
             {
@@ -93,7 +92,7 @@ namespace Finance.Api.Controllers
                           "&grant_type=password"
             })
              */
-            var content = new StringContent($"grant_type=password&username={userName}&password={password}", Encoding.UTF8, "application/x-www-form-urlencoded");
+            var content = new StringContent($"grant_type=password&username={UserName}&password={Password}", Encoding.UTF8, "application/x-www-form-urlencoded");
 
             using (var client = new HttpClient())
             {
@@ -105,6 +104,27 @@ namespace Finance.Api.Controllers
             return View(new Tuple<bool, string>(false, responseValue));
         }
 
+        /// <example>
+        /// TokenTesting/GetTokenForCredentials?userName=marcsstevenson@hotmail.com&password=go4somebeer
+        /// </example>
+        [HttpGet]
+        [AllowAnonymous]
+        public virtual ActionResult GetTokenForCredentials(string userName, string password)
+        {
+            string responseValue = null;
+            
+            var content = new StringContent($"grant_type=password&username={userName}&password={password}", Encoding.UTF8, "application/x-www-form-urlencoded");
+
+            using (var client = new HttpClient())
+            {
+                var response =
+                    client.PostAsync(GetHomeUrl() + "Token", content).Result;
+                responseValue = response.Content.ReadAsStringAsync().Result;
+            }
+
+            return View("GetToken", new Tuple<bool, string>(false, responseValue));
+        }
+
         public string GetTokenResponse()
         {
             string responseValue = null;
@@ -113,8 +133,8 @@ namespace Finance.Api.Controllers
             var pairs = new List<KeyValuePair<string, string>>
                         {
                             new KeyValuePair<string, string>( "grant_type", "password" ),
-                            new KeyValuePair<string, string>( "username", userName ),
-                            new KeyValuePair<string, string> ( "Password", password )
+                            new KeyValuePair<string, string>( "username", UserName ),
+                            new KeyValuePair<string, string> ( "Password", Password )
                         };
             var content = new FormUrlEncodedContent(pairs);
 
