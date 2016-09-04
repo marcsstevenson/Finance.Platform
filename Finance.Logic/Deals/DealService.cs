@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Finance.Logic.Crm;
+using Finance.Logic.Helpers;
 using Finance.Logic.Shared;
 using Generic.Framework.Enumerations;
 using Generic.Framework.Helpers;
@@ -50,6 +51,9 @@ namespace Finance.Logic.Deals
 
                     //Set the last deal
                     entity.Customer.LastDeal = entity;
+
+                    var currentCount = this.RepositoryDeal.Count();
+                    entity.Number = ReferenceGenerator.GetNextDealNumber(currentCount);
                 }
                 else
                     //Update for any changes
