@@ -78,17 +78,27 @@ namespace Finance.Logic.CustomerSearch
                 request.CurrentPage = 1;
 
             //Filter
-            if (!string.IsNullOrEmpty(request.NameContains))
-                query = query.Where(i => (i.FirstName + " " + i.LastName).Contains(request.NameContains));
+            if (!string.IsNullOrEmpty(request.SearchTerm))
+                query = query.Where(i => 
+                    (i.FirstName + " " + i.LastName).Contains(request.SearchTerm)
+                    ||
+                    i.Number.Contains(request.SearchTerm)
+                    ||
+                    (i.CellArea + i.CellNumber).Contains(request.SearchTerm)
+                    ||
+                    i.DriversLicenceNumber.Contains(request.SearchTerm)
+                    ||
+                    (i.LastDeal != null && i.LastDeal.Number.Contains(request.SearchTerm))
+                );
 
-            if (!string.IsNullOrEmpty(request.NumberContains))
-                query = query.Where(i => i.Number.Contains(request.NumberContains));
+            //if (!string.IsNullOrEmpty(request.NumberContains))
+            //    query = query.Where(i => i.Number.Contains(request.NumberContains));
 
-            if (!string.IsNullOrEmpty(request.CellContains))
-                query = query.Where(i => (i.CellArea + i.CellNumber).Contains(request.CellContains));
+            //if (!string.IsNullOrEmpty(request.CellContains))
+            //    query = query.Where(i => (i.CellArea + i.CellNumber).Contains(request.CellContains));
 
-            if (!string.IsNullOrEmpty(request.NumberContains))
-                query = query.Where(i => i.DriversLicenceNumber.Contains(request.DriversLicenceNumberContains));
+            //if (!string.IsNullOrEmpty(request.NumberContains))
+            //    query = query.Where(i => i.DriversLicenceNumber.Contains(request.DriversLicenceNumberContains));
             
             var searchResults = query.Select(i => new CustomerSearchResponseItem
             {

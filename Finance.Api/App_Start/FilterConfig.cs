@@ -1,5 +1,6 @@
 ﻿using System.Web;
 using System.Web.Mvc;
+using Finance.Api.Attributes;
 
 namespace Finance.Api
 {
@@ -7,6 +8,7 @@ namespace Finance.Api
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
+            filters.Add(new LogonAuthorize());
             filters.Add(new HandleErrorAttribute());
         }
     }

@@ -32,7 +32,7 @@ namespace Finance.Logic.Crm
         /// The customer's visible reference - unique
         /// </summary>
         /// <example>CU0008798</example>
-        [Required]
+        //[Required]
         public string Number { get; set; }
 
         public string Email { get; set; }
@@ -71,6 +71,8 @@ namespace Finance.Logic.Crm
         static CustomerDto()
         {
             Mapper.CreateMap<CustomerDto, Customer>()
+                //These properties are managed by the service
+                .ForMember(x => x.Number, opt => opt.Ignore())
                 .ForMember(x => x.DateCreated, opt => opt.Ignore())
                 .ForMember(x => x.DateModified, opt => opt.Ignore());
             

@@ -18,7 +18,7 @@ namespace Finance.Logic.Deals
         /// <summary>
         /// The number for a given time period (month)
         /// </summary>
-        [Required]
+        //[Required]
         public string Number { get; set; }
 
         /// <summary>
@@ -100,6 +100,7 @@ namespace Finance.Logic.Deals
         {
             Mapper.Initialize(cfg => cfg.CreateMap<DealDto, Deal>()
                 //These properties are managed by the repository;
+                .ForMember(x => x.Number, opt => opt.Ignore())
                 .ForMember(x => x.DateCreated, opt => opt.Ignore())
                 .ForMember(x => x.DateModified, opt => opt.Ignore())
                 );

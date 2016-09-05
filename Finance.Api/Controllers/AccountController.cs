@@ -351,6 +351,7 @@ namespace Finance.Api.Controllers
         
         // POST: /Account/LogOff
         [HttpPost]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
@@ -358,6 +359,14 @@ namespace Finance.Api.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult LogMeOff()
+        {
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Index", "Home");
+        }
+        
         //
         // GET: /Account/ExternalLoginFailure
         [AllowAnonymous]
