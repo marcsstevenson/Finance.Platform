@@ -64,6 +64,8 @@
   <ItemGroup>
     <Compile Include="Applications\BaseApplication.cs" />
     <Compile Include="BlobStorage\IBlobStorageHelper.cs" />
+    <Compile Include="Counting\CounterStore.cs" />
+    <Compile Include="Counting\CounterStoreService.cs" />
     <Compile Include="Crm\Customer.cs" />
     <Compile Include="CustomerSearch\CustomerSearchResponseItem.cs" />
     <Compile Include="CustomerSearch\CustomerSearchResponse.cs" />

@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using Finance.Logic.Counting;
 using Finance.Logic.Crm;
 using Finance.Logic.Deals;
 using Finance.Logic.FinanceCompanies;
@@ -45,6 +46,8 @@ namespace Finance.Repository.EfCore.Context
         public DbSet<Dealership> Dealership { get; set; }
         
         public DbSet<Deal> Deal { get; set; }
+        
+        public DbSet<CounterStore> CounterStore { get; set; }
         
         public DbSet<FinanceCompany> FinanceCompany { get; set; }
         

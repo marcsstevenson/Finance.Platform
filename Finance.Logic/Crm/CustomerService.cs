@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
+using Finance.Logic.Counting;
 using Finance.Logic.Helpers;
 using Finance.Logic.Shared;
 using Generic.Framework.Enumerations;
@@ -13,6 +14,11 @@ namespace Finance.Logic.Crm
 {
     public class CustomerService : GenericService<Customer>
     {
+        private CounterStoreService _counterStoreService;
+
+        public CounterStoreService CounterStoreService
+            => _counterStoreService ?? (_counterStoreService = new CounterStoreService(this.PersistanceFactory));
+
         public CustomerService(IPersistanceFactory persistanceFactory)
             : base(persistanceFactory)
         { }
@@ -45,8 +51,9 @@ namespace Finance.Logic.Crm
                     entity = dto.ToEntity();
 
                     //Get a customer number. We need the current count for this
-                    var currentCount = this.RepositoryCustomer.Count();
-                    entity.Number = ReferenceGenerator.GetNextCustomerNumber(currentCount);
+                    var currentCount = CounterStoreService.GetCurrentCounterCustomer();
+                    entity.Number = ReferenceGenerator.GetNextCustomerNumber(currentCount + 1);
+                    CounterStoreService.IntcrementCounterCustomer_InSession();
                 }
                 else
                     //Update for any changes

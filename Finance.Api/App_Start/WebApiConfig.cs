@@ -8,7 +8,7 @@ namespace Finance.Api
         public static void Register(HttpConfiguration config)
         {
             //Require authorisation on all controllers unless the controller or action is decorated with AllowAnonymous 
-            config.Filters.Add(new AuthorizeAttribute());
+            //config.Filters.Add(new AuthorizeAttribute());
 
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.

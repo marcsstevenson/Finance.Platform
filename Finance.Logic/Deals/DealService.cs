@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Finance.Logic.Counting;
 using Finance.Logic.Crm;
 using Finance.Logic.Helpers;
 using Finance.Logic.Shared;
@@ -13,6 +14,11 @@ namespace Finance.Logic.Deals
 {
     public class DealService : GenericService<Deal>
     {
+        private CounterStoreService _counterStoreService;
+
+        public CounterStoreService CounterStoreService
+            => _counterStoreService ?? (_counterStoreService = new CounterStoreService(this.PersistanceFactory));
+
         public DealService(IPersistanceFactory persistanceFactory)
             : base(persistanceFactory)
         { }
@@ -56,9 +62,10 @@ namespace Finance.Logic.Deals
 
                     //Set the last deal
                     entity.Customer.LastDeal = entity;
-
-                    var currentCount = this.RepositoryDeal.Count();
-                    entity.Number = ReferenceGenerator.GetNextDealNumber(currentCount);
+                    
+                    var currentCount = CounterStoreService.GetCurrentCounterDeal();
+                    entity.Number = ReferenceGenerator.GetNextCustomerNumber(currentCount + 1);
+                    CounterStoreService.IntcrementCounterDeal_InSession();
                 }
                 else
                     //Update for any changes
