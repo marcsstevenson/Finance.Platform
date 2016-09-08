@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using Finance.Logic.Crm;
@@ -28,6 +29,9 @@ namespace Finance.Logic.CustomerSearch
             Expression<Func<Customer, string>> thenByByKeySelector = null;
 
             var totalResultCount = query.Count();
+
+            //Include the last deal
+            query = query.Include(i => i.LastDeal);
 
             switch (request.OrderBy.Trim())
             {

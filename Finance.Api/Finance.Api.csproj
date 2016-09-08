@@ -260,6 +260,7 @@
     <Compile Include="Controllers\AccountController2.cs" />
     <Compile Include="Api\base\BaseController.cs" />
     <Compile Include="Controllers\base\BaseController.cs" />
+    <Compile Include="Controllers\CustomerSearchTestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TokenTestingController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
