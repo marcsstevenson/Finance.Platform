@@ -55,6 +55,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Mapping\DealDtoMapping.cs" />
     <Compile Include="Mapping\CustomerDtoMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReferenceGeneration\ReferenceGeneratorTests.cs" />

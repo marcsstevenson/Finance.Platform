@@ -98,14 +98,14 @@ namespace Finance.Logic.Deals
         #region IGenericDto
         static DealDto()
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<DealDto, Deal>()
-                //These properties are managed by the repository;
+
+            Mapper.CreateMap<DealDto, Deal>()
+                //These properties are managed by the service
                 .ForMember(x => x.Number, opt => opt.Ignore())
                 .ForMember(x => x.DateCreated, opt => opt.Ignore())
-                .ForMember(x => x.DateModified, opt => opt.Ignore())
-                );
+                .ForMember(x => x.DateModified, opt => opt.Ignore());
 
-            Mapper.Initialize(cfg => cfg.CreateMap<Deal, DealDto>());
+            Mapper.CreateMap<Deal, DealDto>();
         }
         public DealDto() { }
 
