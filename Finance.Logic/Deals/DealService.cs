@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using Finance.Logic.Counting;
 using Finance.Logic.Crm;
@@ -25,20 +26,30 @@ namespace Finance.Logic.Deals
 
         public List<DealDto> GetAll()
         {
-            return this.RepositoryDeal.AllList().Select(i => new DealDto(i)).ToList();
+            var query = this.RepositoryDeal.AllQueryable();
+
+            query = query.Include(i => i.Customer);
+
+            return query.ToList().Select(i => new DealDto(i)).ToList();
         }
 
         public DealDto Get(Guid id)
         {
-            var entity = this.RepositoryDeal.FirstOrDefault(i => i.Id == id);
+            var query = this.RepositoryDeal.AllQueryable().Where(i => i.Id == id);
+
+            query = query.Include(i => i.Customer);
+
+            var entity = query.FirstOrDefault(i => i.Id == id);
             return entity == null ? null : new DealDto(entity);
         }
 
         public List<DealDto> GetForCustomer(Guid customerId)
         {
-            //var test = this.RepositoryDeal.Where(i => i.Customer.Id == customerId).ToList();
+            var query = this.RepositoryDeal.AllQueryable().Where(i => i.Customer.Id == customerId);
 
-            return this.RepositoryDeal.Where(i => i.Customer.Id == customerId).ToList().Select(i => new DealDto(i)).ToList();
+            query = query.Include(i => i.Customer);
+
+            return query.ToList().Select(i => new DealDto(i)).ToList();
         }
 
         public CommitResult Save(DealDto dto)
