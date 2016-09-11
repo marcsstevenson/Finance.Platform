@@ -43,8 +43,7 @@ namespace Finance.Logic.CustomerSearch
                     thenByByKeySelector = i => i.LastName;
                     break;
                 case "Cell":
-                    orderByKeySelector = i => i.CellArea;
-                    thenByByKeySelector = i => i.CellNumber;
+                    orderByKeySelector = i => i.CellNumber;
                     break;
                 case nameof(Customer.DriversLicenceNumber):
                     orderByKeySelector = i => i.DriversLicenceNumber;
@@ -88,11 +87,13 @@ namespace Finance.Logic.CustomerSearch
                     ||
                     i.Number.Contains(request.SearchTerm)
                     ||
-                    (i.CellArea + i.CellNumber).Contains(request.SearchTerm)
+                    i.CellNumber.Contains(request.SearchTerm)
                     ||
                     i.DriversLicenceNumber.Contains(request.SearchTerm)
                     ||
-                    (i.LastDeal != null && i.LastDeal.Number.Contains(request.SearchTerm))
+                    (i.LastDeal != null && i.LastDeal.Number.Contains(request.SearchTerm)
+                    ||
+                    i.Email.Contains(request.SearchTerm))
                 );
 
             //if (!string.IsNullOrEmpty(request.NumberContains))

@@ -63,6 +63,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Applications\BaseApplication.cs" />
+    <Compile Include="Shared\Enums\MaritalStatusOption.cs" />
+    <Compile Include="Shared\PersonalEntity.cs" />
     <Compile Include="BlobStorage\IBlobStorageHelper.cs" />
     <Compile Include="Counting\CounterStore.cs" />
     <Compile Include="Counting\CounterStoreService.cs" />
@@ -92,7 +94,9 @@
     <Compile Include="Deals\DealNote.cs" />
     <Compile Include="Deals\DealStatus.enum.cs" />
     <Compile Include="Email\IEmailService.cs" />
-    <Compile Include="Enums\SystemMode.cs" />
+    <Compile Include="Shared\Enums\DiversLicenceOption.cs" />
+    <Compile Include="Shared\Enums\ResidencyOption.cs" />
+    <Compile Include="Shared\Enums\SystemMode.cs" />
     <Compile Include="FinanceCompanies\FinanceCompanyNoteDto.cs" />
     <Compile Include="FinanceCompanies\FinanceCompanyNoteService.cs" />
     <Compile Include="FinanceCompanies\FinanceCompanyService.cs" />
@@ -112,6 +116,7 @@
     <Compile Include="Shared\Constants.cs" />
     <Compile Include="Shared\GenericService.cs" />
     <Compile Include="Shared\IGenericDto.cs" />
+    <Compile Include="Shared\Interfaces\IDiversLicenceDetails.cs" />
     <Compile Include="Shared\PagedSearchRequest.cs" />
     <Compile Include="Shared\PagedSearchResponse.cs" />
     <Compile Include="Shared\PagedSearchResponseHelper.cs" />

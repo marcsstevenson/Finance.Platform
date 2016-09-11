@@ -1,4 +1,4 @@
-﻿namespace Finance.Logic.Enums
+﻿namespace Finance.Logic.Shared.Enums
 {
     public enum SystemMode
     {

@@ -10,7 +10,7 @@ using Generic.Framework.Interfaces.Personal;
 
 namespace Finance.Logic.Crm
 {
-    public class CustomerDto : IGenericDto<Customer>, IGuidNullableId, IPerson, IEmail, IPhone, ICell, IFax, IBankAccount
+    public class CustomerDto : IGenericDto<Customer>, IGuidNullableId, IPerson, IEmail, IBankAccount
     {
         #region Fields
 
@@ -38,18 +38,12 @@ namespace Finance.Logic.Crm
         public string Email { get; set; }
 
         // Phone number fields
-        public string PhoneCountry { get; set; }
-        public string PhoneArea { get; set; }
         public string PhoneNumber { get; set; }
 
         // Cell number fields
-        public string CellCountry { get; set; }
-        public string CellArea { get; set; }
         public string CellNumber { get; set; }
 
         // Fax number fields
-        public string FaxCountry { get; set; }
-        public string FaxArea { get; set; }
         public string FaxNumber { get; set; }
 
         public string SkypeName { get; set; }

@@ -7,7 +7,7 @@ using Generic.Framework.Interfaces.Personal;
 
 namespace Finance.Logic.Internal
 {
-    public class StaffMember : Entity, IPerson, IEmail
+    public class StaffMember : Entity, IEmail
     {
         [Required]
         public string FirstName { get; set; }

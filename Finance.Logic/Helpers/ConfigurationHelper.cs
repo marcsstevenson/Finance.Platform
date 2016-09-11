@@ -1,5 +1,5 @@
 ﻿using System.Configuration;
-using Finance.Logic.Enums;
+using Finance.Logic.Shared.Enums;
 
 namespace Finance.Logic.Helpers
 {
