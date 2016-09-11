@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Applications\BaseApplication.cs" />
     <Compile Include="Shared\Enums\MaritalStatusOption.cs" />
+    <Compile Include="Shared\Interfaces\IOccupationalDetails.cs" />
     <Compile Include="Shared\PersonalEntity.cs" />
     <Compile Include="BlobStorage\IBlobStorageHelper.cs" />
     <Compile Include="Counting\CounterStore.cs" />

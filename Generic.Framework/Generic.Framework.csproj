@@ -103,10 +103,13 @@
     <Compile Include="Helpers\TimePeriod\TimePeriodHelper.cs" />
     <Compile Include="Helpers\TimePeriod\TimePeriodNullableHelper.cs" />
     <Compile Include="Helpers\TimePeriod\TimePeriodWeek.cs" />
+    <Compile Include="Interfaces\Comms\ICellBusiness.cs" />
     <Compile Include="Interfaces\Comms\ICell.cs" />
     <Compile Include="Interfaces\Comms\IEmail.cs" />
+    <Compile Include="Interfaces\Comms\IFaxBusiness.cs" />
     <Compile Include="Interfaces\Comms\IFax.cs" />
     <Compile Include="Interfaces\Comms\IGender.cs" />
+    <Compile Include="Interfaces\Comms\IPhoneBusiness.cs" />
     <Compile Include="Interfaces\Comms\IPhone.cs" />
     <Compile Include="Interfaces\Entity\IEntity.cs" />
     <Compile Include="Interfaces\Entity\IEntityRepository.cs" />
