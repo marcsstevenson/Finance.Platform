@@ -62,7 +62,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applications\CustomerApplication.cs" />
     <Compile Include="Applications\BaseApplication.cs" />
+    <Compile Include="Crm\AddressArrangement.cs" />
     <Compile Include="Shared\Enums\MaritalStatusOption.cs" />
     <Compile Include="Shared\Interfaces\IOccupationalDetails.cs" />
     <Compile Include="Shared\PersonalEntity.cs" />
