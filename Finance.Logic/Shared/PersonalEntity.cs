@@ -1,4 +1,5 @@
 ﻿using System;
+using Finance.Logic.Crm;
 using Finance.Logic.Shared.Enums;
 using Finance.Logic.Shared.Interfaces;
 using Generic.Framework.AbstractClasses;
@@ -23,7 +24,7 @@ namespace Finance.Logic.Shared
         public MaritalStatusOption MaritalStatus { get; set; }
 
         public string OriginCountry { get; set; }
-        
+
         public DiversLicenceOption DiversLicenceStatus { get; set; }
 
         public string OverseasDiversLicence { get; set; }
@@ -31,7 +32,7 @@ namespace Finance.Logic.Shared
         public string LicenceNumberSa { get; set; }
 
         public string LicenceNumberSb { get; set; }
-        
+
         public string CellNumber { get; set; }
         public string PhoneNumber { get; set; }
         public string FaxNumber { get; set; }
@@ -46,9 +47,45 @@ namespace Finance.Logic.Shared
         public string OccupationAddressPostcode { get; set; }
         public string OccupationAddressCity { get; set; }
         public int? OccupationDurationInMonths { get; set; }
-        
+
         public string PreviousEmployer { get; set; }
         public string PreviousOccupation { get; set; }
         public int? PreviousOccupationDurationInMonths { get; set; }
+
+        public CustomerStreetAddress CurrentAddress { get; set; }
+
+        public AddressArrangement CurrentAddressArrangement { get; set; }
+
+        /// <summary>
+        /// If CurrentAddressArrangement == other then we need an other reason
+        /// </summary>
+        public string CurrentAddressArrangementOther { get; set; }
+
+        public CustomerStreetAddress PreviousAddress { get; set; }
+
+        public string NearestRelativeName { get; set; }
+
+        public string NearestRelativeRelationship { get; set; }
+
+        public string NearestRelativePhoneNumber { get; set; }
+
+        public CustomerStreetAddress NearestRelativeAddress { get; set; }
+
+        /// <summary>
+        /// MS 2016.09.18: A simple name of a person acting as a referee?
+        /// </summary>
+        public string Reference1Name { get; set; }
+
+        /// <summary>
+        /// MS 2016.09.18: A simple name of a person acting as a referee?
+        /// </summary>
+        public string Reference2Name { get; set; }
+
+        /// <summary>
+        /// MS 2016.09.18: I have no idea what this is
+        /// </summary>
+        public string Bankers { get; set; }
+
+
     }
 }
