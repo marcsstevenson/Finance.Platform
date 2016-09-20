@@ -50,6 +50,10 @@
       <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -62,11 +66,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applications\CustomerAppliationFinancial.cs" />
+    <Compile Include="Applications\AppliationFinancialOption.cs" />
+    <Compile Include="Applications\AppliationFinancial.cs" />
+    <Compile Include="Applications\AppliationFinancialType.cs" />
+    <Compile Include="Applications\AppliationFinancialTypeHelper.cs" />
     <Compile Include="Applications\CustomerApplication.cs" />
     <Compile Include="Applications\BaseApplication.cs" />
+    <Compile Include="Applications\CustomerApplicationNote.cs" />
+    <Compile Include="Applications\CustomerApplicationService.cs" />
+    <Compile Include="Applications\CustomerApplicationDto.cs" />
     <Compile Include="Crm\AddressArrangement.cs" />
+    <Compile Include="Crm\StreetAddressService.cs" />
+    <Compile Include="Crm\StreetAddressDto.cs" />
+    <Compile Include="Crm\StreetAddress.cs" />
+    <Compile Include="Crm\CustomerStreetAddressDto.cs" />
+    <Compile Include="Shared\PersonalEntityService.cs" />
     <Compile Include="Shared\Enums\MaritalStatusOption.cs" />
     <Compile Include="Shared\Interfaces\IOccupationalDetails.cs" />
+    <Compile Include="Shared\PersonalEntityDto.cs" />
     <Compile Include="Shared\PersonalEntity.cs" />
     <Compile Include="BlobStorage\IBlobStorageHelper.cs" />
     <Compile Include="Counting\CounterStore.cs" />

@@ -22,7 +22,7 @@ namespace Finance.Logic.Crm
 
         public string DriversLicenceNumber { get; set; }
 
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
 
         /// <summary>
         /// The customer's visible reference - unique

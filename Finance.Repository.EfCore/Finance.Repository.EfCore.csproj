@@ -97,6 +97,7 @@
     <Compile Include="Context\FinanceDbContext.cs" />
     <Compile Include="Helpers\FinanceMigrationManager.cs" />
     <Compile Include="Helpers\UnityContainerHelper.cs" />
+    <Compile Include="IoC\BootstrapperBase.cs" />
     <Compile Include="Migrations\201608140203207_Init.cs" />
     <Compile Include="Migrations\201608140203207_Init.Designer.cs">
       <DependentUpon>201608140203207_Init.cs</DependentUpon>
@@ -113,7 +114,16 @@
     <Compile Include="Migrations\201609070747044_CounterStore.Designer.cs">
       <DependentUpon>201609070747044_CounterStore.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609200130102_CustomerApplication.cs" />
+    <Compile Include="Migrations\201609200130102_CustomerApplication.Designer.cs">
+      <DependentUpon>201609200130102_CustomerApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609200815071_NullableDates.cs" />
+    <Compile Include="Migrations\201609200815071_NullableDates.Designer.cs">
+      <DependentUpon>201609200815071_NullableDates.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configurations.cs" />
+    <Compile Include="Migrations\Sql\AppliationFinancialOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\EntityRepository.cs" />
     <Compile Include="Repository\PersistanceFactory.cs" />
@@ -149,6 +159,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609070747044_CounterStore.resx">
       <DependentUpon>201609070747044_CounterStore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609200130102_CustomerApplication.resx">
+      <DependentUpon>201609200130102_CustomerApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609200815071_NullableDates.resx">
+      <DependentUpon>201609200815071_NullableDates.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

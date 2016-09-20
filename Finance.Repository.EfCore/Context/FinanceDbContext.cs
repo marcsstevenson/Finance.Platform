@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using Finance.Logic.Applications;
 using Finance.Logic.Counting;
 using Finance.Logic.Crm;
 using Finance.Logic.Deals;
@@ -41,13 +42,17 @@ namespace Finance.Repository.EfCore.Context
             ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = 180;
         }
 
+        public DbSet<AppliationFinancialOption> AppliationFinancialOption { get; set; }
+        
+        public DbSet<CounterStore> CounterStore { get; set; }
+        
         public DbSet<Customer> Customer { get; set; }
+        
+        public DbSet<CustomerApplication> CustomerApplication { get; set; }
         
         public DbSet<Dealership> Dealership { get; set; }
         
         public DbSet<Deal> Deal { get; set; }
-        
-        public DbSet<CounterStore> CounterStore { get; set; }
         
         public DbSet<FinanceCompany> FinanceCompany { get; set; }
         

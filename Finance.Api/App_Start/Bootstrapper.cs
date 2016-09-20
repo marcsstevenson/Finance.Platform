@@ -9,6 +9,7 @@ using Finance.Logic.Indentity;
 using Finance.Logic.Shared.Enums;
 using Finance.Repository.EfCore.Context;
 using Finance.Repository.EfCore.Helpers;
+using Finance.Repository.EfCore.IoC;
 using Generic.Framework.Interfaces.Entity;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -32,7 +33,7 @@ namespace Finance.Api.App_Start
             }
         }
 
-        private static IUnityContainer Container { get { return _container; } }
+        //private static IUnityContainer Container { get { return _container; } }
 
         //public static IEmailService ResolveEmailService()
         //{
@@ -42,7 +43,7 @@ namespace Finance.Api.App_Start
         public static IUnityContainer Initialise()
         {
             //Setup our container for Entity Framework
-            _container = UnityContainerHelper.BuildUnityContainer();
+            _container = BootstrapperBase.InitialiseBase();
 
             //Use an application setting to determine IoC registrations
             //We could have used a unity section within the web.config instead but this does not allow for refactoring

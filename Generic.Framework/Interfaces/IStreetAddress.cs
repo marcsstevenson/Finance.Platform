@@ -4,10 +4,6 @@ namespace Generic.Framework.Interfaces
 {
     public interface IStreetAddress : IRegion
     {
-        /// <summary>
-        /// The name of the address. Eg: "work" or "Bob Smith"
-        /// </summary>
-        string Name { get; set; }
 
         /// <summary>
         /// A phone number so we can that can be called if there are any problems using this address.

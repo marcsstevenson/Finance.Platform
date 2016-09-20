@@ -6,7 +6,6 @@ namespace Generic.Framework.Helpers
     {
         public static bool HaveSameValues(this IStreetAddress from, IStreetAddress to)
         {
-            if (from.Name != to.Name) return false;
             //if (from.ContactPhoneNumber != to.ContactPhoneNumber) return false;
             if (from.AddressLine1 != to.AddressLine1) return false;
             if (from.AddressLine2 != to.AddressLine2) return false;

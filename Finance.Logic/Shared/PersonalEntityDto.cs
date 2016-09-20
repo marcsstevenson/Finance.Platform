@@ -1,16 +1,23 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using AutoMapper;
 using Finance.Logic.Crm;
 using Finance.Logic.Shared.Enums;
 using Finance.Logic.Shared.Interfaces;
-using Generic.Framework.AbstractClasses;
 using Generic.Framework.Enumerations;
+using Generic.Framework.Interfaces;
 using Generic.Framework.Interfaces.Comms;
 using Generic.Framework.Interfaces.Personal;
 
 namespace Finance.Logic.Shared
 {
-    public class PersonalEntity : Entity, IPerson, IDiversLicenceDetails, ICell, IPhone, IFax, ICellBusiness, IPhoneBusiness, IFaxBusiness, IOccupationalDetails
+    public class PersonalEntityDto : Generic.Framework.Interfaces.IGenericDto<PersonalEntity>, IGuidNullableId
+        , IPerson, IDiversLicenceDetails, ICell, IPhone, IFax, ICellBusiness, IPhoneBusiness, IFaxBusiness, IOccupationalDetails
     {
+        #region Fields
+
+        public Guid? Id { get; set; }
+
         public string FirstName { get; set; }
 
         public string MiddleNames { get; set; }
@@ -51,17 +58,14 @@ namespace Finance.Logic.Shared
         public string PreviousEmployer { get; set; }
         public string PreviousOccupation { get; set; }
         public int? PreviousOccupationDurationInMonths { get; set; }
-
-        public StreetAddress CurrentAddress { get; set; }
+        
+        public StreetAddressDto CurrentAddress { get; set; }
 
         public AddressArrangement CurrentAddressArrangement { get; set; }
 
-        /// <summary>
-        /// If CurrentAddressArrangement == other then we need an other reason
-        /// </summary>
         public string CurrentAddressArrangementOther { get; set; }
 
-        public StreetAddress PreviousAddress { get; set; }
+        public StreetAddressDto PreviousAddress { get; set; }
 
         public string NearestRelativeName { get; set; }
 
@@ -69,21 +73,47 @@ namespace Finance.Logic.Shared
 
         public string NearestRelativePhoneNumber { get; set; }
 
-        public StreetAddress NearestRelativeAddress { get; set; }
-
-        /// <summary>
-        /// MS 2016.09.18: A simple name of a person acting as a referee?
-        /// </summary>
+        public StreetAddressDto NearestRelativeAddress { get; set; }
+        
         public string Reference1Name { get; set; }
-
-        /// <summary>
-        /// MS 2016.09.18: A simple name of a person acting as a referee?
-        /// </summary>
+        
         public string Reference2Name { get; set; }
-
-        /// <summary>
-        /// MS 2016.09.18: I have no idea what this is
-        /// </summary>
+        
         public string Bankers { get; set; }
+
+        public DateTime DateCreated { get; set; }
+        public DateTime DateModified { get; set; }
+
+        #endregion
+
+        #region IGenericDto
+        static PersonalEntityDto()
+        {
+            Mapper.CreateMap<PersonalEntityDto, PersonalEntity>()
+                //These properties are managed by the service
+                .ForMember(x => x.DateCreated, opt => opt.Ignore())
+                .ForMember(x => x.DateModified, opt => opt.Ignore());
+
+            Mapper.CreateMap<PersonalEntity, PersonalEntityDto>();
+        }
+        public PersonalEntityDto() { }
+
+        public PersonalEntityDto(PersonalEntity entity)
+        {
+            Mapper.Map(entity, this);
+        }
+
+        public PersonalEntity ToEntity()
+        {
+            var entity = Mapper.Map<PersonalEntity>(this);
+            return entity;
+        }
+
+        public void UpdateEntity(PersonalEntity entity)
+        {
+            Mapper.Map(this, entity);
+        }
+
+        #endregion
     }
 }

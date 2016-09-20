@@ -21,8 +21,11 @@ namespace Finance.Logic.Shared
         public CommitResult Delete(Guid id)
         {
             var entity = this.RepositoryGeneric.FirstOrDefault(i => i.Id == id);
-
+            
             var commitAction = CommitAction.None;
+
+            if(entity == null)
+                return new CommitResult();
 
             var commitResult = UnitOfWork.Commit(() =>
             {

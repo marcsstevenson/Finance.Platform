@@ -1,4 +1,5 @@
 ﻿using System;
+using Finance.Logic.Applications;
 using Finance.Logic.Crm;
 using Finance.Logic.Deals;
 using Finance.Logic.FinanceCompanies;
@@ -24,6 +25,10 @@ namespace Finance.Logic.Shared
         private IEntityRepository<Customer> _repositoryCustomer;
         protected IEntityRepository<Customer> RepositoryCustomer
             => _repositoryCustomer ?? (_repositoryCustomer = PersistanceFactory.BuildEntityRepository<Customer>());
+        
+        private IEntityRepository<CustomerApplication> _repositoryCustomerApplication;
+        protected IEntityRepository<CustomerApplication> RepositoryCustomerApplication
+            => _repositoryCustomerApplication ?? (_repositoryCustomerApplication = PersistanceFactory.BuildEntityRepository<CustomerApplication>());
         
         private IEntityRepository<CustomerNote> _repositoryCustomerNote;
         protected IEntityRepository<CustomerNote> RepositoryCustomerNote
@@ -53,9 +58,17 @@ namespace Finance.Logic.Shared
         protected IEntityRepository<FinanceCompanyNote> RepositoryFinanceCompanyNote
             => _repositoryFinanceCompanyNote ?? (_repositoryFinanceCompanyNote = PersistanceFactory.BuildEntityRepository<FinanceCompanyNote>());
 
+        private IEntityRepository<PersonalEntity> _repositoryPersonalEntity;
+        protected IEntityRepository<PersonalEntity> RepositoryPersonalEntity
+            => _repositoryPersonalEntity ?? (_repositoryPersonalEntity = PersistanceFactory.BuildEntityRepository<PersonalEntity>());
+
         private IEntityRepository<StaffMember> _repositoryStaffMember;
         protected IEntityRepository<StaffMember> RepositoryStaffMember
             => _repositoryStaffMember ?? (_repositoryStaffMember = PersistanceFactory.BuildEntityRepository<StaffMember>());
+
+        private IEntityRepository<StreetAddress> _repositoryStreetAddress;
+        protected IEntityRepository<StreetAddress> RepositoryStreetAddress
+            => _repositoryStreetAddress ?? (_repositoryStreetAddress = PersistanceFactory.BuildEntityRepository<StreetAddress>());
 
         #endregion
 
