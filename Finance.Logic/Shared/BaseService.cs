@@ -22,6 +22,10 @@ namespace Finance.Logic.Shared
         
         #region On demand repository objects
 
+        private IEntityRepository<AppliationFinancialOption> _repositoryAppliationFinancialOption;
+        protected IEntityRepository<AppliationFinancialOption> RepositoryAppliationFinancialOption
+            => _repositoryAppliationFinancialOption ?? (_repositoryAppliationFinancialOption = PersistanceFactory.BuildEntityRepository<AppliationFinancialOption>());
+        
         private IEntityRepository<Customer> _repositoryCustomer;
         protected IEntityRepository<Customer> RepositoryCustomer
             => _repositoryCustomer ?? (_repositoryCustomer = PersistanceFactory.BuildEntityRepository<Customer>());

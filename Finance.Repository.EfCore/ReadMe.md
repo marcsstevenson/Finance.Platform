@@ -3,7 +3,7 @@
 To add a new migration:
 
 1. Open the Package Manager Console
-2. Add-Migration NAME -Project Finance.Repository.EfCore
+2. Add-Migration CustomerApplication -Project Finance.Repository.EfCore
 
 To update the database:
 

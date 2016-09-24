@@ -66,16 +66,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Applications\CustomerAppliationFinancial.cs" />
+    <Compile Include="Applications\CustomerApplicationFinancial.cs" />
     <Compile Include="Applications\AppliationFinancialOption.cs" />
     <Compile Include="Applications\AppliationFinancial.cs" />
     <Compile Include="Applications\AppliationFinancialType.cs" />
     <Compile Include="Applications\AppliationFinancialTypeHelper.cs" />
+    <Compile Include="Applications\CustomerApplicationFinancialDto.cs" />
     <Compile Include="Applications\CustomerApplication.cs" />
     <Compile Include="Applications\BaseApplication.cs" />
     <Compile Include="Applications\CustomerApplicationNote.cs" />
     <Compile Include="Applications\CustomerApplicationService.cs" />
     <Compile Include="Applications\CustomerApplicationDto.cs" />
+    <Compile Include="Applications\CustomerApplicationNoteDto.cs" />
+    <Compile Include="Applications\AppliationFinancialOptionService.cs" />
+    <Compile Include="Applications\AppliationFinancialOptionDto.cs" />
     <Compile Include="Crm\AddressArrangement.cs" />
     <Compile Include="Crm\StreetAddressService.cs" />
     <Compile Include="Crm\StreetAddressDto.cs" />

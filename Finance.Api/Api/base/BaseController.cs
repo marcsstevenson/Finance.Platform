@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using Finance.Logic.Applications;
 using Finance.Logic.Crm;
 using Finance.Logic.Deals;
 using Finance.Logic.FinanceCompanies;
@@ -9,6 +10,12 @@ namespace Finance.Api.Api.@base
     public abstract class BaseController : ApiController
     {
         protected IPersistanceFactory _persistanceFactory;
+
+        private AppliationFinancialOptionService _serviceAppliationFinancialOption;
+        protected AppliationFinancialOptionService AppliationFinancialOptionService => _serviceAppliationFinancialOption ?? (_serviceAppliationFinancialOption = new AppliationFinancialOptionService(_persistanceFactory));
+
+        private CustomerApplicationService _serviceCustomerApplication;
+        protected CustomerApplicationService CustomerApplicationService => _serviceCustomerApplication ?? (_serviceCustomerApplication = new CustomerApplicationService(_persistanceFactory));
 
         private CustomerService _serviceCustomer;
         protected CustomerService CustomerService => _serviceCustomer ?? (_serviceCustomer = new CustomerService(_persistanceFactory));

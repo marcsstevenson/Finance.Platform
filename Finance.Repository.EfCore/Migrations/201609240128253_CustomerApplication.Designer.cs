@@ -7,13 +7,13 @@ namespace Finance.Repository.EfCore.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class NullableDates : IMigrationMetadata
+    public sealed partial class CustomerApplication : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(NullableDates));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CustomerApplication));
         
         string IMigrationMetadata.Id
         {
-            get { return "201609200815071_NullableDates"; }
+            get { return "201609240128253_CustomerApplication"; }
         }
         
         string IMigrationMetadata.Source

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using AutoMapper;
 using Finance.Logic.Shared;
@@ -34,6 +35,14 @@ namespace Finance.Logic.Applications
 
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
+
+        #region 1:M Relationships
+
+        public IList<CustomerApplicationNoteDto> CustomerApplicationNotes { get; set; }
+
+        public IList<CustomerApplicationFinancial> CustomerAppliationFinancials { get; set; }
+
+        #endregion
 
         #endregion
 

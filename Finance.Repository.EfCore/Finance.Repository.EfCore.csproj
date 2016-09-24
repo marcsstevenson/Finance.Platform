@@ -114,13 +114,9 @@
     <Compile Include="Migrations\201609070747044_CounterStore.Designer.cs">
       <DependentUpon>201609070747044_CounterStore.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609200130102_CustomerApplication.cs" />
-    <Compile Include="Migrations\201609200130102_CustomerApplication.Designer.cs">
-      <DependentUpon>201609200130102_CustomerApplication.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609200815071_NullableDates.cs" />
-    <Compile Include="Migrations\201609200815071_NullableDates.Designer.cs">
-      <DependentUpon>201609200815071_NullableDates.cs</DependentUpon>
+    <Compile Include="Migrations\201609240137061_CustomerApplication.cs" />
+    <Compile Include="Migrations\201609240137061_CustomerApplication.Designer.cs">
+      <DependentUpon>201609240137061_CustomerApplication.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configurations.cs" />
     <Compile Include="Migrations\Sql\AppliationFinancialOptions.cs" />
@@ -160,11 +156,8 @@
     <EmbeddedResource Include="Migrations\201609070747044_CounterStore.resx">
       <DependentUpon>201609070747044_CounterStore.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609200130102_CustomerApplication.resx">
-      <DependentUpon>201609200130102_CustomerApplication.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609200815071_NullableDates.resx">
-      <DependentUpon>201609200815071_NullableDates.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201609240137061_CustomerApplication.resx">
+      <DependentUpon>201609240137061_CustomerApplication.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

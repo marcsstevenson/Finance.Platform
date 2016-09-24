@@ -32,7 +32,7 @@ namespace Finance.Logic.Applications
 
         public IList<CustomerApplicationNote> CustomerApplicationNotes { get; set; }
         
-        public IList<CustomerAppliationFinancial> CustomerAppliationFinancials { get; set; }
+        public IList<CustomerApplicationFinancial> CustomerAppliationFinancials { get; set; }
         
         #endregion
     }

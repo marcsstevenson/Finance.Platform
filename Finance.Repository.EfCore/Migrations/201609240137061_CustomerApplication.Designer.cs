@@ -13,7 +13,7 @@ namespace Finance.Repository.EfCore.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201609200130102_CustomerApplication"; }
+            get { return "201609240137061_CustomerApplication"; }
         }
         
         string IMigrationMetadata.Source
