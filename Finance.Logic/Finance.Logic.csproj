@@ -85,6 +85,10 @@
     <Compile Include="Crm\StreetAddressDto.cs" />
     <Compile Include="Crm\StreetAddress.cs" />
     <Compile Include="Crm\CustomerStreetAddressDto.cs" />
+    <Compile Include="DealershipSearch\DealershipSearchRequest.cs" />
+    <Compile Include="DealershipSearch\DealershipSearchResponse.cs" />
+    <Compile Include="DealershipSearch\DealershipSearchResponseItem.cs" />
+    <Compile Include="DealershipSearch\DealershipSearchService.cs" />
     <Compile Include="DealSearch\DealSearchRequest.cs" />
     <Compile Include="DealSearch\DealSearchResponse.cs" />
     <Compile Include="DealSearch\DealSearchResponseItem.cs" />

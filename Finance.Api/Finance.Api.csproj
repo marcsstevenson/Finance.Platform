@@ -212,7 +212,9 @@
     <Compile Include="Api\Crm\DealershipNoteController.cs" />
     <Compile Include="Api\Crm\CustomerNoteController.cs" />
     <Compile Include="Api\Crm\CustomerController.cs" />
+    <Compile Include="Api\Crm\DealershipSearchController.cs" />
     <Compile Include="Api\DataPopulationController.cs" />
+    <Compile Include="Api\Deals\DealSearchController.cs" />
     <Compile Include="Api\Deals\DealController.cs" />
     <Compile Include="Api\Crm\DealershipController.cs" />
     <Compile Include="Api\Deals\DealNoteController.cs" />
