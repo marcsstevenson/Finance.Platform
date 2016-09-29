@@ -6,7 +6,7 @@ using Generic.Framework.Interfaces.Entity;
 namespace Finance.Api.Api.Crm
 {
     //[Produces("application/json")]
-    [Route("api/DealSearch")]
+    [Route("api/DealershipSearch")]
     public class DealershipSearchController : BaseController
     {
         private DealershipSearchService _serviceDealSearch;
