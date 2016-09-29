@@ -119,7 +119,7 @@
       <DependentUpon>201609240137061_CustomerApplication.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configurations.cs" />
-    <Compile Include="Migrations\Sql\AppliationFinancialOptions.cs" />
+    <Compile Include="Migrations\Sql2\AppliationFinancialOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\EntityRepository.cs" />
     <Compile Include="Repository\PersistanceFactory.cs" />
