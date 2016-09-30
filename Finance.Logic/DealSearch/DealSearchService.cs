@@ -24,6 +24,7 @@ namespace Finance.Logic.DealSearch
         public DealSearchResponse Search(DealSearchRequest request)
         {
             var query = DealRepository.AllQueryable();
+
             Expression<Func<Deal, string>> orderByKeySelector = null;
             Expression<Func<Deal, string>> thenByKeySelector = null;
 
@@ -31,11 +32,11 @@ namespace Finance.Logic.DealSearch
 
             query = query.Include(i => i.Customer);
 
-            SetOrderSelector(request, orderByKeySelector, thenByKeySelector);
+            SetOrderSelector(request, ref orderByKeySelector, ref thenByKeySelector);
 
-            AddOrderToQuery(request, query, orderByKeySelector, thenByKeySelector);
+            AddOrderToQuery(request, ref query, ref orderByKeySelector, ref thenByKeySelector);
 
-            BuildQuery(request, query);
+            BuildQuery(request, ref query);
 
             if (request.CurrentPage > totalResultCount / request.PageSize + 1)
                 request.CurrentPage = 1;
@@ -65,8 +66,8 @@ namespace Finance.Logic.DealSearch
         }
 
         private void SetOrderSelector(DealSearchRequest request, 
-            Expression<Func<Deal, string>> orderByKeySelector,
-            Expression<Func<Deal, string>> thenByKeySelector)
+            ref Expression<Func<Deal, string>> orderByKeySelector,
+            ref Expression<Func<Deal, string>> thenByKeySelector)
         {
             switch (request.OrderBy.Trim())
             {
@@ -88,9 +89,9 @@ namespace Finance.Logic.DealSearch
         }
 
         private void AddOrderToQuery(DealSearchRequest request, 
-            IQueryable<Deal> query,
-            Expression<Func<Deal, string>> orderByKeySelector,
-            Expression<Func<Deal, string>> thenByKeySelector)
+            ref IQueryable<Deal> query,
+            ref Expression<Func<Deal, string>> orderByKeySelector,
+            ref Expression<Func<Deal, string>> thenByKeySelector)
         {
             if (orderByKeySelector != null)
             {
@@ -109,7 +110,7 @@ namespace Finance.Logic.DealSearch
             }
         }
 
-        private void BuildQuery(DealSearchRequest request, IQueryable<Deal> query)
+        private void BuildQuery(DealSearchRequest request, ref IQueryable<Deal> query)
         {
             if (!string.IsNullOrEmpty(request.SearchTerm))
             {
