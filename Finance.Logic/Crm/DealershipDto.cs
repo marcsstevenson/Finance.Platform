@@ -59,7 +59,7 @@ namespace Finance.Logic.Crm
                 .ForMember(x => x.DateModified, opt => opt.Ignore())
                 );
 
-            Mapper.Initialize(cfg => cfg.CreateMap<Dealership, DealershipDto>());
+            Mapper.CreateMap<Dealership, DealershipDto>();
         }
         public DealershipDto() { }
 
