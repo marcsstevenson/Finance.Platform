@@ -14,7 +14,7 @@ namespace Finance.Logic.DealSearch
 
         public DealStatus DealStatus { get; set; }
 
-        public Customer Customer { get; set; }
+        public string CustomerName { get; set; }
 
         public DateTime DateCreated { get; set; }
 

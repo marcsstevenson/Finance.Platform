@@ -47,7 +47,8 @@ namespace Finance.Logic.DealSearch
                 Number = i.Number,
                 DealStatus = i.DealStatus,
                 DateCreated = i.DateCreated,
-                DateModified = i.DateModified
+                DateModified = i.DateModified,
+                CustomerName = i.Customer.FirstName + " " + i.Customer.LastName
             })
             .Skip(request.PageSize * (request.CurrentPage - 1))
             .Take(request.PageSize).ToList();

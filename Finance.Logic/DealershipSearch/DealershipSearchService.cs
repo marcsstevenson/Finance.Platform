@@ -29,11 +29,11 @@ namespace Finance.Logic.DealershipSearch
 
             var totalResultCount = query.Count();
 
-            SetOrderSelector(request, orderByKeySelector, thenByKeySelector);
+            SetOrderSelector(request, ref orderByKeySelector, ref thenByKeySelector);
 
-            AddOrderToQuery(request, query, orderByKeySelector, thenByKeySelector);
+            AddOrderToQuery(request, ref query, ref orderByKeySelector, ref thenByKeySelector);
 
-            BuildQuery(request, query);
+            BuildQuery(request, ref query);
 
             if (request.CurrentPage > totalResultCount / request.PageSize + 1)
                 request.CurrentPage = 1;
@@ -63,8 +63,8 @@ namespace Finance.Logic.DealershipSearch
         }
 
         private void SetOrderSelector(DealershipSearchRequest request, 
-            Expression<Func<Dealership, string>> orderByKeySelector,
-            Expression<Func<Dealership, string>> thenByKeySelector)
+            ref Expression<Func<Dealership, string>> orderByKeySelector,
+            ref Expression<Func<Dealership, string>> thenByKeySelector)
         {
             switch (request.OrderBy.Trim())
             {
@@ -90,9 +90,9 @@ namespace Finance.Logic.DealershipSearch
         }
 
         private void AddOrderToQuery(DealershipSearchRequest request, 
-            IQueryable<Dealership> query,
-            Expression<Func<Dealership, string>> orderByKeySelector,
-            Expression<Func<Dealership, string>> thenByKeySelector)
+            ref IQueryable<Dealership> query,
+            ref Expression<Func<Dealership, string>> orderByKeySelector,
+            ref Expression<Func<Dealership, string>> thenByKeySelector)
         {
             if (orderByKeySelector != null)
             {
@@ -111,7 +111,7 @@ namespace Finance.Logic.DealershipSearch
             }
         }
 
-        private void BuildQuery(DealershipSearchRequest request, IQueryable<Dealership> query)
+        private void BuildQuery(DealershipSearchRequest request, ref IQueryable<Dealership> query)
         {
             if (!string.IsNullOrEmpty(request.SearchTerm))
             {
