@@ -18,13 +18,12 @@ namespace Finance.Logic.FinanceCompanies
         #region IGenericDto
         static FinanceCompanyDto()
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<FinanceCompanyDto, FinanceCompany>()
+            Mapper.CreateMap<FinanceCompanyDto, FinanceCompany>()
                 //These properties are managed by the repository;
                 .ForMember(x => x.DateCreated, opt => opt.Ignore())
-                .ForMember(x => x.DateModified, opt => opt.Ignore())
-                );
+                .ForMember(x => x.DateModified, opt => opt.Ignore());
 
-            Mapper.Initialize(cfg => cfg.CreateMap<FinanceCompany, FinanceCompanyDto>());
+            Mapper.CreateMap<FinanceCompany, FinanceCompanyDto>();
         }
         public FinanceCompanyDto() { }
 
