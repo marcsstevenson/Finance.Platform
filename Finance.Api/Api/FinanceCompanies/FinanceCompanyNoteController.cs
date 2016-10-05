@@ -23,9 +23,9 @@ namespace Finance.Api.Api.FinanceCompanies
 
         [HttpGet]
         [Route("api/FinanceCompanyNote/GetForFinanceCompany")]
-        public List<FinanceCompanyNoteDto> GetForFinanceCompany(Guid customerId)
+        public List<FinanceCompanyNoteDto> GetForFinanceCompany(Guid financeCompanyId)
         {
-            return this.FinanceCompanyNoteService.GetForFinanceCompany(customerId);
+            return this.FinanceCompanyNoteService.GetForFinanceCompany(financeCompanyId);
         }
 
         [HttpGet]
