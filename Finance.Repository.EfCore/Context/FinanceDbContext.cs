@@ -94,6 +94,8 @@ namespace Finance.Repository.EfCore.Context
                 .HasRequired(i => i.Customer)
                 .WithMany(s => s.Deals)
                 .WillCascadeOnDelete(true);
+            
+            
 
             base.OnModelCreating(modelBuilder);
         }

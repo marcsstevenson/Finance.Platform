@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Web.Http;
+using Elmah;
 using Finance.Api.Api.@base;
 using Finance.Api.Helpers;
 using Finance.Logic.Crm;
