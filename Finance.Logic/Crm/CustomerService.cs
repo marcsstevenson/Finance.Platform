@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using AutoMapper;
 using Finance.Logic.Counting;
@@ -25,13 +26,21 @@ namespace Finance.Logic.Crm
 
         public CustomerDto Get(Guid id)
         {
-            var entity = this.RepositoryCustomer.FirstOrDefault(i => i.Id == id);
-            return entity == null ? null : new CustomerDto(entity);
+            var dto = this.RepositoryCustomer
+                .AllQueryable()
+                .Include(i => i.LastDeal)
+                .Select(CustomerDto.GetentityToDtoFunc())
+                .FirstOrDefault(i => i.Id == id);
+            return dto;
         }
 
         public List<CustomerDto> GetAll()
         {
-            return this.RepositoryCustomer.AllList().Select(i => new CustomerDto(i)).ToList();
+            return this.RepositoryCustomer
+                .AllQueryable()
+                .Include(i => i.LastDeal)
+                .Select(CustomerDto.GetentityToDtoFunc())
+                .ToList();
         }
 
         public CommitResult Save(CustomerDto dto)

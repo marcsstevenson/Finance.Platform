@@ -156,6 +156,7 @@
     <Compile Include="Interfaces\ITimePeriod.cs" />
     <Compile Include="Interfaces\ITimePeriodNullable.cs" />
     <Compile Include="Interfaces\ITimePeriodWeek.cs" />
+    <Compile Include="Interfaces\ITracksTimeNullable.cs" />
     <Compile Include="Interfaces\ITracksTime.cs" />
     <Compile Include="Interfaces\IValue.cs" />
     <Compile Include="Interfaces\IVolumeCc.cs" />

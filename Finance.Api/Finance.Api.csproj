@@ -240,6 +240,8 @@
     <Compile Include="Api\Deals\DealNoteController.cs" />
     <Compile Include="Api\FinanceCompanies\FinanceCompanyNoteController.cs" />
     <Compile Include="Api\FinanceCompanies\FinanceCompanyController.cs" />
+    <Compile Include="Api\TestingController.cs" />
+    <Compile Include="Api\MappingsController.cs" />
     <Compile Include="Api\MigrationsController.cs" />
     <Compile Include="Api\TokenTestingApiController.cs" />
     <Compile Include="App_Start\Bootstrapper.cs" />

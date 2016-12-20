@@ -33,8 +33,8 @@ namespace Finance.Logic.Applications
         /// </summary>
         public DateTime? DateSigned { get; set; }
 
-        public DateTime DateCreated { get; set; }
-        public DateTime DateModified { get; set; }
+        public DateTime? DateCreated { get; set; }
+        public DateTime? DateModified { get; set; }
 
         #region 1:M Relationships
 

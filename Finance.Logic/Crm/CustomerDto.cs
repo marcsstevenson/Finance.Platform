@@ -55,9 +55,14 @@ namespace Finance.Logic.Crm
         public string BankAccountName { get; set; }
         public string BankBranchName { get; set; }
         public string BankAccountNumber { get; set; }
+        public Guid? LastDealId { get; set; }
 
-        public DateTime DateCreated { get; set; }
-        public DateTime DateModified { get; set; }
+        /// <summary>
+        /// The number of the last deal - if any
+        /// </summary>
+        public string LastDealNumber { get; set; }
+        public DateTime? DateCreated { get; set; }
+        public DateTime? DateModified { get; set; }
 
         #endregion
 
@@ -70,10 +75,12 @@ namespace Finance.Logic.Crm
                 .ForMember(x => x.DateCreated, opt => opt.Ignore())
                 .ForMember(x => x.DateModified, opt => opt.Ignore());
             
-            Mapper.CreateMap<Customer, CustomerDto>();
+            Mapper.CreateMap<Customer, CustomerDto>()
+                .ForMember(x => x.DateCreated, opt => opt.Ignore())
+                .ForMember(x => x.DateModified, opt => opt.Ignore());
         }
         public CustomerDto() { }
-
+        
         public CustomerDto(Customer entity)
         {
             Mapper.Map(entity, this);
@@ -91,5 +98,36 @@ namespace Finance.Logic.Crm
         }
 
         #endregion
+
+        public static Func<Customer, CustomerDto> GetentityToDtoFunc()
+        {
+            Func<Customer, CustomerDto> func = i => new CustomerDto
+            {
+                Id = i.Id,
+                Gender = i.Gender,
+                FirstName = i.FirstName,
+                LastName = i.LastName,
+                DriversLicenceNumber = i.DriversLicenceNumber,
+                DateOfBirth = i.DateOfBirth,
+                Number = i.Number,
+                Email = i.Email,
+                PhoneNumber = i.PhoneNumber,
+                CellNumber = i.CellNumber,
+                FaxNumber = i.FaxNumber,
+                SkypeName = i.SkypeName,
+                Website = i.Website,
+                BankingCompany = i.BankingCompany,
+                BankAccountName = i.BankAccountName,
+                BankBranchName = i.BankBranchName,
+                BankAccountNumber = i.BankAccountNumber,
+
+                LastDealId = i.LastDeal == null ? null : (Guid?) i.LastDeal.Id,
+                LastDealNumber = i.LastDeal == null ? null : i.LastDeal.Number,
+                DateCreated = i.DateCreated,
+                DateModified = i.DateModified
+            };
+
+            return func;
+        }
     }
 }

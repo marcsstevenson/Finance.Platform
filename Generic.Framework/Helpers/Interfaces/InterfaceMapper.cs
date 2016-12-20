@@ -22,6 +22,11 @@ namespace Generic.Framework.Helpers.Interfaces
             to.DateCreated = from.DateCreated;
             to.DateModified = from.DateModified;
         }
+        public static void UpdateTracksTime(this ITracksTimeNullable to, ITracksTime from)
+        {
+            to.DateCreated = from.DateCreated;
+            to.DateModified = from.DateModified;
+        }
 
         public static void UpdateDescription(this IDescription to, IDescription from)
         {

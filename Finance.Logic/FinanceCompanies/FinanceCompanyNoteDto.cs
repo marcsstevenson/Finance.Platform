@@ -19,8 +19,8 @@ namespace Finance.Logic.FinanceCompanies
         
         public string EnteredBy { get; set; }
 
-        public DateTime DateCreated { get; set; }
-        public DateTime DateModified { get; set; }
+        public DateTime? DateCreated { get; set; }
+        public DateTime? DateModified { get; set; }
 
         #endregion
 

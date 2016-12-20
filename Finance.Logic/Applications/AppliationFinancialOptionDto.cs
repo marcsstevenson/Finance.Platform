@@ -12,8 +12,8 @@ namespace Finance.Logic.Applications
 
         public string Name { get; set; }
 
-        public DateTime DateCreated { get; set; }
-        public DateTime DateModified { get; set; }
+        public DateTime? DateCreated { get; set; }
+        public DateTime? DateModified { get; set; }
 
         #region IGenericDto
         static AppliationFinancialOptionDto()

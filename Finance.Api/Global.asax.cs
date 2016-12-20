@@ -32,7 +32,9 @@ namespace Finance.Api
             //Initialise the unity IoC container
             //For some reason, using unity is breaking in the in-built IoC - eg, the account controller constructor. TODO wire this IoC into our interfaces rather than using unity
             //Error is: The current type, Microsoft.AspNet.Identity.IUserStore`1[Finance.Logic.Indentity.PartyIdentityUser], is an interface and cannot be constructed. Are you missing a type mapping?
-            Bootstrapper.Initialise(); 
+            Bootstrapper.Initialise();
+
+            Logic.Mappings.AutoMapperConfiguration.CreateMappings();
         }
     }
 }

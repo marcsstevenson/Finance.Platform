@@ -92,8 +92,8 @@ namespace Finance.Logic.Deals
 
         public decimal DealershipClawbackNotes { get; set; }
 
-        public DateTime DateCreated { get; set; }
-        public DateTime DateModified { get; set; }
+        public DateTime? DateCreated { get; set; }
+        public DateTime? DateModified { get; set; }
 
         #region IGenericDto
         static DealDto()

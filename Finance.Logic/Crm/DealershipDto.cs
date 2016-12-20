@@ -47,8 +47,8 @@ namespace Finance.Logic.Crm
         public string BankBranchName { get; set; }
         public string BankAccountNumber { get; set; }
 
-        public DateTime DateCreated { get; set; }
-        public DateTime DateModified { get; set; }
+        public DateTime? DateCreated { get; set; }
+        public DateTime? DateModified { get; set; }
 
         #region IGenericDto
         static DealershipDto()

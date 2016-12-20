@@ -20,8 +20,8 @@ namespace Finance.Logic.Crm
         public string Type { get; set; }
         public string OtherInformation { get; set; }
 
-        public DateTime DateCreated { get; set; }
-        public DateTime DateModified { get; set; }
+        public DateTime? DateCreated { get; set; }
+        public DateTime? DateModified { get; set; }
 
         #region IGenericDto
         static StreetAddressDto()
