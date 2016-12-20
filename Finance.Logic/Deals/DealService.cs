@@ -24,23 +24,28 @@ namespace Finance.Logic.Deals
             : base(persistanceFactory)
         { }
 
+        private IQueryable<Deal> GetBaseQuery()
+        {
+            return this.RepositoryDeal
+                .AllQueryable()
+                .Include(i => i.Customer)
+                .Include(i => i.AssignedTo)
+                .Include(i => i.FinanceCompany)
+                .Include(i => i.Source);
+        }
+
         public List<DealDto> GetAll()
         {
-            var query = this.RepositoryDeal.AllQueryable();
-
-            query = query.Include(i => i.Customer);
-
-            return query.ToList().Select(i => new DealDto(i)).ToList();
+            return this.GetBaseQuery()
+                .Select(DealDto.GetentityToDtoFunc())
+                .ToList();
         }
 
         public DealDto Get(Guid id)
         {
-            var query = this.RepositoryDeal.AllQueryable().Where(i => i.Id == id);
-
-            query = query.Include(i => i.Customer);
-
-            var entity = query.FirstOrDefault(i => i.Id == id);
-            return entity == null ? null : new DealDto(entity);
+            return this.GetBaseQuery()
+                .Select(DealDto.GetentityToDtoFunc())
+                .FirstOrDefault(i => i.Id == id);
         }
 
         public List<DealDto> GetForCustomer(Guid customerId)

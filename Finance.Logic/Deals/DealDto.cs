@@ -129,6 +129,37 @@ namespace Finance.Logic.Deals
             Mapper.Map(this, entity);
         }
 
+        public static Func<Deal, DealDto> GetentityToDtoFunc()
+        {
+            Func<Deal, DealDto> func = i => new DealDto
+            {
+                Id = i.Id,
+                CustomerId = i.Customer.Id,
+                Number = i.Number,
+                CashManagerReference = i.CashManagerReference,
+                AssignedToId = i.AssignedTo == null ? null : (Guid?)i.AssignedTo.Id,
+                DealStatus = i.DealStatus,
+                FinanceCompanyId = i.FinanceCompany == null ? null : (Guid?)i.FinanceCompany.Id,
+                SourceDealershipId = i.Source == null ? null : (Guid?)i.Source.Id,
+                SecurityDescription = i.SecurityDescription,
+                TermInMonths = i.TermInMonths,
+                Rate = i.Rate,
+                FinanceVolume = i.FinanceVolume,
+                Commission = i.Commission,
+                DocumentationFee = i.DocumentationFee,
+                PaymentProtectionInsurance = i.PaymentProtectionInsurance,
+                GuaranteedAssetProtection = i.GuaranteedAssetProtection,
+                MechanicalBreakDownInsurance = i.MechanicalBreakDownInsurance,
+                OtherInsurance = i.OtherInsurance,
+                OtherInsuranceNote = i.OtherInsuranceNote,
+                DealershipCommission = i.DealershipCommission,
+                DealershipClawbackNotes = i.DealershipClawbackNotes,
+                DateCreated = i.DateCreated,
+                DateModified = i.DateModified
+            };
+
+            return func;
+        }
         #endregion
     }
 }
