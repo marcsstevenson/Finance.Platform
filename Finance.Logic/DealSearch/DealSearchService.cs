@@ -57,7 +57,7 @@ namespace Finance.Logic.DealSearch
             {
                 SearchResults =searchResults,
                 CurrentPage = request.CurrentPage,
-                TotalPageCount = totalResultCount
+                TotalResultCount = totalResultCount
             };
 
             response.SetTotalPageCount(request.PageSize);
