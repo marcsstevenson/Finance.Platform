@@ -30,7 +30,7 @@ namespace Finance.Logic.Crm
         public DateTime? DateModified { get; set; }
 
         #region IGenericDto
-        static CustomerStreetAddressDto()
+        private static void Map()
         {
             Mapper.Initialize(cfg => cfg.CreateMap<CustomerStreetAddressDto, CustomerStreetAddress>()
                 //These properties are managed by the repository;
@@ -44,6 +44,7 @@ namespace Finance.Logic.Crm
 
         public CustomerStreetAddressDto(CustomerStreetAddress entity)
         {
+            Map();
             Mapper.Map(entity, this);
         }
 
@@ -53,12 +54,14 @@ namespace Finance.Logic.Crm
 
         public CustomerStreetAddress ToEntity()
         {
+            Map();
             var entity = Mapper.Map<CustomerStreetAddress>(this);
             return entity;
         }
 
         public void UpdateEntity(CustomerStreetAddress entity)
         {
+            Map();
             Mapper.Map(this, entity);
         }
 

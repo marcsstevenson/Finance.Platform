@@ -25,7 +25,7 @@ namespace Finance.Logic.Applications
         #endregion
 
         #region IGenericDto
-        static CustomerApplicationNoteDto()
+        private static void Map()
         {
             Mapper.CreateMap<CustomerApplicationNoteDto, CustomerApplicationNote>()
                 .ForMember(x => x.DateCreated, opt => opt.Ignore())
@@ -37,17 +37,20 @@ namespace Finance.Logic.Applications
 
         public CustomerApplicationNoteDto(CustomerApplicationNote entity)
         {
+            Map();
             Mapper.Map(entity, this);
         }
         
         public CustomerApplicationNote ToEntity()
         {
+            Map();
             var entity = Mapper.Map<CustomerApplicationNote>(this);
             return entity;
         }
 
         public void UpdateEntity(CustomerApplicationNote entity)
         { 
+            Map();
             Mapper.Map(this, entity);
         }
 

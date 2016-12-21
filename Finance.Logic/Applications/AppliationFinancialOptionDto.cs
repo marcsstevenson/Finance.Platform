@@ -16,7 +16,7 @@ namespace Finance.Logic.Applications
         public DateTime? DateModified { get; set; }
 
         #region IGenericDto
-        static AppliationFinancialOptionDto()
+        private static void Map()
         {
             Mapper.Initialize(cfg => cfg.CreateMap<AppliationFinancialOptionDto, AppliationFinancialOption>()
                 //These properties are managed by the repository;
@@ -30,6 +30,7 @@ namespace Finance.Logic.Applications
 
         public AppliationFinancialOptionDto(AppliationFinancialOption entity)
         {
+            Map();
             Mapper.Map(entity, this);
         }
 
@@ -39,12 +40,14 @@ namespace Finance.Logic.Applications
 
         public AppliationFinancialOption ToEntity()
         {
+            Map();
             var entity = Mapper.Map<AppliationFinancialOption>(this);
             return entity;
         }
 
         public void UpdateEntity(AppliationFinancialOption entity)
         {
+            Map();
             Mapper.Map(this, entity);
         }
 

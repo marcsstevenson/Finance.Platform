@@ -47,7 +47,7 @@ namespace Finance.Logic.Applications
         #endregion
 
         #region IGenericDto
-        static CustomerApplicationDto()
+        private static void Map()
         {
             Mapper.CreateMap<CustomerApplicationDto, CustomerApplication>()
                 //These properties are managed by the service
@@ -61,17 +61,20 @@ namespace Finance.Logic.Applications
 
         public CustomerApplicationDto(CustomerApplication entity)
         {
+            Map();
             Mapper.Map(entity, this);
         }
         
         public CustomerApplication ToEntity()
         {
+            Map();
             var entity = Mapper.Map<CustomerApplication>(this);
             return entity;
         }
 
         public void UpdateEntity(CustomerApplication entity)
         { 
+            Map();
             Mapper.Map(this, entity);
         }
 

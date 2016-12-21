@@ -51,7 +51,7 @@ namespace Finance.Logic.Crm
         public DateTime? DateModified { get; set; }
 
         #region IGenericDto
-        static DealershipDto()
+        private static void Map()
         {
             Mapper.Initialize(cfg => cfg.CreateMap<DealershipDto, Dealership>()
                 //These properties are managed by the repository;
@@ -65,6 +65,7 @@ namespace Finance.Logic.Crm
 
         public DealershipDto(Dealership entity)
         {
+            Map();
             Mapper.Map(entity, this);
         }
 
@@ -74,12 +75,14 @@ namespace Finance.Logic.Crm
 
         public Dealership ToEntity()
         {
+            Map();
             var entity = Mapper.Map<Dealership>(this);
             return entity;
         }
 
         public void UpdateEntity(Dealership entity)
         {
+            Map();
             Mapper.Map(this, entity);
         }
 
