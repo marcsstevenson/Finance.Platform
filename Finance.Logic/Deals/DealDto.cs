@@ -84,9 +84,11 @@ namespace Finance.Logic.Deals
         /// </summary>
         public decimal MechanicalBreakDownInsurance { get; set; }
 
-        public decimal OtherInsurance { get; set; }
+        public decimal Insurance { get; set; }
 
-        public string OtherInsuranceNote { get; set; }
+        public decimal Other { get; set; }
+
+        public string OtherNote { get; set; }
 
         public decimal DealershipCommission { get; set; }
 
@@ -96,7 +98,7 @@ namespace Finance.Logic.Deals
         public DateTime? DateModified { get; set; }
 
         #region IGenericDto
-        static DealDto()
+        private static void Map()
         {
 
             Mapper.CreateMap<DealDto, Deal>()
@@ -111,6 +113,7 @@ namespace Finance.Logic.Deals
 
         public DealDto(Deal entity)
         {
+            Map();
             Mapper.Map(entity, this);
         }
 
@@ -120,12 +123,14 @@ namespace Finance.Logic.Deals
 
         public Deal ToEntity()
         {
+            Map();
             var entity = Mapper.Map<Deal>(this);
             return entity;
         }
 
         public void UpdateEntity(Deal entity)
         {
+            Map();
             Mapper.Map(this, entity);
         }
 
@@ -150,8 +155,9 @@ namespace Finance.Logic.Deals
                 PaymentProtectionInsurance = i.PaymentProtectionInsurance,
                 GuaranteedAssetProtection = i.GuaranteedAssetProtection,
                 MechanicalBreakDownInsurance = i.MechanicalBreakDownInsurance,
-                OtherInsurance = i.OtherInsurance,
-                OtherInsuranceNote = i.OtherInsuranceNote,
+                Insurance = i.Insurance,
+                Other = i.Other,
+                OtherNote = i.OtherNote,
                 DealershipCommission = i.DealershipCommission,
                 DealershipClawbackNotes = i.DealershipClawbackNotes,
                 DateCreated = i.DateCreated,

@@ -85,9 +85,11 @@ namespace Finance.Logic.Deals
         /// </summary>
         public decimal MechanicalBreakDownInsurance { get; set; }
 
-        public decimal OtherInsurance { get; set; }
+        public decimal Insurance { get; set; }
 
-        public string OtherInsuranceNote { get; set; }
+        public decimal Other { get; set; }
+
+        public string OtherNote { get; set; }
 
         public decimal DealershipCommission { get; set; }
 

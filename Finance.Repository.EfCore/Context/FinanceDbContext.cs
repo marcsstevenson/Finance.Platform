@@ -81,7 +81,8 @@ namespace Finance.Repository.EfCore.Context
             modelBuilder.Entity<Deal>().Property(xx => xx.GuaranteedAssetProtection).HasPrecision(18, 2);
 
             modelBuilder.Entity<Deal>().Property(xx => xx.MechanicalBreakDownInsurance).HasPrecision(18, 2);
-            modelBuilder.Entity<Deal>().Property(xx => xx.OtherInsurance).HasPrecision(18, 2);
+            modelBuilder.Entity<Deal>().Property(xx => xx.Insurance).HasPrecision(18, 2);
+            modelBuilder.Entity<Deal>().Property(xx => xx.Other).HasPrecision(18, 2);
             modelBuilder.Entity<Deal>().Property(xx => xx.DealershipCommission).HasPrecision(18, 2);
             modelBuilder.Entity<Deal>().Property(xx => xx.DealershipClawbackNotes).HasPrecision(18, 2);
             

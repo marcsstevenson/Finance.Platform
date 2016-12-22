@@ -134,6 +134,10 @@
     <Compile Include="Migrations\201612191716256_ElmahMigration.Designer.cs">
       <DependentUpon>201612191716256_ElmahMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612220705008_InsuranceOtherSplit.cs" />
+    <Compile Include="Migrations\201612220705008_InsuranceOtherSplit.Designer.cs">
+      <DependentUpon>201612220705008_InsuranceOtherSplit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configurations.cs" />
     <Compile Include="Migrations\Sql2\AppliationFinancialOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -177,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612191716256_ElmahMigration.resx">
       <DependentUpon>201612191716256_ElmahMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612220705008_InsuranceOtherSplit.resx">
+      <DependentUpon>201612220705008_InsuranceOtherSplit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
