@@ -26,7 +26,7 @@ namespace Finance.Logic.Deals
         /// TODO: What is this
         /// </summary>
         [Required]
-        public int CashManagerReference { get; set; }
+        public int LoanNumber { get; set; }
 
         /// <summary>
         /// The staff memeber who is assigned to this deal
