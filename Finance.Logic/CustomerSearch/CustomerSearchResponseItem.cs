@@ -17,6 +17,8 @@ namespace Finance.Logic.CustomerSearch
 
         public string DriversLicenceNumber { get; set; }
 
+        public string MobileNumber { get; set; }
+
         /// <summary>
         /// The Id of the last deal - if any
         /// </summary>

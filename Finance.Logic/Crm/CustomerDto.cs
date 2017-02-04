@@ -115,7 +115,7 @@ namespace Finance.Logic.Crm
                 Number = i.Number,
                 Email = i.Email,
                 PhoneNumber = i.PhoneNumber,
-                CellNumber = i.CellNumber,
+                CellNumber = i.MobileNumber,
                 FaxNumber = i.FaxNumber,
                 SkypeName = i.SkypeName,
                 Website = i.Website,

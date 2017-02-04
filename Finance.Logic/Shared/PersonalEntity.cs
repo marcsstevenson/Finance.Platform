@@ -33,7 +33,7 @@ namespace Finance.Logic.Shared
 
         public string LicenceNumberSb { get; set; }
 
-        public string CellNumber { get; set; }
+        public string MobileNumber { get; set; }
         public string PhoneNumber { get; set; }
         public string FaxNumber { get; set; }
         public string CellNumberBusiness { get; set; }

@@ -7,6 +7,6 @@
         /// </summary>
         //string CellCountry { get; set; }
         //string CellArea { get; set; }
-        string CellNumber { get; set; }
+        string MobileNumber { get; set; }
     }
 }

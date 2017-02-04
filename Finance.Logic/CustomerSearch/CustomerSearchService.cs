@@ -38,12 +38,14 @@ namespace Finance.Logic.CustomerSearch
                 case nameof(Customer.Number):
                     orderByKeySelector = i => i.Number;
                     break;
-                case "Name":
+                case nameof(Customer.FirstName):
                     orderByKeySelector = i => i.FirstName;
+                    break;
+                case nameof(Customer.LastName):
                     thenByByKeySelector = i => i.LastName;
                     break;
-                case "Cell":
-                    orderByKeySelector = i => i.CellNumber;
+                case nameof(Customer.MobileNumber):
+                    orderByKeySelector = i => i.MobileNumber;
                     break;
                 case nameof(Customer.DriversLicenceNumber):
                     orderByKeySelector = i => i.DriversLicenceNumber;
@@ -87,7 +89,7 @@ namespace Finance.Logic.CustomerSearch
                     ||
                     i.Number.Contains(request.SearchTerm)
                     ||
-                    i.CellNumber.Contains(request.SearchTerm)
+                    i.MobileNumber.Contains(request.SearchTerm)
                     ||
                     i.DriversLicenceNumber.Contains(request.SearchTerm)
                     ||
@@ -100,7 +102,7 @@ namespace Finance.Logic.CustomerSearch
             //    query = query.Where(i => i.Number.Contains(request.NumberContains));
 
             //if (!string.IsNullOrEmpty(request.CellContains))
-            //    query = query.Where(i => (i.CellArea + i.CellNumber).Contains(request.CellContains));
+            //    query = query.Where(i => (i.CellArea + i.MobileNumber).Contains(request.CellContains));
 
             //if (!string.IsNullOrEmpty(request.NumberContains))
             //    query = query.Where(i => i.DriversLicenceNumber.Contains(request.DriversLicenceNumberContains));
@@ -112,6 +114,7 @@ namespace Finance.Logic.CustomerSearch
                 FirstName = i.FirstName,
                 LastName = i.LastName,
                 DriversLicenceNumber = i.DriversLicenceNumber,
+                MobileNumber = i.MobileNumber,
                 LastDealId = i.LastDeal == null ? null : (Guid?)i.LastDeal.Id,
                 LastDealNumber = i.LastDeal == null ? null : i.LastDeal.Number,
                 DateCreated = i.DateCreated,

@@ -43,7 +43,7 @@ namespace Finance.Logic.DealershipSearch
                 Id = i.Id,
                 Name = i.Name,
                 ContactName = i.ContactName,
-                CellNumber = i.CellNumber,
+                CellNumber = i.MobileNumber,
                 PhoneNumber = i.PhoneNumber,
                 Email = i.Email
             })
@@ -77,8 +77,8 @@ namespace Finance.Logic.DealershipSearch
                 case nameof(Dealership.PhoneNumber):
                     orderByKeySelector = i => i.PhoneNumber;
                     break;
-                case nameof(Dealership.CellNumber):
-                    orderByKeySelector = i => i.CellNumber;
+                case nameof(Dealership.MobileNumber):
+                    orderByKeySelector = i => i.MobileNumber;
                     break;
                 case nameof(Dealership.Email):
                     orderByKeySelector = i => i.Email;
@@ -119,7 +119,7 @@ namespace Finance.Logic.DealershipSearch
                 i.Name.Contains(request.SearchTerm) ||
                 i.ContactName.Contains(request.SearchTerm) ||
                 i.PhoneNumber.Contains(request.SearchTerm) ||
-                i.CellNumber.Contains(request.SearchTerm) ||
+                i.MobileNumber.Contains(request.SearchTerm) ||
                 i.Email.Contains(request.SearchTerm)
                 );
             }

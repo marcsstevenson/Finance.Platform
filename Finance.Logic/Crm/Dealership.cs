@@ -30,7 +30,7 @@ namespace Finance.Logic.Crm
         // Cell number fields
         public string CellCountry { get; set; }
         public string CellArea { get; set; }
-        public string CellNumber { get; set; }
+        public string MobileNumber { get; set; }
 
         // Fax number fields
         public string FaxCountry { get; set; }
