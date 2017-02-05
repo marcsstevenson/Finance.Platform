@@ -25,7 +25,7 @@ namespace Finance.Logic.Deals
         /// TODO: What is this
         /// </summary>
         [Required]
-        public int CashManagerReference { get; set; }
+        public int LoanNumber { get; set; }
 
         /// <summary>
         /// The staff memeber who is assigned to this deal
@@ -141,7 +141,7 @@ namespace Finance.Logic.Deals
                 Id = i.Id,
                 CustomerId = i.Customer.Id,
                 Number = i.Number,
-                CashManagerReference = i.CashManagerReference,
+                LoanNumber = i.LoanNumber,
                 AssignedToId = i.AssignedTo == null ? null : (Guid?)i.AssignedTo.Id,
                 DealStatus = i.DealStatus,
                 FinanceCompanyId = i.FinanceCompany == null ? null : (Guid?)i.FinanceCompany.Id,

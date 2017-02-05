@@ -80,6 +80,7 @@
     <Compile Include="Applications\CustomerApplicationNoteDto.cs" />
     <Compile Include="Applications\AppliationFinancialOptionService.cs" />
     <Compile Include="Applications\AppliationFinancialOptionDto.cs" />
+    <Compile Include="Crm\AccountManager.cs" />
     <Compile Include="Crm\AddressArrangement.cs" />
     <Compile Include="Crm\StreetAddressService.cs" />
     <Compile Include="Crm\StreetAddressDto.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="DealSearch\DealSearchResponse.cs" />
     <Compile Include="DealSearch\DealSearchResponseItem.cs" />
     <Compile Include="DealSearch\DealSearchService.cs" />
+    <Compile Include="FinanceCompanies\FinanceTierFunder.enum.cs" />
     <Compile Include="Shared\PersonalEntityService.cs" />
     <Compile Include="Shared\Enums\MaritalStatusOption.cs" />
     <Compile Include="Shared\Interfaces\IOccupationalDetails.cs" />
