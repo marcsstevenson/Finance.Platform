@@ -9,7 +9,6 @@ using Generic.Framework.Interfaces.Entity;
 namespace Finance.Api.Api.Reporting
 {
     [Route("api/DealershipProfitReport")]
-    [AllowAnonymous]
     public class DealershipProfitReportController : BaseController
     {
         private DealershipProfitReportService _dealershipProfitReportService;
