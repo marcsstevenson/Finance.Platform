@@ -138,6 +138,10 @@
     <Compile Include="Migrations\201612220705008_InsuranceOtherSplit.Designer.cs">
       <DependentUpon>201612220705008_InsuranceOtherSplit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702061941201_FinanceCompanyAccountManager.cs" />
+    <Compile Include="Migrations\201702061941201_FinanceCompanyAccountManager.Designer.cs">
+      <DependentUpon>201702061941201_FinanceCompanyAccountManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configurations.cs" />
     <Compile Include="Migrations\Sql2\AppliationFinancialOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -184,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612220705008_InsuranceOtherSplit.resx">
       <DependentUpon>201612220705008_InsuranceOtherSplit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702061941201_FinanceCompanyAccountManager.resx">
+      <DependentUpon>201702061941201_FinanceCompanyAccountManager.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
