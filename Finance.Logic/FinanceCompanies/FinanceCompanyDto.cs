@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using AutoMapper;
+using Generic.Framework.Enumerations;
 using Generic.Framework.Interfaces;
 
 namespace Finance.Logic.FinanceCompanies
@@ -20,10 +21,13 @@ namespace Finance.Logic.FinanceCompanies
         #region IGenericDto
         private static void Map()
         {
+            Mapper.CreateMap<FinanceCompanyDto, AccountManager>();
             Mapper.CreateMap<FinanceCompanyDto, FinanceCompany>()
                 //These properties are managed by the repository;
                 .ForMember(x => x.DateCreated, opt => opt.Ignore())
-                .ForMember(x => x.DateModified, opt => opt.Ignore());
+                .ForMember(x => x.DateModified, opt => opt.Ignore())
+                .ForMember(x => x.AccountManager, 
+                           opt => opt.MapFrom(s => Mapper.Map<FinanceCompanyDto, AccountManager>(s)));
 
             Mapper.CreateMap<FinanceCompany, FinanceCompanyDto>();
         }
