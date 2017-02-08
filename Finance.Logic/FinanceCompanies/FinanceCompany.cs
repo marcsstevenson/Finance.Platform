@@ -14,7 +14,7 @@ namespace Finance.Logic.FinanceCompanies
 
 
         #region 1:1 Relationship
-        public AccountManager AccountManager { get; set; }
+        public virtual AccountManager AccountManager { get; set; }
         #endregion
     }
 }

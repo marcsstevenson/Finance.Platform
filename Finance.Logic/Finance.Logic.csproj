@@ -95,6 +95,9 @@
     <Compile Include="DealSearch\DealSearchResponseItem.cs" />
     <Compile Include="DealSearch\DealSearchService.cs" />
     <Compile Include="FinanceCompanies\FinanceTierFunder.enum.cs" />
+    <Compile Include="Reporting\DealershipProfitReportService.cs" />
+    <Compile Include="Reporting\Models\DealershipProfitReportRequest.cs" />
+    <Compile Include="Reporting\Models\DealershipProfitReportResult.cs" />
     <Compile Include="Shared\PersonalEntityService.cs" />
     <Compile Include="Shared\Enums\MaritalStatusOption.cs" />
     <Compile Include="Shared\Interfaces\IOccupationalDetails.cs" />
@@ -168,7 +171,9 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Reporting\Generic\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

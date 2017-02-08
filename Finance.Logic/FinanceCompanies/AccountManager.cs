@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using Finance.Logic.Deals;
 using Generic.Framework.AbstractClasses;
 using Generic.Framework.Enumerations;
-using Generic.Framework.Interfaces;
 using Generic.Framework.Interfaces.Comms;
 using Generic.Framework.Interfaces.Personal;
 
-namespace Finance.Logic.Crm
+namespace Finance.Logic.FinanceCompanies
 {
     public class AccountManager : Entity, IPerson, IEmail, ICell, IPhone
     {
