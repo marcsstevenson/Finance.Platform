@@ -13,7 +13,7 @@ namespace Finance.Logic.FinanceCompanies
         [Required]
         public string Name { get; set; }
 
-        public AccountManager AccountManager { get; set; }
+        public Guid? AccountManagerId { get; set; }
 
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
@@ -21,13 +21,10 @@ namespace Finance.Logic.FinanceCompanies
         #region IGenericDto
         private static void Map()
         {
-            Mapper.CreateMap<FinanceCompanyDto, AccountManager>();
             Mapper.CreateMap<FinanceCompanyDto, FinanceCompany>()
                 //These properties are managed by the repository;
                 .ForMember(x => x.DateCreated, opt => opt.Ignore())
-                .ForMember(x => x.DateModified, opt => opt.Ignore())
-                .ForMember(x => x.AccountManager, 
-                           opt => opt.MapFrom(s => Mapper.Map<FinanceCompanyDto, AccountManager>(s)));
+                .ForMember(x => x.DateModified, opt => opt.Ignore());
 
             Mapper.CreateMap<FinanceCompany, FinanceCompanyDto>();
         }

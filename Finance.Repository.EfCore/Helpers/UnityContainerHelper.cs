@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Finance.Repository.EfCore.Repository;
+﻿using Finance.Repository.EfCore.Repository;
 using Generic.Framework.Interfaces.Entity;
 using Microsoft.Practices.Unity;
 

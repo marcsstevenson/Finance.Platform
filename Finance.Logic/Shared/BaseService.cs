@@ -19,9 +19,13 @@ namespace Finance.Logic.Shared
             UnitOfWork = persistanceFactory.BuildUnitOfWork();
             PersistanceFactory = persistanceFactory;
         }
-        
+
         #region On demand repository objects
 
+        private IEntityRepository<AccountManager> _repositoryAccountManager;
+        protected IEntityRepository<AccountManager> RepositoryAccountManager
+            => _repositoryAccountManager ?? (_repositoryAccountManager = PersistanceFactory.BuildEntityRepository<AccountManager>());
+        
         private IEntityRepository<AppliationFinancialOption> _repositoryAppliationFinancialOption;
         protected IEntityRepository<AppliationFinancialOption> RepositoryAppliationFinancialOption
             => _repositoryAppliationFinancialOption ?? (_repositoryAppliationFinancialOption = PersistanceFactory.BuildEntityRepository<AppliationFinancialOption>());

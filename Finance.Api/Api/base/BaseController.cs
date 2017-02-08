@@ -11,6 +11,9 @@ namespace Finance.Api.Api.@base
     {
         protected IPersistanceFactory _persistanceFactory;
 
+        private AccountManagerService _serviceAccountManager;
+        protected AccountManagerService AccountManagerService => _serviceAccountManager ?? (_serviceAccountManager = new AccountManagerService(_persistanceFactory));
+
         private AppliationFinancialOptionService _serviceAppliationFinancialOption;
         protected AppliationFinancialOptionService AppliationFinancialOptionService => _serviceAppliationFinancialOption ?? (_serviceAppliationFinancialOption = new AppliationFinancialOptionService(_persistanceFactory));
 

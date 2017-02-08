@@ -3,11 +3,10 @@
 namespace Finance.Logic.FinanceCompanies
 {
     /// <summary>
-    /// The status of a deal
+    /// The tier of a finance company
     /// </summary>
     public enum TierFunder
     {
-
         [Description("Unspecified")]
         None = 0,
 
@@ -16,6 +15,5 @@ namespace Finance.Logic.FinanceCompanies
 
         [Description("Second Tier Funder")]
         SecondTier = 2
-
     }
 }

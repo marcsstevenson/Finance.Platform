@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Generic.Framework.AbstractClasses;
 using Generic.Framework.Enumerations;
 using Generic.Framework.Interfaces.Comms;
@@ -16,5 +17,11 @@ namespace Finance.Logic.FinanceCompanies
         public string MobileNumber { get; set; }
         public string PhoneNumber { get; set; }
         public string FaxNumber { get; set; }
+        
+        #region 1:M Relationships
+
+        public IList<FinanceCompany> FinanceCompanies { get; set; }
+
+        #endregion
     }
 }

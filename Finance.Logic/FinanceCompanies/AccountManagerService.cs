@@ -9,32 +9,32 @@ using Generic.Framework.Interfaces.Entity;
 
 namespace Finance.Logic.FinanceCompanies
 {
-    public class FinanceCompanyService : GenericService<FinanceCompany>
+    public class AccountManagerService : GenericService<AccountManager>
     {
-        public FinanceCompanyService(IPersistanceFactory persistanceFactory)
+        public AccountManagerService(IPersistanceFactory persistanceFactory)
             : base(persistanceFactory)
         { }
 
-        public FinanceCompanyDto Get(Guid id)
+        public AccountManagerDto Get(Guid id)
         {
-            var entity = this.RepositoryFinanceCompany.FirstOrDefault(i => i.Id == id);
-            return entity == null ? null : new FinanceCompanyDto(entity);
+            var entity = this.RepositoryAccountManager.FirstOrDefault(i => i.Id == id);
+            return entity == null ? null : new AccountManagerDto(entity);
         }
 
-        public List<FinanceCompanyDto> GetAll()
+        public List<AccountManagerDto> GetAll()
         {
-            return this.RepositoryFinanceCompany.AllList().Select(i => new FinanceCompanyDto(i)).ToList();
+            return this.RepositoryAccountManager.AllList().Select(i => new AccountManagerDto(i)).ToList();
         }
 
-        public CommitResult Save(FinanceCompanyDto dto)
+        public CommitResult Save(AccountManagerDto dto)
         {
             var commitAction = CommitAction.None;
-            FinanceCompany entity = null;
+            AccountManager entity = null;
 
             var commitResult = UnitOfWork.Commit(() =>
             {
                 entity = dto.Id.HasValue
-                    ? this.RepositoryFinanceCompany.FirstOrDefault(i => i.Id == dto.Id)
+                    ? this.RepositoryAccountManager.FirstOrDefault(i => i.Id == dto.Id)
                     : null;
                 
                 //Create a new object if needed
@@ -43,11 +43,8 @@ namespace Finance.Logic.FinanceCompanies
                 else
                     //Update for any changes
                     dto.UpdateEntity(entity);
-
-                //Set the account manager as needed
-                entity.AccountManager = this.RepositoryAccountManager.FirstOrDefault(i => i.Id == dto.AccountManagerId);
-
-                commitAction = RepositoryFinanceCompany.Save(entity);
+                
+                commitAction = RepositoryAccountManager.Save(entity);
 
                 //Set the track date fields on the view model
                 dto.UpdateTracksTime(entity);

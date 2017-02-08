@@ -63,6 +63,8 @@
   <ItemGroup>
     <Compile Include="Applications\CustomerApplicationTest.cs" />
     <Compile Include="Base\BaseTest.cs" />
+    <Compile Include="FinanceCompanies\FinanceCompanyServiceTest.cs" />
+    <Compile Include="Helpers\CommitResultAsserts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

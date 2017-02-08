@@ -11,10 +11,11 @@ namespace Finance.Logic.FinanceCompanies
         public string Name { get; set; }
 
         public TierFunder TierFunder { get; set; }
+        
+        #region 1:M Relationship
 
-
-        #region 1:1 Relationship
         public virtual AccountManager AccountManager { get; set; }
+
         #endregion
     }
 }
