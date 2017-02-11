@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using AutoMapper;
 using Generic.Framework.Interfaces;
 using Generic.Framework.Enumerations;
@@ -18,9 +19,12 @@ namespace Finance.Logic.FinanceCompanies
         public string MobileNumber { get; set; }
         public string PhoneNumber { get; set; }
         public string FaxNumber { get; set; }
-
+        public string Note { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
+
+        [Required]
+        public Guid FinanceCompanyId { get; set; }
 
         #region IGenericDto
 

@@ -26,9 +26,10 @@ namespace Finance.Logic.FinanceCompanies
             return this.RepositoryFinanceCompany.AllList().Select(i => new FinanceCompanyDto(i)).ToList();
         }
 
-        public CommitResult Save(FinanceCompanyDto dto)
+        public CommitResult Save(FinanceCompanyDto dto, AccountManagerDto accountManagerDto = null)
         {
-            var commitAction = CommitAction.None;
+            var commitActionFinanceCompany = CommitAction.None;
+            CommitActionItem commitActionItemAccountManager = null;
             FinanceCompany entity = null;
 
             var commitResult = UnitOfWork.Commit(() =>
@@ -44,17 +45,18 @@ namespace Finance.Logic.FinanceCompanies
                     //Update for any changes
                     dto.UpdateEntity(entity);
 
-                //Set the account manager as needed
-                entity.AccountManager = this.RepositoryAccountManager.FirstOrDefault(i => i.Id == dto.AccountManagerId);
+                commitActionFinanceCompany = RepositoryFinanceCompany.Save(entity);
 
-                commitAction = RepositoryFinanceCompany.Save(entity);
-
-                //Set the track date fields on the view model
-                dto.UpdateTracksTime(entity);
+                commitActionItemAccountManager = AccountManagerService.Save_InSession(this.RepositoryAccountManager,
+                    accountManagerDto, entity);
             });
 
             //Add the result to the commit actions
-            commitResult.CommitActions.Add(entity, commitAction);
+            commitResult.CommitActions.Add(entity, commitActionFinanceCompany);
+
+            if(commitActionItemAccountManager != null)
+            commitResult.CommitActions.Add(commitActionItemAccountManager.Entity
+                , commitActionItemAccountManager.CommitAction);
 
             return commitResult;
         }

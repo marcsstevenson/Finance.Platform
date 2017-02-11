@@ -43,22 +43,16 @@ namespace Finance.Repository.Test.FinanceCompanies
         public void NewFinanceCompanyShallSaveWithManager()
         {
             //Setup
+            var financeCompanyDto = new FinanceCompanyDto() { Name = "TestDelete" };
             var accountManagerDto = new AccountManagerDto
             {
                 FirstName = "Test", LastName = "Name", Gender = Gender.Male,
                 Email = "e@mail.com"
             };
 
-            //  ensure that we have an existing account manager
-            var saveAccountManagerCommitResult = this.AccountManagerService.Save(accountManagerDto);
-            saveAccountManagerCommitResult.AssertNoError();
-
-            var financeCompanyDto = new FinanceCompanyDto
-                { Name = "TestDelete", AccountManagerId = saveAccountManagerCommitResult.CommitActions.First().Key.Id};
-
             //Exercise
-            var saveCommitResult = this.FinanceCompanyService.Save(financeCompanyDto);
-
+            var saveCommitResult = this.FinanceCompanyService.Save(financeCompanyDto, accountManagerDto);
+            
             //Verify
             saveCommitResult.AssertNoError();
 

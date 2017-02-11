@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Finance.Logic.Crm;
 using Generic.Framework.AbstractClasses;
 using Generic.Framework.Interfaces;
@@ -14,7 +15,9 @@ namespace Finance.Logic.FinanceCompanies
         
         #region 1:M Relationship
 
-        public virtual AccountManager AccountManager { get; set; }
+        public virtual IList<AccountManager> AccountManagers { get; set; }
+
+        public IList<FinanceCompanyNote> FinanceCompanyNotes { get; set; }
 
         #endregion
     }

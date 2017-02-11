@@ -60,6 +60,7 @@
     <Compile Include="Enumerations\OrderMovement.cs" />
     <Compile Include="Enumerations\TimeFormat.cs" />
     <Compile Include="Helpers\Clock.cs" />
+    <Compile Include="Helpers\CommitActionItem.cs" />
     <Compile Include="Helpers\CommitResult.cs" />
     <Compile Include="Helpers\CreditCard\CreditCardHelper.cs" />
     <Compile Include="Helpers\DateAndTime\DateTimeHelper.cs" />
