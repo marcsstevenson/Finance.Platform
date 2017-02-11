@@ -96,6 +96,7 @@
     <Compile Include="DealSearch\DealSearchResponseItem.cs" />
     <Compile Include="DealSearch\DealSearchService.cs" />
     <Compile Include="FinanceCompanies\AccountManagerService.cs" />
+    <Compile Include="FinanceCompanies\FinanceCompanyDetailsDto.cs" />
     <Compile Include="FinanceCompanies\FinanceTierFunder.enum.cs" />
     <Compile Include="Reporting\DealershipProfitReportService.cs" />
     <Compile Include="Reporting\Models\DealershipProfitReportRequest.cs" />

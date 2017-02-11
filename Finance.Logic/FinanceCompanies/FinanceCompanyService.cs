@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using Finance.Logic.Shared;
 using Generic.Framework.Enumerations;
@@ -15,10 +16,23 @@ namespace Finance.Logic.FinanceCompanies
             : base(persistanceFactory)
         { }
 
-        public FinanceCompanyDto Get(Guid id)
+        public FinanceCompanyDetailsDto Get(Guid id)
         {
-            var entity = this.RepositoryFinanceCompany.FirstOrDefault(i => i.Id == id);
-            return entity == null ? null : new FinanceCompanyDto(entity);
+            var entity = this.RepositoryFinanceCompany
+                .AllQueryable()
+                .Include(i => i.AccountManagers)
+                .FirstOrDefault(i => i.Id == id);
+
+            if (entity == null)
+                return null;
+
+            var financeCompanyDetailsDto = new FinanceCompanyDetailsDto
+            {
+                FinanceCompanyDto = new FinanceCompanyDto(entity),
+                AccountManagers = entity.AccountManagers.Select(i => new AccountManagerDto(i)).ToList()
+            };
+            
+            return financeCompanyDetailsDto;
         }
 
         public List<FinanceCompanyDto> GetAll()

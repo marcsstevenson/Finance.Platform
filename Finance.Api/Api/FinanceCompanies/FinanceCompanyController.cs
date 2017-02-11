@@ -28,7 +28,7 @@ namespace Finance.Api.Api.FinanceCompanies
         }
 
         [HttpGet]
-        public FinanceCompanyDto Get(Guid id)
+        public FinanceCompanyDetailsDto Get(Guid id)
         {
             return this.FinanceCompanyService.Get(id);
         }

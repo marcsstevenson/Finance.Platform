@@ -60,6 +60,29 @@ namespace Finance.Repository.Test.FinanceCompanies
             ToDeleteFinanceCompany.Add(saveCommitResult.CommitActions.First().Key.Id);
         }
 
+        [TestMethod]
+        public void GetShallReturnAccountManagers()
+        {
+            //Setup
+            var financeCompanyDto = new FinanceCompanyDto() { Name = "TestDelete" };
+            var accountManagerDto = new AccountManagerDto
+            {
+                FirstName = "Test", LastName = "Name", Gender = Gender.Male,
+                Email = "e@mail.com"
+            };
+            var saveCommitResult = this.FinanceCompanyService.Save(financeCompanyDto, accountManagerDto);
+            saveCommitResult.AssertNoError();
+
+            //Exercise
+            var details = this.FinanceCompanyService.Get(saveCommitResult.CommitActions.First().Key.Id);
+            
+            //Verify
+            Assert.IsNotNull(details);
+            Assert.IsNotNull(details.FinanceCompanyDto);
+            Assert.IsNotNull(details.AccountManagers);
+            Assert.AreEqual(1, details.AccountManagers.Count);
+        }
+
         [TestCleanup]
         public void TestCleanup()
         {
