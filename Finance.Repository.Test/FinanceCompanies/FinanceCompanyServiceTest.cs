@@ -30,7 +30,11 @@ namespace Finance.Repository.Test.FinanceCompanies
             var dto = new FinanceCompanyDto(){Name = "TestDelete"};
 
             //Exercise
-            var saveCommitResult = this.FinanceCompanyService.Save(dto);
+            var saveCommitResult = this.FinanceCompanyService.Save(new FinanceCompanyPersist
+            {
+                FinanceCompanyDto = dto,
+                AccountManagerDto = null
+            });
 
             //Verify
             saveCommitResult.AssertNoError();
@@ -51,7 +55,11 @@ namespace Finance.Repository.Test.FinanceCompanies
             };
 
             //Exercise
-            var saveCommitResult = this.FinanceCompanyService.Save(financeCompanyDto, accountManagerDto);
+            var saveCommitResult = this.FinanceCompanyService.Save(new FinanceCompanyPersist
+            {
+                FinanceCompanyDto = financeCompanyDto,
+                AccountManagerDto = accountManagerDto
+            });
             
             //Verify
             saveCommitResult.AssertNoError();
@@ -70,7 +78,11 @@ namespace Finance.Repository.Test.FinanceCompanies
                 FirstName = "Test", LastName = "Name", Gender = Gender.Male,
                 Email = "e@mail.com"
             };
-            var saveCommitResult = this.FinanceCompanyService.Save(financeCompanyDto, accountManagerDto);
+            var saveCommitResult = this.FinanceCompanyService.Save(new FinanceCompanyPersist
+            {
+                FinanceCompanyDto = financeCompanyDto,
+                AccountManagerDto = accountManagerDto
+            });
             saveCommitResult.AssertNoError();
 
             //Exercise

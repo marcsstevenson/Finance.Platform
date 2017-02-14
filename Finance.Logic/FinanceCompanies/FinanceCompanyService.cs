@@ -40,8 +40,13 @@ namespace Finance.Logic.FinanceCompanies
             return this.RepositoryFinanceCompany.AllList().Select(i => new FinanceCompanyDto(i)).ToList();
         }
 
-        public CommitResult Save(FinanceCompanyDto dto, AccountManagerDto accountManagerDto = null)
+        public CommitResult Save(FinanceCompanyPersist financeCompanyPersist)
         {
+            if(financeCompanyPersist?.FinanceCompanyDto == null)
+                return new CommitResult(null);
+
+            FinanceCompanyDto dto = financeCompanyPersist.FinanceCompanyDto;
+            AccountManagerDto accountManagerDto = financeCompanyPersist.AccountManagerDto;
             var commitActionFinanceCompany = CommitAction.None;
             CommitActionItem commitActionItemAccountManager = null;
             FinanceCompany entity = null;

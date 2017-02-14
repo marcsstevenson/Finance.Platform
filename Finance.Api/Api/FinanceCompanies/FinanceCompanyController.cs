@@ -34,14 +34,14 @@ namespace Finance.Api.Api.FinanceCompanies
         }
 
         [HttpPost]
-        public HttpResponseMessage Save(FinanceCompanyDto dto, AccountManagerDto accountManagerDto = null)
+        public HttpResponseMessage Save(FinanceCompanyPersist dto)
         {
             if (dto == null) return Request.NullParameterResponse();
 
             if (!ModelState.IsValid)
                 return Request.InvalidModelStateResponse(ModelState);
 
-            var commitResult = this.FinanceCompanyService.Save(dto, accountManagerDto);
+            var commitResult = this.FinanceCompanyService.Save(dto);
             return commitResult.ToHttpResponseMessage(this.Request);
         }
 
