@@ -19,6 +19,8 @@ namespace Finance.Logic.Applications
         [Required]
         public decimal Value { get; set; }
 
+        public string Note { get; set; }
+
         [Required]
         public AppliationFinancialType AppliationFinancialType { get; set; }
     }
