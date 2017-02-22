@@ -12,8 +12,8 @@ namespace Finance.Repository.Test.Base
         protected IPersistanceFactory PersistanceFactory = BootstrapperBase.GetPersistanceFactory();
 
 
-        private AccountManagerService _serviceAccountManager;
-        protected AccountManagerService AccountManagerService => _serviceAccountManager ?? (_serviceAccountManager = new AccountManagerService(this.PersistanceFactory));
+        //private AccountManagerService _serviceAccountManager;
+        //protected AccountManagerService AccountManagerService => _serviceAccountManager ?? (_serviceAccountManager = new AccountManagerService(this.PersistanceFactory));
 
         private CustomerApplicationService _customerApplicationService;
         public CustomerApplicationService CustomerApplicationService

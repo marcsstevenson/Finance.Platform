@@ -27,7 +27,7 @@ namespace Finance.Repository.Test.FinanceCompanies
         public void NewFinanceCompanyShallSaveWithoutAccountManager()
         {
             //Setup
-            var dto = new FinanceCompanyDto(){Name = "TestDelete"};
+            var dto = new FinanceCompanyUpdate() {FinanceCompany = new FinanceCompanyDto {Name = "TestDelete"}};
 
             //Exercise
             var saveCommitResult = this.FinanceCompanyService.Save(dto);
@@ -49,9 +49,10 @@ namespace Finance.Repository.Test.FinanceCompanies
                 FirstName = "Test", LastName = "Name", Gender = Gender.Male,
                 Email = "e@mail.com"
             };
+            var dto = new FinanceCompanyUpdate() { FinanceCompany = financeCompanyDto, AccountManager = accountManagerDto};
 
             //Exercise
-            var saveCommitResult = this.FinanceCompanyService.Save(financeCompanyDto, accountManagerDto);
+            var saveCommitResult = this.FinanceCompanyService.Save(dto);
             
             //Verify
             saveCommitResult.AssertNoError();
@@ -70,7 +71,9 @@ namespace Finance.Repository.Test.FinanceCompanies
                 FirstName = "Test", LastName = "Name", Gender = Gender.Male,
                 Email = "e@mail.com"
             };
-            var saveCommitResult = this.FinanceCompanyService.Save(financeCompanyDto, accountManagerDto);
+            var dto = new FinanceCompanyUpdate() { FinanceCompany = financeCompanyDto, AccountManager = accountManagerDto };
+
+            var saveCommitResult = this.FinanceCompanyService.Save(dto);
             saveCommitResult.AssertNoError();
 
             //Exercise
@@ -78,16 +81,15 @@ namespace Finance.Repository.Test.FinanceCompanies
             
             //Verify
             Assert.IsNotNull(details);
-            Assert.IsNotNull(details.FinanceCompanyDto);
-            Assert.IsNotNull(details.AccountManagers);
-            Assert.AreEqual(1, details.AccountManagers.Count);
+            Assert.IsNotNull(details.FinanceCompany);
+            Assert.IsNotNull(details.AccountManager);
         }
 
         [TestCleanup]
         public void TestCleanup()
         {
-            foreach (var id in ToDeleteAccountManager)
-                this.AccountManagerService.Delete(id);
+            //foreach (var id in ToDeleteAccountManager)
+            //    this.AccountManagerService.Delete(id);
 
             foreach (var id in ToDeleteFinanceCompany)
                 this.FinanceCompanyService.Delete(id);

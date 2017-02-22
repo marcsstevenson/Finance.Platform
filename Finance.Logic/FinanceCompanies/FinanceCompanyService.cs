@@ -16,7 +16,7 @@ namespace Finance.Logic.FinanceCompanies
             : base(persistanceFactory)
         { }
 
-        public FinanceCompanyDetailsDto Get(Guid id)
+        public FinanceCompanyDetails Get(Guid id)
         {
             var entity = this.RepositoryFinanceCompany
                 .AllQueryable()
@@ -25,11 +25,12 @@ namespace Finance.Logic.FinanceCompanies
 
             if (entity == null)
                 return null;
-
-            var financeCompanyDetailsDto = new FinanceCompanyDetailsDto
+            
+            var financeCompanyDetailsDto = new FinanceCompanyDetails
             {
-                FinanceCompanyDto = new FinanceCompanyDto(entity),
-                AccountManagers = entity.AccountManagers.Select(i => new AccountManagerDto(i)).ToList()
+                FinanceCompany = new FinanceCompanyDto(entity),
+                //We can manage more than one but will make it only one for now
+                AccountManager = new AccountManagerDto(entity.AccountManagers.FirstOrDefault())
             };
             
             return financeCompanyDetailsDto;
@@ -40,8 +41,14 @@ namespace Finance.Logic.FinanceCompanies
             return this.RepositoryFinanceCompany.AllList().Select(i => new FinanceCompanyDto(i)).ToList();
         }
 
-        public CommitResult Save(FinanceCompanyDto dto, AccountManagerDto accountManagerDto = null)
+        public CommitResult Save(FinanceCompanyUpdate financeCompanyUpdate)
         {
+            if(financeCompanyUpdate?.FinanceCompany == null || financeCompanyUpdate.AccountManager == null)
+                return new CommitResult(null, CommitAction.None);
+
+            var dto = financeCompanyUpdate.FinanceCompany;
+            var accountManagerDto = financeCompanyUpdate.AccountManager;
+
             var commitActionFinanceCompany = CommitAction.None;
             CommitActionItem commitActionItemAccountManager = null;
             FinanceCompany entity = null;

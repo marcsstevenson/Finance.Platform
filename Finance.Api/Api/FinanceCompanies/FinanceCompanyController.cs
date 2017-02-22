@@ -28,20 +28,20 @@ namespace Finance.Api.Api.FinanceCompanies
         }
 
         [HttpGet]
-        public FinanceCompanyDetailsDto Get(Guid id)
+        public FinanceCompanyDetails Get(Guid id)
         {
             return this.FinanceCompanyService.Get(id);
         }
 
         [HttpPost]
-        public HttpResponseMessage Save(FinanceCompanyDto dto, AccountManagerDto accountManagerDto = null)
+        public HttpResponseMessage Save(FinanceCompanyUpdate financeCompanyUpdate)
         {
-            if (dto == null) return Request.NullParameterResponse();
+            if (financeCompanyUpdate == null) return Request.NullParameterResponse();
 
             if (!ModelState.IsValid)
                 return Request.InvalidModelStateResponse(ModelState);
 
-            var commitResult = this.FinanceCompanyService.Save(dto, accountManagerDto);
+            var commitResult = this.FinanceCompanyService.Save(financeCompanyUpdate);
             return commitResult.ToHttpResponseMessage(this.Request);
         }
 

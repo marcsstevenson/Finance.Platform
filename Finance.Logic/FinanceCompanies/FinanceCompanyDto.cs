@@ -13,7 +13,7 @@ namespace Finance.Logic.FinanceCompanies
         [Required]
         public string Name { get; set; }
 
-        public Guid? AccountManagerId { get; set; }
+        //public Guid? AccountManagerId { get; set; }
 
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }

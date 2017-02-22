@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.ExceptionHandling;
 using Elmah.Contrib.WebApi;
 using Microsoft.Owin.Security.OAuth;
@@ -28,7 +29,9 @@ namespace Finance.Api
             
             //We want to log using Elmah in the Web API controllers
             config.Services.Add(typeof(IExceptionLogger), new ElmahExceptionLogger());
-
+            
+            //Enable CORS because we are an API used by many things
+            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
         }
     }
 }

@@ -22,10 +22,7 @@ namespace Finance.Logic.FinanceCompanies
         public string Note { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
-
-        [Required]
-        public Guid FinanceCompanyId { get; set; }
-
+        
         #region IGenericDto
 
         private static void Map()
@@ -40,6 +37,8 @@ namespace Finance.Logic.FinanceCompanies
 
         public AccountManagerDto(AccountManager entity)
         {
+            if (entity == null) return;
+
             Map();
             Mapper.Map(entity, this);
         }
