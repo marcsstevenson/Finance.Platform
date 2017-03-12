@@ -28,6 +28,8 @@ namespace Finance.Logic.DealSearch
             Expression<Func<Deal, string>> orderByKeySelector = null;
             Expression<Func<Deal, string>> thenByKeySelector = null;
 
+            BuildQuery(request, ref query);
+
             var totalResultCount = query.Count();
 
             query = query.Include(i => i.Customer);
@@ -35,8 +37,6 @@ namespace Finance.Logic.DealSearch
             SetOrderSelector(request, ref orderByKeySelector, ref thenByKeySelector);
 
             AddOrderToQuery(request, ref query, ref orderByKeySelector, ref thenByKeySelector);
-
-            BuildQuery(request, ref query);
 
             if (request.CurrentPage > totalResultCount / request.PageSize + 1)
                 request.CurrentPage = 1;
@@ -72,11 +72,14 @@ namespace Finance.Logic.DealSearch
         {
             switch (request.OrderBy.Trim())
             {
-                case nameof(Deal.Number):
+                case nameof(DealSearchResponseItem.Number):
                     orderByKeySelector = i => i.Number;
                     break;
-                case nameof(Deal.DealStatus):
+                case nameof(DealSearchResponseItem.DealStatusDescription):
                     orderByKeySelector = i => nameof(i.DealStatus);
+                    break;
+                case nameof(DealSearchResponseItem.DateCreated):
+                    orderByKeySelector = i => nameof(i.DateCreated);
                     break;
 
                 case "CustomerName":
@@ -116,9 +119,17 @@ namespace Finance.Logic.DealSearch
             if (!string.IsNullOrEmpty(request.SearchTerm))
             {
                 query = query.Where(i =>
-                i.Number.Contains(request.SearchTerm) ||
-                (i.Customer.FirstName + " " + i.Customer.LastName).Contains(request.SearchTerm) ||
-                nameof(i.DealStatus) == request.SearchTerm
+                i.Customer.Number.Contains(request.SearchTerm) 
+                ||
+                i.Number.Contains(request.SearchTerm) 
+                ||
+                (i.Customer.FirstName + " " + i.Customer.LastName).Contains(request.SearchTerm) 
+                //||
+                //nameof(i.DealStatus) == request.SearchTerm 
+                ||
+                i.Customer.MobileNumber.Contains(request.SearchTerm)
+                ||
+                i.Customer.DriversLicenceNumber.Contains(request.SearchTerm)
                 );
             }
         }

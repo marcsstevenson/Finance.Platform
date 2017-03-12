@@ -29,6 +29,7 @@ namespace Finance.Logic.FinanceCompanies
         {
             Mapper.CreateMap<AccountManagerDto, AccountManager>()
                 //These properties are managed by the repository;
+                .ForMember(x => x.Id, opt => opt.Ignore())
                 .ForMember(x => x.DateCreated, opt => opt.Ignore())
                 .ForMember(x => x.DateModified, opt => opt.Ignore());
             Mapper.CreateMap<AccountManager, AccountManagerDto>();

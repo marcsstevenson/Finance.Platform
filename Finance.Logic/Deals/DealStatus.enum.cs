@@ -8,15 +8,15 @@ namespace Finance.Logic.Deals
     public enum DealStatus
     {
         [Description("Settled /Paid")]
-        SettledPaid,
+        SettledPaid = 0,
 
         [Description("Settled Awaiting Commission")]
-        SettledAwaitingCommission,
+        SettledAwaitingCommission = 1,
 
         [Description("Pending Sign Up")]
-        PendingSignUp,
+        PendingSignUp = 2,
 
         [Description("Pending Payout")]
-        PendingPayout
+        PendingPayout = 3
     }
 }

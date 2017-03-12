@@ -154,6 +154,10 @@
     <Compile Include="Migrations\201702141928530_CustomerApplicationFinancialsNote.Designer.cs">
       <DependentUpon>201702141928530_CustomerApplicationFinancialsNote.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703120217105_RemovedUnneededDealershipFields.cs" />
+    <Compile Include="Migrations\201703120217105_RemovedUnneededDealershipFields.Designer.cs">
+      <DependentUpon>201703120217105_RemovedUnneededDealershipFields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configurations.cs" />
     <Compile Include="Migrations\Sql2\AppliationFinancialOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -212,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702141928530_CustomerApplicationFinancialsNote.resx">
       <DependentUpon>201702141928530_CustomerApplicationFinancialsNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703120217105_RemovedUnneededDealershipFields.resx">
+      <DependentUpon>201703120217105_RemovedUnneededDealershipFields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

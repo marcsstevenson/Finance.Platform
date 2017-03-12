@@ -24,6 +24,10 @@ namespace Finance.Logic.Crm
         [Required]
         public string LastName { get; set; }
 
+        public string MiddleName { get; set; }
+
+        public string PreferredName { get; set; }
+
         public string DriversLicenceNumber { get; set; }
 
         public DateTime? DateOfBirth { get; set; }
@@ -41,7 +45,7 @@ namespace Finance.Logic.Crm
         public string PhoneNumber { get; set; }
 
         // Cell number fields
-        public string CellNumber { get; set; }
+        public string MobileNumber { get; set; }
 
         // Fax number fields
         public string FaxNumber { get; set; }
@@ -110,12 +114,14 @@ namespace Finance.Logic.Crm
                 Gender = i.Gender,
                 FirstName = i.FirstName,
                 LastName = i.LastName,
+                MiddleName = i.MiddleName,
+                PreferredName = i.PreferredName,
                 DriversLicenceNumber = i.DriversLicenceNumber,
                 DateOfBirth = i.DateOfBirth,
                 Number = i.Number,
                 Email = i.Email,
                 PhoneNumber = i.PhoneNumber,
-                CellNumber = i.MobileNumber,
+                MobileNumber = i.MobileNumber,
                 FaxNumber = i.FaxNumber,
                 SkypeName = i.SkypeName,
                 Website = i.Website,

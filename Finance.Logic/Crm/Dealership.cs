@@ -23,18 +23,12 @@ namespace Finance.Logic.Crm
         public string Email { get; set; }
 
         // Phone number fields
-        public string PhoneCountry { get; set; }
-        public string PhoneArea { get; set; }
         public string PhoneNumber { get; set; }
 
         // Cell number fields
-        public string CellCountry { get; set; }
-        public string CellArea { get; set; }
         public string MobileNumber { get; set; }
 
         // Fax number fields
-        public string FaxCountry { get; set; }
-        public string FaxArea { get; set; }
         public string FaxNumber { get; set; }
 
         //Bank account details

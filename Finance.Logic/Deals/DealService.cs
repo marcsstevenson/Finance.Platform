@@ -80,7 +80,7 @@ namespace Finance.Logic.Deals
                     entity.Customer.LastDeal = entity;
                     
                     var currentCount = CounterStoreService.GetCurrentCounterDeal();
-                    entity.Number = ReferenceGenerator.GetNextCustomerNumber(currentCount + 1);
+                    entity.Number = ReferenceGenerator.GetNextDealNumber(currentCount + 1);
                     CounterStoreService.IntcrementCounterDeal_InSession();
                 }
                 else

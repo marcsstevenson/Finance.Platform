@@ -16,6 +16,16 @@ namespace Finance.Logic.Deals
         public Guid CustomerId { get; set; }
 
         /// <summary>
+        /// This is used for display only
+        /// </summary>
+        public string CustomerFirstName { get; set; }
+
+        /// <summary>
+        /// This is used for display only
+        /// </summary>
+        public string CustomerLastName { get; set; }
+
+        /// <summary>
         /// The number for a given time period (month)
         /// </summary>
         //[Required]
@@ -140,6 +150,8 @@ namespace Finance.Logic.Deals
             {
                 Id = i.Id,
                 CustomerId = i.Customer.Id,
+                CustomerFirstName = i.Customer.FirstName,
+                CustomerLastName = i.Customer.LastName,
                 Number = i.Number,
                 LoanNumber = i.LoanNumber,
                 AssignedToId = i.AssignedTo == null ? null : (Guid?)i.AssignedTo.Id,
