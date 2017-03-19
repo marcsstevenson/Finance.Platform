@@ -80,6 +80,10 @@
     <Compile Include="Applications\CustomerApplicationNoteDto.cs" />
     <Compile Include="Applications\AppliationFinancialOptionService.cs" />
     <Compile Include="Applications\AppliationFinancialOptionDto.cs" />
+    <Compile Include="Configuration\LeadOriginSearchRequest.cs" />
+    <Compile Include="Configuration\LeadOriginSearchResponse.cs" />
+    <Compile Include="Configuration\LeadOriginSearchResponseItem.cs" />
+    <Compile Include="Configuration\LeadOriginSearchService.cs" />
     <Compile Include="Configuration\LeadOriginService.cs" />
     <Compile Include="Configuration\LeadOriginDto.cs" />
     <Compile Include="Configuration\LeadOrigin.cs" />
