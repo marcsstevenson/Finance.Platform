@@ -9,7 +9,6 @@ namespace Finance.Api.Api.Admin
     [RoutePrefix("api/Account")]
     public class DatabaseController : ApiController
     {
-        // GET api/Account/Test
         [HttpGet]
         [Route("RunUpdates")]
         public int RunUpdates()
@@ -22,6 +21,15 @@ namespace Finance.Api.Api.Admin
             if (pendingMigrations.Count > 0)
                 dbMigrator.Update();
 
+            return pendingMigrations.Count;
+        }
+        
+        [HttpGet]
+        [Route("GetPendingCount")]
+        public int GetPendingCount()
+        {
+            var dbMigrator = FinanceMigrationManager.GetMigrator();
+            var pendingMigrations = dbMigrator.GetPendingMigrations().ToList();
             return pendingMigrations.Count;
         }
     }
