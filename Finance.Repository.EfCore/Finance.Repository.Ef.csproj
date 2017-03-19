@@ -158,6 +158,10 @@
     <Compile Include="Migrations\201703120217105_RemovedUnneededDealershipFields.Designer.cs">
       <DependentUpon>201703120217105_RemovedUnneededDealershipFields.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703190115092_LeadOrigin.cs" />
+    <Compile Include="Migrations\201703190115092_LeadOrigin.Designer.cs">
+      <DependentUpon>201703190115092_LeadOrigin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configurations.cs" />
     <Compile Include="Migrations\Sql2\AppliationFinancialOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -219,6 +223,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703120217105_RemovedUnneededDealershipFields.resx">
       <DependentUpon>201703120217105_RemovedUnneededDealershipFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703190115092_LeadOrigin.resx">
+      <DependentUpon>201703190115092_LeadOrigin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

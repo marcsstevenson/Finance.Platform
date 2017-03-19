@@ -230,6 +230,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\Admin\DatabaseController.cs" />
     <Compile Include="Api\Applications\CustomerApplicationApplicantController.cs" />
     <Compile Include="Api\Applications\AppliationFinancialOptionController.cs" />
     <Compile Include="Api\Applications\CustomerApplicationController.cs" />
