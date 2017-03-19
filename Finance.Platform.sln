@@ -1,17 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Generic", "Generic", "{9B0840E0-ACB7-4231-8950-2E02CAF544FE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generic.Framework", "Generic.Framework\Generic.Framework.csproj", "{4A5CC304-4F7D-4F3B-AB2E-6949703888FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generic.Repository.EfCore", "Generic.Repository.EfCore\Generic.Repository.EfCore.csproj", "{6BDBFF94-BB32-43A7-B27C-A151203089D0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generic.Repository.Ef", "Generic.Repository.EfCore\Generic.Repository.Ef.csproj", "{6BDBFF94-BB32-43A7-B27C-A151203089D0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finance.Logic", "Finance.Logic\Finance.Logic.csproj", "{D2EFC4CA-ADE2-48DE-8F12-92E214801E3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finance.Repository.EfCore", "Finance.Repository.EfCore\Finance.Repository.EfCore.csproj", "{12331F07-7D9A-4839-90C8-D0DA1DA06903}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finance.Repository.Ef", "Finance.Repository.EfCore\Finance.Repository.Ef.csproj", "{12331F07-7D9A-4839-90C8-D0DA1DA06903}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finance.Api", "Finance.Api\Finance.Api.csproj", "{9382EA83-D15E-49DF-A55E-5BC66C145442}"
 EndProject

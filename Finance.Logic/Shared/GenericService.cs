@@ -18,7 +18,7 @@ namespace Finance.Logic.Shared
 
         }
         
-        public CommitResult Delete(Guid id)
+        public virtual CommitResult Delete(Guid id)
         {
             var entity = this.RepositoryGeneric.FirstOrDefault(i => i.Id == id);
             

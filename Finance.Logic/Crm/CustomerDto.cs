@@ -47,6 +47,8 @@ namespace Finance.Logic.Crm
         // Cell number fields
         public string MobileNumber { get; set; }
 
+        public string WorkNumber { get; set; }
+
         // Fax number fields
         public string FaxNumber { get; set; }
 
@@ -122,6 +124,7 @@ namespace Finance.Logic.Crm
                 Email = i.Email,
                 PhoneNumber = i.PhoneNumber,
                 MobileNumber = i.MobileNumber,
+                WorkNumber = i.WorkNumber,
                 FaxNumber = i.FaxNumber,
                 SkypeName = i.SkypeName,
                 Website = i.Website,

@@ -3,9 +3,9 @@ using System.Data.Entity;
 using System.Data.Entity.Core.Objects;
 using Generic.Framework.Helpers;
 using Generic.Framework.UnitOfWork;
-using Generic.Repository.EfCore.Helpers;
+using Generic.Repository.Ef.Helpers;
 
-namespace Generic.Repository.EfCore.UnitOfWork
+namespace Generic.Repository.Ef.UnitOfWork
 {
     public class UnitOfWork : Disposable, IUnitOfWork
     {

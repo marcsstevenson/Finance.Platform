@@ -3,7 +3,7 @@ using System.Data.Entity;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Infrastructure;
 
-namespace Generic.Repository.EfCore.Helpers
+namespace Generic.Repository.Ef.Helpers
 {
     public static class DbContextExtensions
     {

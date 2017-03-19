@@ -1,5 +1,6 @@
 ﻿using System.Web.Http;
 using Finance.Logic.Applications;
+using Finance.Logic.Configuration;
 using Finance.Logic.Crm;
 using Finance.Logic.Deals;
 using Finance.Logic.FinanceCompanies;
@@ -43,6 +44,9 @@ namespace Finance.Api.Api.@base
 
         private FinanceCompanyNoteService _serviceFinanceCompanyNote;
         protected FinanceCompanyNoteService FinanceCompanyNoteService => _serviceFinanceCompanyNote ?? (_serviceFinanceCompanyNote = new FinanceCompanyNoteService(_persistanceFactory));
+
+        private LeadOriginService _serviceLeadOrigin;
+        protected LeadOriginService LeadOriginService => _serviceLeadOrigin ?? (_serviceLeadOrigin = new LeadOriginService(_persistanceFactory));
 
         protected BaseController()
         {

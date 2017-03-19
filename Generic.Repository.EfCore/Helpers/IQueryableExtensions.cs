@@ -3,7 +3,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace Generic.Repository.EfCore.Helpers
+namespace Generic.Repository.Ef.Helpers
 {
     public static class IQueryableExtensions
     {

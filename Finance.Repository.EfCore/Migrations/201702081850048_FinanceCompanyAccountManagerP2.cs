@@ -1,4 +1,4 @@
-namespace Finance.Repository.EfCore.Migrations
+namespace Finance.Repository.Ef.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;

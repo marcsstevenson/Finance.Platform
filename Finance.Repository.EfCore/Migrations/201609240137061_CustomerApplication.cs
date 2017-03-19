@@ -1,6 +1,6 @@
-using Finance.Repository.EfCore.Migrations.Sql;
+using Finance.Repository.Ef.Migrations.Sql;
 
-namespace Finance.Repository.EfCore.Migrations
+namespace Finance.Repository.Ef.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;

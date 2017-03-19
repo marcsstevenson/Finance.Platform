@@ -7,8 +7,8 @@
     <ProjectGuid>{12331F07-7D9A-4839-90C8-D0DA1DA06903}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Finance.Repository.EfCore</RootNamespace>
-    <AssemblyName>Finance.Repository.EfCore</AssemblyName>
+    <RootNamespace>Finance.Repository.Ef</RootNamespace>
+    <AssemblyName>Finance.Repository.Ef</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -178,9 +178,9 @@
       <Project>{4a5cc304-4f7d-4f3b-ab2e-6949703888fa}</Project>
       <Name>Generic.Framework</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Generic.Repository.EfCore\Generic.Repository.EfCore.csproj">
+    <ProjectReference Include="..\Generic.Repository.EfCore\Generic.Repository.Ef.csproj">
       <Project>{6bdbff94-bb32-43a7-b27c-a151203089d0}</Project>
-      <Name>Generic.Repository.EfCore</Name>
+      <Name>Generic.Repository.Ef</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

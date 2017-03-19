@@ -1,6 +1,6 @@
 using System.Configuration;
 using System.Web.Http;
-using Finance.Repository.EfCore.Context;
+using Finance.Repository.Ef.Context;
 
 namespace Finance.Api.Controllers
 {

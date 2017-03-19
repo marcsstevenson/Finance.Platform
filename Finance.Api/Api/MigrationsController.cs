@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Web.Http;
-using Finance.Repository.EfCore.Helpers;
+using Finance.Repository.Ef.Helpers;
 
 namespace Finance.Api.Api
 {

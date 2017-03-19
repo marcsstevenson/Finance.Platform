@@ -3,28 +3,27 @@ namespace Finance.Repository.Ef.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CounterStore : DbMigration
+    public partial class LeadOrigin : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "dbo.CounterStores",
+                "dbo.LeadOrigins",
                 c => new
                     {
                         Id = c.Guid(nullable: false),
-                        CustomerCounter = c.Int(nullable: false),
-                        DealCounter = c.Int(nullable: false),
+                        Name = c.String(),
+                        IsDefault = c.Boolean(nullable: false),
                         DateCreated = c.DateTime(nullable: false),
                         DateModified = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
-            Sql("INSERT INTO [dbo].[CounterStores] ([Id],[CustomerCounter],[DealCounter],[DateCreated],[DateModified]) VALUES (newId() ,20,20,getdate(),getdate())");
         }
         
         public override void Down()
         {
-            DropTable("dbo.CounterStores");
+            DropTable("dbo.LeadOrigins");
         }
     }
 }

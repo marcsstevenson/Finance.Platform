@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Finance.Repository.EfCore.Migrations.Sql
+namespace Finance.Repository.Ef.Migrations.Sql
 {
     public static class AppliationFinancialOptions
     {

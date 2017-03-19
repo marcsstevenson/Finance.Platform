@@ -1,7 +1,7 @@
 using System.Data.Entity.Migrations;
-using Finance.Repository.EfCore.Context;
+using Finance.Repository.Ef.Context;
 
-namespace Finance.Repository.EfCore.Migrations
+namespace Finance.Repository.Ef.Migrations
 {
     public sealed class Configuration : DbMigrationsConfiguration<FinanceDbContext>
     {

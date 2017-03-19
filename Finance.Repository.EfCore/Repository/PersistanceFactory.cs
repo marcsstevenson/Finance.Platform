@@ -1,11 +1,11 @@
-﻿using Finance.Repository.EfCore.Context;
+﻿using Finance.Repository.Ef.Context;
 using Generic.Framework.Caching.Providers;
 using Generic.Framework.Interfaces;
 using Generic.Framework.Interfaces.Entity;
 using Generic.Framework.UnitOfWork;
-using Generic.Repository.EfCore.UnitOfWork;
+using Generic.Repository.Ef.UnitOfWork;
 
-namespace Finance.Repository.EfCore.Repository
+namespace Finance.Repository.Ef.Repository
 {
     public class PersistanceFactory : IPersistanceFactory
     {

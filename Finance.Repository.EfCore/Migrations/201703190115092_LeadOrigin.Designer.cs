@@ -7,13 +7,13 @@ namespace Finance.Repository.Ef.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Init : IMigrationMetadata
+    public sealed partial class LeadOrigin : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Init));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(LeadOrigin));
         
         string IMigrationMetadata.Id
         {
-            get { return "201608140203207_Init"; }
+            get { return "201703190115092_LeadOrigin"; }
         }
         
         string IMigrationMetadata.Source

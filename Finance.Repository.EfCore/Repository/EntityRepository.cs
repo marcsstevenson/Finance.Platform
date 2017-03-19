@@ -4,12 +4,12 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Finance.Repository.EfCore.Context;
+using Finance.Repository.Ef.Context;
 using Generic.Framework.Enumerations;
 using Generic.Framework.Helpers;
 using Generic.Framework.Interfaces.Entity;
 
-namespace Finance.Repository.EfCore.Repository
+namespace Finance.Repository.Ef.Repository
 {
     public class EntityRepository<T> : IEntityRepository<T>
         where T : class, IEntity

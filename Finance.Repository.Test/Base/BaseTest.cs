@@ -1,6 +1,6 @@
 ﻿using Finance.Logic.Applications;
 using Finance.Logic.FinanceCompanies;
-using Finance.Repository.EfCore.IoC;
+using Finance.Repository.Ef.IoC;
 using Generic.Framework.Interfaces.Entity;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

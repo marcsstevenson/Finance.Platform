@@ -80,6 +80,9 @@
     <Compile Include="Applications\CustomerApplicationNoteDto.cs" />
     <Compile Include="Applications\AppliationFinancialOptionService.cs" />
     <Compile Include="Applications\AppliationFinancialOptionDto.cs" />
+    <Compile Include="Configuration\LeadOriginService.cs" />
+    <Compile Include="Configuration\LeadOriginDto.cs" />
+    <Compile Include="Configuration\LeadOrigin.cs" />
     <Compile Include="FinanceCompanies\AccountManagerDto.cs" />
     <Compile Include="FinanceCompanies\AccountManager.cs" />
     <Compile Include="Crm\AddressArrangement.cs" />

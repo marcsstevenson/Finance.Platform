@@ -6,7 +6,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Finance.Api.Models;
 using Finance.Logic.Indentity;
-using Finance.Repository.EfCore.Context;
+using Finance.Repository.Ef.Context;
 using Microsoft.Owin.Security;
 
 namespace Finance.Api

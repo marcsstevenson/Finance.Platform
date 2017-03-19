@@ -72,17 +72,17 @@
       <Project>{d2efc4ca-ade2-48de-8f12-92e214801e3b}</Project>
       <Name>Finance.Logic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Finance.Repository.EfCore\Finance.Repository.EfCore.csproj">
+    <ProjectReference Include="..\Finance.Repository.EfCore\Finance.Repository.Ef.csproj">
       <Project>{12331f07-7d9a-4839-90c8-d0da1da06903}</Project>
-      <Name>Finance.Repository.EfCore</Name>
+      <Name>Finance.Repository.Ef</Name>
     </ProjectReference>
     <ProjectReference Include="..\Generic.Framework\Generic.Framework.csproj">
       <Project>{4a5cc304-4f7d-4f3b-ab2e-6949703888fa}</Project>
       <Name>Generic.Framework</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Generic.Repository.EfCore\Generic.Repository.EfCore.csproj">
+    <ProjectReference Include="..\Generic.Repository.EfCore\Generic.Repository.Ef.csproj">
       <Project>{6bdbff94-bb32-43a7-b27c-a151203089d0}</Project>
-      <Name>Generic.Repository.EfCore</Name>
+      <Name>Generic.Repository.Ef</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

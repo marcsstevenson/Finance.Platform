@@ -2,7 +2,7 @@
 using System.Data.Entity;
 using System.Linq;
 
-namespace Generic.Repository.EfCore.Annotations
+namespace Generic.Repository.Ef.Annotations
 {
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
     public class Precision : Attribute

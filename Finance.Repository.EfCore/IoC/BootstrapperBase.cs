@@ -1,8 +1,8 @@
-﻿using Finance.Repository.EfCore.Helpers;
+﻿using Finance.Repository.Ef.Helpers;
 using Generic.Framework.Interfaces.Entity;
 using Microsoft.Practices.Unity;
 
-namespace Finance.Repository.EfCore.IoC
+namespace Finance.Repository.Ef.IoC
 {
     public static class BootstrapperBase
     {

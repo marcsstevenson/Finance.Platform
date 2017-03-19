@@ -1,8 +1,8 @@
-﻿using Finance.Repository.EfCore.Repository;
+﻿using Finance.Repository.Ef.Repository;
 using Generic.Framework.Interfaces.Entity;
 using Microsoft.Practices.Unity;
 
-namespace Finance.Repository.EfCore.Helpers
+namespace Finance.Repository.Ef.Helpers
 {
     public static class UnityContainerHelper
     {

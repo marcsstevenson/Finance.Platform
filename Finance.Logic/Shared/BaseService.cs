@@ -1,5 +1,6 @@
 ﻿using System;
 using Finance.Logic.Applications;
+using Finance.Logic.Configuration;
 using Finance.Logic.Crm;
 using Finance.Logic.Deals;
 using Finance.Logic.FinanceCompanies;
@@ -65,6 +66,10 @@ namespace Finance.Logic.Shared
         private IEntityRepository<FinanceCompanyNote> _repositoryFinanceCompanyNote;
         protected IEntityRepository<FinanceCompanyNote> RepositoryFinanceCompanyNote
             => _repositoryFinanceCompanyNote ?? (_repositoryFinanceCompanyNote = PersistanceFactory.BuildEntityRepository<FinanceCompanyNote>());
+
+        private IEntityRepository<LeadOrigin> _repositoryLeadOrigin;
+        protected IEntityRepository<LeadOrigin> RepositoryLeadOrigin
+            => _repositoryLeadOrigin ?? (_repositoryLeadOrigin = PersistanceFactory.BuildEntityRepository<LeadOrigin>());
 
         private IEntityRepository<PersonalEntity> _repositoryPersonalEntity;
         protected IEntityRepository<PersonalEntity> RepositoryPersonalEntity

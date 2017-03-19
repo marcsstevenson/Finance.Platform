@@ -43,7 +43,7 @@ namespace Finance.Logic.DealershipSearch
                 Id = i.Id,
                 Name = i.Name,
                 ContactName = i.ContactName,
-                CellNumber = i.MobileNumber,
+                MobileNumber = i.MobileNumber,
                 PhoneNumber = i.PhoneNumber,
                 Email = i.Email
             })

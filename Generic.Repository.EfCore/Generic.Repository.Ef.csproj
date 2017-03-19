@@ -7,8 +7,8 @@
     <ProjectGuid>{6BDBFF94-BB32-43A7-B27C-A151203089D0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Generic.Repository.EfCore</RootNamespace>
-    <AssemblyName>Generic.Repository.EfCore</AssemblyName>
+    <RootNamespace>Generic.Repository.Ef</RootNamespace>
+    <AssemblyName>Generic.Repository.Ef</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

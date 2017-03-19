@@ -10,7 +10,7 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using Finance.Api.Providers;
 using Finance.Api.Models;
-using Finance.Repository.EfCore.Context;
+using Finance.Repository.Ef.Context;
 
 namespace Finance.Api
 {

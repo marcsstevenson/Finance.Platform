@@ -5,7 +5,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Finance.Api.App_Start;
-using Finance.Repository.EfCore.Helpers;
+using Finance.Repository.Ef.Helpers;
 
 namespace Finance.Api
 {

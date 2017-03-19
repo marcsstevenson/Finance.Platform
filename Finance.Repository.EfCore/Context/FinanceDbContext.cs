@@ -1,16 +1,17 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using Finance.Logic.Applications;
+using Finance.Logic.Configuration;
 using Finance.Logic.Counting;
 using Finance.Logic.Crm;
 using Finance.Logic.Deals;
 using Finance.Logic.FinanceCompanies;
 using Finance.Logic.Indentity;
 using Finance.Logic.Internal;
-using Generic.Repository.EfCore.Annotations;
+using Generic.Repository.Ef.Annotations;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace Finance.Repository.EfCore.Context
+namespace Finance.Repository.Ef.Context
 {
     public class FinanceDbContext : IdentityDbContext<PartyIdentityUser>
     {
@@ -55,7 +56,9 @@ namespace Finance.Repository.EfCore.Context
         public DbSet<Deal> Deal { get; set; }
         
         public DbSet<FinanceCompany> FinanceCompany { get; set; }
-        
+
+        public DbSet<LeadOrigin> LeadOrigin { get; set; }
+
         public DbSet<StaffMember> StaffMember { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
