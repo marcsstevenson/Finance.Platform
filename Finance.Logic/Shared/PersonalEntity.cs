@@ -9,7 +9,7 @@ using Generic.Framework.Interfaces.Personal;
 
 namespace Finance.Logic.Shared
 {
-    public class PersonalEntity : Entity, IPerson, IDiversLicenceDetails, ICell, IPhone, IFax, ICellBusiness, IPhoneBusiness, IFaxBusiness, IOccupationalDetails
+    public class PersonalEntity : Entity, IPerson, IDiversLicenceDetails, ICell, IPhone, IFax, IOccupationalDetails
     {
         public string FirstName { get; set; }
 
@@ -36,10 +36,7 @@ namespace Finance.Logic.Shared
         public string MobileNumber { get; set; }
         public string PhoneNumber { get; set; }
         public string FaxNumber { get; set; }
-        public string CellNumberBusiness { get; set; }
-        public string PhoneNumberBusiness { get; set; }
-        public string FaxNumberBusiness { get; set; }
-
+        
         public string OccupationEmployer { get; set; }
         public string Occupation { get; set; }
         public string OccupationAddressStreet { get; set; }
@@ -70,7 +67,9 @@ namespace Finance.Logic.Shared
         public string NearestRelativePhoneNumber { get; set; }
 
         public StreetAddress NearestRelativeAddress { get; set; }
-
+        
+        /// MS 2017.03.26: Make this a list of reference objects
+        
         /// <summary>
         /// MS 2016.09.18: A simple name of a person acting as a referee?
         /// </summary>

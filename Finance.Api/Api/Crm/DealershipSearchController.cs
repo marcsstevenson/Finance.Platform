@@ -10,7 +10,7 @@ namespace Finance.Api.Api.Crm
     public class DealershipSearchController : BaseController
     {
         private DealershipSearchService _serviceDealSearch;
-        protected DealershipSearchService DealSearchService => _serviceDealSearch ?? (_serviceDealSearch = new DealershipSearchService(_persistanceFactory));
+        protected DealershipSearchService DealershipSearchService => _serviceDealSearch ?? (_serviceDealSearch = new DealershipSearchService(_persistanceFactory));
 
         public DealershipSearchController()
         {
@@ -31,13 +31,13 @@ namespace Finance.Api.Api.Crm
                 OrderBy = "Number"
             };
 
-            return this.DealSearchService.Search(request);
+            return this.DealershipSearchService.Search(request);
         }
         
         [HttpPost]
         public DealershipSearchResponse Post(DealershipSearchRequest request)
         {
-            return this.DealSearchService.Search(request);
+            return this.DealershipSearchService.Search(request);
         }
     }
 }

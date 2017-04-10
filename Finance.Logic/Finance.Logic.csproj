@@ -80,6 +80,13 @@
     <Compile Include="Applications\CustomerApplicationNoteDto.cs" />
     <Compile Include="Applications\AppliationFinancialOptionService.cs" />
     <Compile Include="Applications\AppliationFinancialOptionDto.cs" />
+    <Compile Include="Applications\PersonalApplicationNotes\PersonalApplicationNote.cs" />
+    <Compile Include="Applications\PersonalApplications\PersonalApplicationRequest.cs" />
+    <Compile Include="Applications\PersonalApplications\PersonalApplicationSearchResponse.cs" />
+    <Compile Include="Applications\PersonalApplications\PersonalApplicationResponseItem.cs" />
+    <Compile Include="Applications\PersonalApplications\PersonalApplicationSearchService.cs" />
+    <Compile Include="Applications\PersonalApplications\PersonalApplication.cs" />
+    <Compile Include="Applications\PersonalApplications\PersonalApplicationStatus.cs" />
     <Compile Include="Configuration\LeadOriginSearchRequest.cs" />
     <Compile Include="Configuration\LeadOriginSearchResponse.cs" />
     <Compile Include="Configuration\LeadOriginSearchResponseItem.cs" />
@@ -87,6 +94,10 @@
     <Compile Include="Configuration\LeadOriginService.cs" />
     <Compile Include="Configuration\LeadOriginDto.cs" />
     <Compile Include="Configuration\LeadOrigin.cs" />
+    <Compile Include="FinanceCompanySearch\FinanceCompanySearchRequest.cs" />
+    <Compile Include="FinanceCompanySearch\FinanceCompanySearchResponse.cs" />
+    <Compile Include="FinanceCompanySearch\FinanceCompanySearchResponseItem.cs" />
+    <Compile Include="FinanceCompanySearch\FinanceCompanySearchService.cs" />
     <Compile Include="FinanceCompanies\AccountManagerDto.cs" />
     <Compile Include="FinanceCompanies\AccountManager.cs" />
     <Compile Include="Crm\AddressArrangement.cs" />
@@ -106,6 +117,7 @@
     <Compile Include="FinanceCompanies\FinanceCompanyUpdate.cs" />
     <Compile Include="FinanceCompanies\FinanceCompanyDetails.cs" />
     <Compile Include="FinanceCompanies\FinanceTierFunder.enum.cs" />
+    <Compile Include="Interfaces\IForm.cs" />
     <Compile Include="Reporting\DealershipProfitReportService.cs" />
     <Compile Include="Reporting\Models\DealershipProfitReportRequest.cs" />
     <Compile Include="Reporting\Models\DealershipProfitReportResult.cs" />

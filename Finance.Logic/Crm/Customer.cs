@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Finance.Logic.Applications.PersonalApplications;
 using Finance.Logic.Deals;
 using Generic.Framework.AbstractClasses;
 using Generic.Framework.Enumerations;
@@ -65,6 +66,8 @@ namespace Finance.Logic.Crm
         public IList<CustomerStreetAddress> CustomerStreetAddresses { get; set; }
 
         public IList<Deal> Deals { get; set; }
+
+        public IList<PersonalApplication> PersonalApplications { get; set; }
 
         /// <summary>
         /// The last deal for his customer - if any

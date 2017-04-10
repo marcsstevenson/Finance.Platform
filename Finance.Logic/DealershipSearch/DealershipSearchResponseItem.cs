@@ -1,8 +1,4 @@
-﻿
-using System;
-using Finance.Logic.Crm;
-using Finance.Logic.Deals;
-
+﻿using System;
 
 namespace Finance.Logic.DealershipSearch
 {

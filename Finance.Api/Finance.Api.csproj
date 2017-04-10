@@ -234,6 +234,7 @@
     <Compile Include="Api\Applications\CustomerApplicationApplicantController.cs" />
     <Compile Include="Api\Applications\AppliationFinancialOptionController.cs" />
     <Compile Include="Api\Applications\CustomerApplicationController.cs" />
+    <Compile Include="Api\Applications\PersonalApplications\PersonalApplicationSearchController.cs" />
     <Compile Include="Api\ConfigurationController.cs" />
     <Compile Include="Api\Configuration\LeadOriginSearchController.cs" />
     <Compile Include="Api\Configuration\LeadOriginController.cs" />
@@ -248,6 +249,7 @@
     <Compile Include="Api\Crm\DealershipController.cs" />
     <Compile Include="Api\Deals\DealNoteController.cs" />
     <Compile Include="Api\FinanceCompanies\AccountManagerController.cs" />
+    <Compile Include="Api\FinanceCompanies\FinanceCompanySearchController.cs" />
     <Compile Include="Api\FinanceCompanies\FinanceCompanyNoteController.cs" />
     <Compile Include="Api\FinanceCompanies\FinanceCompanyController.cs" />
     <Compile Include="Api\Reporting\DealershipProfitReportController.cs" />
