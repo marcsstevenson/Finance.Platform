@@ -7,13 +7,13 @@ namespace Finance.Repository.Ef.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class PersonalApplicationForms : IMigrationMetadata
+    public sealed partial class PersonalApplication : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(PersonalApplicationForms));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(PersonalApplication));
         
         string IMigrationMetadata.Id
         {
-            get { return "201704120043260_PersonalApplicationForms"; }
+            get { return "201704122119202_PersonalApplication"; }
         }
         
         string IMigrationMetadata.Source

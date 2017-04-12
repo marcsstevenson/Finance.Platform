@@ -162,13 +162,9 @@
     <Compile Include="Migrations\201703190115092_LeadOrigin.Designer.cs">
       <DependentUpon>201703190115092_LeadOrigin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201704092141152_PersonalApplication.cs" />
-    <Compile Include="Migrations\201704092141152_PersonalApplication.Designer.cs">
-      <DependentUpon>201704092141152_PersonalApplication.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704120043260_PersonalApplicationForms.cs" />
-    <Compile Include="Migrations\201704120043260_PersonalApplicationForms.Designer.cs">
-      <DependentUpon>201704120043260_PersonalApplicationForms.cs</DependentUpon>
+    <Compile Include="Migrations\201704122119202_PersonalApplication.cs" />
+    <Compile Include="Migrations\201704122119202_PersonalApplication.Designer.cs">
+      <DependentUpon>201704122119202_PersonalApplication.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configurations.cs" />
     <Compile Include="Migrations\Sql2\AppliationFinancialOptions.cs" />
@@ -235,11 +231,8 @@
     <EmbeddedResource Include="Migrations\201703190115092_LeadOrigin.resx">
       <DependentUpon>201703190115092_LeadOrigin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704092141152_PersonalApplication.resx">
-      <DependentUpon>201704092141152_PersonalApplication.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704120043260_PersonalApplicationForms.resx">
-      <DependentUpon>201704120043260_PersonalApplicationForms.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201704122119202_PersonalApplication.resx">
+      <DependentUpon>201704122119202_PersonalApplication.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

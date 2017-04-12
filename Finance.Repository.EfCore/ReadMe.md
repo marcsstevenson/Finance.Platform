@@ -3,7 +3,7 @@
 To add a new migration:
 
 1. Open the Package Manager Console
-2. Add-Migration CustomerApplication -Project Finance.Repository.Ef
+2. Add-Migration PersonalApplication -Project Finance.Repository.Ef
 
 To update the database:
 
