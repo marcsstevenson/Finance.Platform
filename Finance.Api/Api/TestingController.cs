@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Web.Http;
 using Finance.Api.Api.@base;
@@ -26,6 +28,33 @@ namespace Finance.Api.Api
 
         //    return true;
         //}
+
+        [HttpGet]
+        [Route("api/Testing/GetData")]
+        public dynamic GetData()
+        {
+            List<dynamic> dataList = new List<dynamic>();
+            dynamic data = new ExpandoObject();
+            data.category = "Cat 1";
+            data.value = 210.0;
+            data.color = "#023867";
+            dataList.Add(data);
+
+            data = new ExpandoObject();
+            data.category = "Cat 2";
+            data.value = 110.23;
+            data.color = "#4094d0";
+            dataList.Add(data);
+
+            data = new ExpandoObject();
+            data.category = "Cat 3";
+            data.value = 195.56;
+            data.color = "#0b4e95";
+            dataList.Add(data);
+
+
+            return dataList;
+        }
 
         [HttpGet]
         [Route("api/Testing/" + nameof(CreateTestCustomer))]

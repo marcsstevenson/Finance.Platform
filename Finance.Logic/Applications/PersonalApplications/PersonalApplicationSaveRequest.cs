@@ -1,18 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Finance.Logic.Applications.PersonalApplicationForms;
-using Finance.Logic.Applications.PersonalApplicationNotes;
-using Finance.Logic.Crm;
+using AutoMapper;
 using Finance.Logic.Interfaces;
+using Finance.Logic.Shared;
+using Generic.Framework.Interfaces;
 
 namespace Finance.Logic.Applications.PersonalApplications
 {
-    public class PersonalApplication : BaseApplication, IForm, IPersonalApplicationHeader
+    public class PersonalApplicationSaveRequest : IGuidNullableId, IForm, IPersonalApplicationHeader
     {
-        [Required]
-        public string SchemaVersion { get; set; }
+        public Guid? Id { get; set; }
 
-        [Required]
+        public string SchemaVersion { get; set; }
         public string JsonData { get; set; }
 
         /// <summary>
@@ -20,10 +20,6 @@ namespace Finance.Logic.Applications.PersonalApplications
         /// </summary>
         public PersonalApplicationStatus Status { get; set; }
 
-        //The associated customer, if any
-        public Customer Customer { get; set; }
-
-        //These properties we want to search on so we pull from JsonData
         public string FirstName { get; set; }
         public string PreferredName { get; set; }
         public string MiddleName { get; set; }
@@ -33,13 +29,5 @@ namespace Finance.Logic.Applications.PersonalApplications
         public string LicenceNumberSa { get; set; }
         public string PersonalEmail { get; set; }
         public string BusinessEmail { get; set; }
-        
-        #region 1:M Relationships
-
-        public IList<PersonalApplicationNote> PersonalApplicationNotes { get; set; }
-
-        public IList<PersonalApplicationForm> PersonalApplicationForms { get; set; }
-
-        #endregion
     }
 }

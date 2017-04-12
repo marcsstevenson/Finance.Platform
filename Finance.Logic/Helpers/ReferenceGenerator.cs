@@ -9,6 +9,11 @@ namespace Finance.Logic.Helpers
             return Generate("CU", currentCount + 1, 7);
         }
 
+        public static string GetNextPersonalApplicationNumber(int currentCount)
+        {
+            return Generate("PA", currentCount + 1, 7);
+        }
+
         public static string GetNextCustomerApplicationNumber(int currentCount)
         {
             return Generate("CA", currentCount + 1, 7);

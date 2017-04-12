@@ -1,5 +1,7 @@
 ﻿using System;
 using Finance.Logic.Applications;
+using Finance.Logic.Applications.PersonalApplicationForms;
+using Finance.Logic.Applications.PersonalApplications;
 using Finance.Logic.Configuration;
 using Finance.Logic.Crm;
 using Finance.Logic.Deals;
@@ -70,6 +72,14 @@ namespace Finance.Logic.Shared
         private IEntityRepository<LeadOrigin> _repositoryLeadOrigin;
         protected IEntityRepository<LeadOrigin> RepositoryLeadOrigin
             => _repositoryLeadOrigin ?? (_repositoryLeadOrigin = PersistanceFactory.BuildEntityRepository<LeadOrigin>());
+
+        private IEntityRepository<PersonalApplication> _repositoryPersonalApplication;
+        protected IEntityRepository<PersonalApplication> RepositoryPersonalApplication
+            => _repositoryPersonalApplication ?? (_repositoryPersonalApplication = PersistanceFactory.BuildEntityRepository<PersonalApplication>());
+
+        private IEntityRepository<PersonalApplicationForm> _repositoryPersonalApplicationForm;
+        protected IEntityRepository<PersonalApplicationForm> RepositoryPersonalApplicationForm
+            => _repositoryPersonalApplicationForm ?? (_repositoryPersonalApplicationForm = PersistanceFactory.BuildEntityRepository<PersonalApplicationForm>());
 
         private IEntityRepository<PersonalEntity> _repositoryPersonalEntity;
         protected IEntityRepository<PersonalEntity> RepositoryPersonalEntity

@@ -40,6 +40,30 @@ namespace Finance.Logic.Counting
 
             this._repositoryCounterStore.Update(counterStore);
         }
+        public int GetCurrentCounterPersonalApplication()
+        {
+            var counterStore = this.CounterStoreRepository.FirstOrDefault();
+
+            if(counterStore == null)
+                throw new Exception("We have no counter store");
+
+            return counterStore.PersonalApplicationCounter;
+        }
+
+        /// <note>
+        /// This method should only be called within the session of a unit of work
+        /// </note>
+        public void IntcrementCounterPersonalApplication_InSession()
+        {
+            var counterStore = this.CounterStoreRepository.FirstOrDefault();
+
+            if(counterStore == null)
+                throw new Exception("We have no counter store");
+
+            counterStore.PersonalApplicationCounter++;
+
+            this._repositoryCounterStore.Update(counterStore);
+        }
 
         public int GetCurrentCounterDeal()
         {

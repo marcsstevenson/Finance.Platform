@@ -1,5 +1,7 @@
 ﻿using System.Web.Http;
 using Finance.Logic.Applications;
+using Finance.Logic.Applications.PersonalApplicationForms;
+using Finance.Logic.Applications.PersonalApplications;
 using Finance.Logic.Configuration;
 using Finance.Logic.Crm;
 using Finance.Logic.Deals;
@@ -47,6 +49,12 @@ namespace Finance.Api.Api.@base
 
         private LeadOriginService _serviceLeadOrigin;
         protected LeadOriginService LeadOriginService => _serviceLeadOrigin ?? (_serviceLeadOrigin = new LeadOriginService(_persistanceFactory));
+
+        private PersonalApplicationService _servicePersonalApplication;
+        protected PersonalApplicationService PersonalApplicationService => _servicePersonalApplication ?? (_servicePersonalApplication = new PersonalApplicationService(_persistanceFactory));
+
+        private PersonalApplicationFormService _servicePersonalApplicationForm;
+        protected PersonalApplicationFormService PersonalApplicationFormService => _servicePersonalApplicationForm ?? (_servicePersonalApplicationForm = new PersonalApplicationFormService(_persistanceFactory));
 
         protected BaseController()
         {
