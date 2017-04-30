@@ -41,9 +41,21 @@ namespace Finance.Logic.Applications.PersonalApplications
             var saveRequest = new PersonalApplicationSaveRequest
             {
                 Id = id, SchemaVersion = schemaVersion, JsonData = Convert.ToString(jsonData)
-                //TODO
             };
 
+            var status = PersonalApplicationStatus.CustomerQuery;
+
+            if (jsonData.Status != null)
+            {
+                int statusValue;
+
+                int.TryParse(jsonData.Status.ToString(), out statusValue);
+
+                status = (PersonalApplicationStatus)statusValue;
+            }
+
+            saveRequest.Status = status;
+            
             if (jsonData.Applicant != null)
             {
                 if (jsonData.Applicant.FirstName != null)

@@ -10,6 +10,7 @@ using Generic.Framework.Interfaces.Entity;
 
 namespace Finance.Api.Api.@base
 {
+    //[Authorize]
     public abstract class BaseController : ApiController
     {
         protected IPersistanceFactory _persistanceFactory;

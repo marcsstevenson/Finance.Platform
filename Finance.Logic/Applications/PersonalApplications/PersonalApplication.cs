@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Finance.Logic.Applications.PersonalApplicationForms;
 using Finance.Logic.Applications.PersonalApplicationNotes;
 using Finance.Logic.Crm;
+using Finance.Logic.Deals;
 using Finance.Logic.Interfaces;
 
 namespace Finance.Logic.Applications.PersonalApplications
@@ -22,6 +23,9 @@ namespace Finance.Logic.Applications.PersonalApplications
 
         //The associated customer, if any
         public Customer Customer { get; set; }
+
+        //The associated deal, if any
+        public Deal Deal { get; set; }
 
         //These properties we want to search on so we pull from JsonData
         public string FirstName { get; set; }

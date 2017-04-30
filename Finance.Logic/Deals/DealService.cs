@@ -71,17 +71,10 @@ namespace Finance.Logic.Deals
                 //Create a new object if needed
                 if (entity == null)
                 {
-                    entity = dto.ToEntity();
-
                     //Link the customer - required and unalterable
-                    entity.Customer = this.RepositoryCustomer.FirstOrDefault(i => i.Id == dto.CustomerId);
+                    var customer = this.RepositoryCustomer.FirstOrDefault(i => i.Id == dto.CustomerId);
 
-                    //Set the last deal
-                    entity.Customer.LastDeal = entity;
-                    
-                    var currentCount = CounterStoreService.GetCurrentCounterDeal();
-                    entity.Number = ReferenceGenerator.GetNextDealNumber(currentCount + 1);
-                    CounterStoreService.IntcrementCounterDeal_InSession();
+                    entity = MintNewDeal_InSession(this.CounterStoreService, dto, customer);
                 }
                 else
                     //Update for any changes
@@ -110,6 +103,25 @@ namespace Finance.Logic.Deals
             commitResult.CommitActions.Add(entity, commitAction);
 
             return commitResult;
+        }
+
+        public static Deal MintNewDeal_InSession(CounterStoreService counterStoreService
+            , DealDto dto, Customer customer)
+        {
+            var entity = dto.ToEntity();
+
+            //Set the customer
+            entity.Customer = customer;
+
+            //Set the last deal
+            entity.Customer.LastDeal = entity;
+            
+            //Get a customer number. We need the current count for this
+            var currentCount = counterStoreService.GetCurrentCounterDeal();
+            entity.Number = ReferenceGenerator.GetNextDealNumber(currentCount + 1);
+            counterStoreService.IntcrementCounterDeal_InSession();
+
+            return entity;
         }
     }
 }

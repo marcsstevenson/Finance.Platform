@@ -92,6 +92,7 @@ namespace Finance.Logic.Applications.PersonalApplications
             {
                 Id = i.Id,
                 Number = i.Number,
+                Status = i.Status,
                 FirstName = i.FirstName,
                 PreferredName = i.PreferredName,
                 LastName = i.LastName,

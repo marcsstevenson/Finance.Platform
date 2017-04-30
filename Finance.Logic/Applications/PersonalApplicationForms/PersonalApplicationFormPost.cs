@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Finance.Logic.Applications.PersonalApplications;
 using Generic.Framework.Interfaces;
 
 namespace Finance.Logic.Applications.PersonalApplicationForms
@@ -7,7 +8,7 @@ namespace Finance.Logic.Applications.PersonalApplicationForms
     public class PersonalApplicationFormPost : IGuidNullableId
     {
         public Guid? Id { get; set; }
-
+        
         [Required]
         public dynamic Form { get; set; }
 

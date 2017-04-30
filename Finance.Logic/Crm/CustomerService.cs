@@ -57,12 +57,7 @@ namespace Finance.Logic.Crm
                 //Create a new object if needed
                 if (entity == null)
                 {
-                    entity = dto.ToEntity();
-
-                    //Get a customer number. We need the current count for this
-                    var currentCount = CounterStoreService.GetCurrentCounterCustomer();
-                    entity.Number = ReferenceGenerator.GetNextCustomerNumber(currentCount + 1);
-                    CounterStoreService.IntcrementCounterCustomer_InSession();
+                    entity = MintNewCustomer_InSession(CounterStoreService, dto);
                 }
                 else
                     //Update for any changes
@@ -78,6 +73,18 @@ namespace Finance.Logic.Crm
             commitResult.CommitActions.Add(entity, commitAction);
 
             return commitResult;
+        }
+
+        public static Customer MintNewCustomer_InSession(CounterStoreService counterStoreService, CustomerDto dto)
+        {
+            var entity = dto.ToEntity();
+
+            //Get a customer number. We need the current count for this
+            var currentCount = counterStoreService.GetCurrentCounterCustomer();
+            entity.Number = ReferenceGenerator.GetNextCustomerNumber(currentCount + 1);
+            counterStoreService.IntcrementCounterCustomer_InSession();
+
+            return entity;
         }
     }
 }

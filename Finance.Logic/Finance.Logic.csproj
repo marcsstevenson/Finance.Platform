@@ -132,6 +132,7 @@
     <Compile Include="FinanceCompanies\FinanceCompanyUpdate.cs" />
     <Compile Include="FinanceCompanies\FinanceCompanyDetails.cs" />
     <Compile Include="FinanceCompanies\FinanceTierFunder.enum.cs" />
+    <Compile Include="Applications\PersonalApplications\PersonalApplicationStatusOption.cs" />
     <Compile Include="GenericClasses\NameValue.cs" />
     <Compile Include="Interfaces\IForm.cs" />
     <Compile Include="Reporting\DealershipProfitReportService.cs" />

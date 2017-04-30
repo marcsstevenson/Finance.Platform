@@ -5,7 +5,6 @@ using Generic.Framework.Interfaces.Entity;
 
 namespace Finance.Api.Api.Applications.PersonalApplications
 {
-    //[Produces("application/json")]
     [Route("api/PersonalApplicationSearch")]
     public class PersonalApplicationSearchController : BaseController
     {
@@ -18,20 +17,6 @@ namespace Finance.Api.Api.Applications.PersonalApplications
 
         public PersonalApplicationSearchController(IPersistanceFactory persistanceFactory) : base(persistanceFactory)
         {
-        }
-        
-        [HttpGet]
-        public PersonalApplicationSearchResponse Test()
-        {
-            var request = new PersonalApplicationSearchRequest
-            {
-                SearchTerm = "rst",
-                PageSize = 3,
-                CurrentPage = 2,
-                OrderBy = "Name"
-            };
-
-            return this.PersonalApplicationSearchService.Search(request);
         }
         
         [HttpPost]

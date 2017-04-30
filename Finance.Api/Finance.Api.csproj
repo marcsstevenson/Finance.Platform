@@ -234,6 +234,7 @@
     <Compile Include="Api\Applications\AppliationFinancialOptionController.cs" />
     <Compile Include="Api\Applications\CustomerApplicationController.cs" />
     <Compile Include="Api\Applications\PersonalApplicationForms\PersonalApplicationFormController.cs" />
+    <Compile Include="Api\Applications\PersonalApplications\PersonalApplicationStatusController.cs" />
     <Compile Include="Api\Applications\PersonalApplications\PersonalApplicationController.cs" />
     <Compile Include="Api\Applications\PersonalApplications\PersonalApplicationSearchController.cs" />
     <Compile Include="Api\ConfigurationController.cs" />
