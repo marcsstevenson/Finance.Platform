@@ -21,8 +21,11 @@ namespace Finance.Api.Api.Reporting
         }
         
         [HttpGet]
-        public List<DealershipProfitReportResult> RunReport(DateTime? startDate, DateTime? endDate)
+        public List<DealershipProfitReportResult> RunReport(int monthValue, int yearValue)
         {
+            var startDate = new DateTime(yearValue, monthValue, 1);
+            var endDate = startDate.AddMonths(1).AddDays(-1);
+
             return this.DealershipProfitReportService.RunReport(startDate, endDate);
         }
     }
