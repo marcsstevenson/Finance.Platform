@@ -7,16 +7,16 @@ using Generic.Framework.Interfaces.Entity;
 
 namespace Finance.Logic.Reporting
 {
-    public class DealershipProfitReportService : BaseService
+    public class FinanceCompanyProfitReportService : BaseService
     {
-        public DealershipProfitReportService(IPersistanceFactory persistanceFactory) : base(persistanceFactory)
+        public FinanceCompanyProfitReportService(IPersistanceFactory persistanceFactory) : base(persistanceFactory)
         {
 
         }
 
-        public List<DealershipProfitReportResult> RunReport(DateTime? startDate, DateTime? endDate)
+        public List<FinanceCompanyProfitReportResult> RunReport(DateTime? startDate, DateTime? endDate)
         {
-            var response = new List<DealershipProfitReportResult>();
+            var response = new List<FinanceCompanyProfitReportResult>();
             var queryable = this.RepositoryDeal.AllQueryable();
 
             if (startDate.HasValue)
@@ -25,17 +25,16 @@ namespace Finance.Logic.Reporting
                 queryable = queryable.Where(i => i.DateCreated >= startDate.Value);
             }
 
-
             if (endDate.HasValue)
             {
                 endDate = endDate.Value.Date.AddDays(1); //We want the day to be inclusive
                 queryable = queryable.Where(i => i.DateCreated <= endDate);
             }
 
-            var allResults = queryable.Select(i => new DealershipProfitReportResult
+            var allResults = queryable.Select(i => new FinanceCompanyProfitReportResult
             {
-                DealershipId = i.Source.Id,
-                DealershipName = i.Source.Name,
+                FinanceCompanyId = i.FinanceCompany.Id,
+                FinanceCompanyName = i.FinanceCompany.Name,
                 FinanceVolume = i.FinanceVolume,
                 DealershipCommission = i.DealershipCommission,
                 Commission = i.Commission,
@@ -47,18 +46,18 @@ namespace Finance.Logic.Reporting
                 PaymentProtectionInsurance = i.PaymentProtectionInsurance
             }).ToList();
 
-            var distinctDealershipIds = allResults.Select(i => i.DealershipId).Distinct().ToList();
+            var distinctFinanceCompanyIds = allResults.Select(i => i.FinanceCompanyId).Distinct().ToList();
 
-            foreach (var distinctDealershipId in distinctDealershipIds)
+            foreach (var distinctFinanceCompanyId in distinctFinanceCompanyIds)
             {
-                var filteredResults = allResults.Where(i => i.DealershipId == distinctDealershipId).ToList();
-                string dealershipName = allResults.First(i => i.DealershipId == distinctDealershipId).DealershipName;
+                var filteredResults = allResults.Where(i => i.FinanceCompanyId == distinctFinanceCompanyId).ToList();
+                string dealershipName = allResults.First(i => i.FinanceCompanyId == distinctFinanceCompanyId).FinanceCompanyName;
                 
-                response.Add(Build(distinctDealershipId, dealershipName, false, filteredResults));
+                response.Add(Build(distinctFinanceCompanyId, dealershipName, false, filteredResults));
             }
 
-            //Order by DealershipName
-            response = response.OrderBy(i => i.DealershipName).ToList();
+            //Order by FinanceCompanyName
+            response = response.OrderBy(i => i.FinanceCompanyName).ToList();
 
             //Add a total value
             response.Add(Build(null, "Total", true, allResults));
@@ -66,13 +65,13 @@ namespace Finance.Logic.Reporting
             return response;
         }
 
-        private static DealershipProfitReportResult Build(Guid? dealershipId, string dealershipName, bool isTotal,
-            List<DealershipProfitReportResult> filteredResults)
+        private static FinanceCompanyProfitReportResult Build(Guid? dealershipId, string dealershipName, bool isTotal,
+            List<FinanceCompanyProfitReportResult> filteredResults)
         {
-            var result = new DealershipProfitReportResult
+            return new FinanceCompanyProfitReportResult
             {
-                DealershipId = dealershipId,
-                DealershipName = dealershipName,
+                FinanceCompanyId = dealershipId,
+                FinanceCompanyName = dealershipName,
                 FinanceVolume = filteredResults.Sum(i => i.FinanceVolume),
                 Commission = filteredResults.Sum(i => i.Commission),
                 DocumentationFee = filteredResults.Sum(i => i.DocumentationFee),
@@ -84,14 +83,6 @@ namespace Finance.Logic.Reporting
                 DealershipCommission = filteredResults.Sum(i => i.DealershipCommission),
                 IsTotal = isTotal
             };
-
-            result.Gross = result.Commission + result.DocumentationFee + result.PaymentProtectionInsurance
-                           + result.GuaranteedAssetProtection + result.MechanicalBreakDownInsurance + result.Insurance
-                           + result.Other;
-
-            result.Net = result.Gross - result.DealershipCommission;
-
-            return result;
         }
     }
 }

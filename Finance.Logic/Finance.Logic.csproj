@@ -135,8 +135,11 @@
     <Compile Include="Applications\PersonalApplications\PersonalApplicationStatusOption.cs" />
     <Compile Include="GenericClasses\NameValue.cs" />
     <Compile Include="Interfaces\IForm.cs" />
+    <Compile Include="Reporting\FinanceCompanyProfitReportService.cs" />
     <Compile Include="Reporting\DealershipProfitReportService.cs" />
+    <Compile Include="Reporting\Models\FinanceCompanyRequest.cs" />
     <Compile Include="Reporting\Models\DealershipProfitReportRequest.cs" />
+    <Compile Include="Reporting\Models\FinanceCompanyResult.cs" />
     <Compile Include="Reporting\Models\DealershipProfitReportResult.cs" />
     <Compile Include="Shared\PersonalEntityService.cs" />
     <Compile Include="Shared\Enums\MaritalStatusOption.cs" />

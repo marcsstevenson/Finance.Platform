@@ -254,6 +254,7 @@
     <Compile Include="Api\FinanceCompanies\FinanceCompanySearchController.cs" />
     <Compile Include="Api\FinanceCompanies\FinanceCompanyNoteController.cs" />
     <Compile Include="Api\FinanceCompanies\FinanceCompanyController.cs" />
+    <Compile Include="Api\Reporting\FinanceCompanyProfitReportController.cs" />
     <Compile Include="Api\Reporting\DealershipProfitReportController.cs" />
     <Compile Include="Api\TestingController.cs" />
     <Compile Include="Api\MappingsController.cs" />

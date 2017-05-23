@@ -2,12 +2,12 @@
 
 namespace Finance.Logic.Reporting.Models
 {
-    public class DealershipProfitReportResult
+    public class FinanceCompanyProfitReportRequest
     {
         public bool IsTotal { get; set; }
-        public Guid? DealershipId { get; set; }
-        public string DealershipName { get; set; }
-        public decimal FinanceVolume { get; set; }
+        public Guid FinanceCompanyId { get; set; }
+        public string FinanceCompanyName { get; set; }
+        public decimal AmountFinanced { get; set; }
         public decimal Commission { get; set; }
         public decimal DocumentationFee { get; set; }
         public decimal PaymentProtectionInsurance { get; set; }
@@ -15,8 +15,6 @@ namespace Finance.Logic.Reporting.Models
         public decimal MechanicalBreakDownInsurance { get; set; }
         public decimal Insurance { get; set; }
         public decimal Other { get; set; }
-        public decimal DealershipCommission { get; set; }
-        public decimal Gross { get; set; }
-        public decimal Net { get; set; }
+        public decimal FinanceCompanyCommission { get; set; }
     }
 }
