@@ -43,6 +43,7 @@ namespace Finance.Logic.Applications.PersonalApplications
                     i.JsonData
                     , CustomerId = i.Customer == null ? null : (Guid?)i.Customer.Id
                     , DealId = i.Deal == null ? null : (Guid?)i.Deal.Id
+                    , i.DateCreated
                 })
                 .FirstOrDefault();
 
@@ -66,7 +67,8 @@ namespace Finance.Logic.Applications.PersonalApplications
                 CustomerId = queryResult.CustomerId,
                 DealId = queryResult.DealId,
                 JsonData = deserialized,
-                Forms = forms
+                Forms = forms,
+                DateCreated = queryResult.DateCreated
             };
         }
 

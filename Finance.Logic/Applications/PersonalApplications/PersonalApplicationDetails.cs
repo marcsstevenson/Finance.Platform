@@ -11,6 +11,8 @@ namespace Finance.Logic.Applications.PersonalApplications
 
         public dynamic JsonData { get; set; }
 
+        public DateTime DateCreated { get; set; }
+
         public List<PersonalApplicationFormItem> Forms { get; set; }
     }
 }

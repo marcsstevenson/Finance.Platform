@@ -16,7 +16,7 @@ namespace Finance.Logic.Applications.PersonalApplications
         Approved = 25,
         [Description("Declined")]
         Declined = 30,
-        [Description("Cancelled")]
+        [Description("Not Proceeding")]
         Cancelled = 35
     }
 }

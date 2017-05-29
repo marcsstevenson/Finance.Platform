@@ -61,7 +61,7 @@ namespace Finance.Logic.Deals
         {
             var commitAction = CommitAction.None;
             Deal entity = null;
-            
+
             var commitResult = UnitOfWork.Commit(() =>
             {
                 entity = dto.Id.HasValue
@@ -79,18 +79,18 @@ namespace Finance.Logic.Deals
                 else
                     //Update for any changes
                     dto.UpdateEntity(entity);
-                
+
                 //Link in the 1:M properties
-                entity.AssignedTo = dto.AssignedToId.HasValue ? 
-                    this.RepositoryStaffMember.FirstOrDefault(i => i.Id == dto.AssignedToId) : 
+                entity.AssignedTo = dto.AssignedToId.HasValue ?
+                    this.RepositoryStaffMember.FirstOrDefault(i => i.Id == dto.AssignedToId) :
                     null;
 
-                entity.FinanceCompany = dto.FinanceCompanyId.HasValue ? 
-                    this.RepositoryFinanceCompany.FirstOrDefault(i => i.Id == dto.FinanceCompanyId) : 
+                entity.FinanceCompany = dto.FinanceCompanyId.HasValue ?
+                    this.RepositoryFinanceCompany.FirstOrDefault(i => i.Id == dto.FinanceCompanyId) :
                     null;
-                
-                entity.Source = dto.SourceDealershipId.HasValue ? 
-                    this.RepositoryDealership.FirstOrDefault(i => i.Id == dto.SourceDealershipId) : 
+
+                entity.Source = dto.SourceDealershipId.HasValue ?
+                    this.RepositoryDealership.FirstOrDefault(i => i.Id == dto.SourceDealershipId) :
                     null;
 
                 commitAction = RepositoryDeal.Save(entity);
@@ -115,13 +115,43 @@ namespace Finance.Logic.Deals
 
             //Set the last deal
             entity.Customer.LastDeal = entity;
-            
+
             //Get a customer number. We need the current count for this
             var currentCount = counterStoreService.GetCurrentCounterDeal();
             entity.Number = ReferenceGenerator.GetNextDealNumber(currentCount + 1);
             counterStoreService.IntcrementCounterDeal_InSession();
 
             return entity;
+        }
+
+        public new CommitResult Delete(Guid id)
+        {
+            var entity = this.RepositoryGeneric
+                .AllQueryable()
+                .Include(i => i.Customer)
+                .FirstOrDefault(i => i.Id == id);
+
+            var commitAction = CommitAction.None;
+
+            if (entity == null)
+                return new CommitResult();
+
+            var commitResult = UnitOfWork.Commit(() =>
+            {
+                if (entity.Customer != null)
+                {
+                    entity.Customer.LastDeal = null;
+                    this.RepositoryCustomer.Update(entity.Customer);
+                }
+                
+                this.RepositoryGeneric.Delete(entity);
+                commitAction = CommitAction.Delete;
+            });
+
+            //Add the result to the commit actions
+            commitResult.CommitActions.Add(entity, commitAction);
+
+            return commitResult;
         }
     }
 }

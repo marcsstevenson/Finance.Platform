@@ -12,28 +12,25 @@ namespace Finance.Logic.Shared
 
         protected IEntityRepository<E> RepositoryGeneric
             => _repositoryGeneric ?? (_repositoryGeneric = PersistanceFactory.BuildEntityRepository<E>());
-        
+
         protected GenericService(IPersistanceFactory persistanceFactory) : base(persistanceFactory)
         {
 
         }
-        
+
         public virtual CommitResult Delete(Guid id)
         {
             var entity = this.RepositoryGeneric.FirstOrDefault(i => i.Id == id);
-            
+
             var commitAction = CommitAction.None;
 
-            if(entity == null)
+            if (entity == null)
                 return new CommitResult();
 
             var commitResult = UnitOfWork.Commit(() =>
             {
-                if (entity != null)
-                {
-                    this.RepositoryGeneric.Delete(entity);
-                    commitAction = CommitAction.Delete;
-                }
+                this.RepositoryGeneric.Delete(entity);
+                commitAction = CommitAction.Delete;
             });
 
             //Add the result to the commit actions
