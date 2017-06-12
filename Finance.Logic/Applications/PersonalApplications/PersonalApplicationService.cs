@@ -133,8 +133,10 @@ namespace Finance.Logic.Applications.PersonalApplications
                         FirstName = saveRequest.FirstName,
                         LastName = saveRequest.LastName,
                         MiddleName = saveRequest.MiddleName,
+                        PreferredName = saveRequest.PreferredName,
 
                         //Ugh, yes, naming convension inconsistencies born out of customer changes
+                        DriversLicenceNumber = saveRequest.LicenceNumberSa,
                         MobileNumber = saveRequest.MobilePhoneNumber,
                         PhoneNumber = saveRequest.HomePhoneNumber,
                         Email = saveRequest.PersonalEmail

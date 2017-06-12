@@ -95,6 +95,11 @@ namespace Finance.Logic.Deals
 
         public decimal DealershipClawbackNotes { get; set; }
 
+        /// <summary>
+        /// The date that the deal was set to a settled status
+        /// </summary>
+        public DateTime? SettlementDate { get; set; }
+
         #region 1:M Relationships
 
         public IList<DealNote> DealNotes { get; set; }

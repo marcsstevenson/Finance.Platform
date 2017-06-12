@@ -170,6 +170,10 @@
     <Compile Include="Migrations\201704300301567_PersonalApplication.Deal.Designer.cs">
       <DependentUpon>201704300301567_PersonalApplication.Deal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706120815109_DealSettlementDate.cs" />
+    <Compile Include="Migrations\201706120815109_DealSettlementDate.Designer.cs">
+      <DependentUpon>201706120815109_DealSettlementDate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configurations.cs" />
     <Compile Include="Migrations\Sql2\AppliationFinancialOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -240,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704300301567_PersonalApplication.Deal.resx">
       <DependentUpon>201704300301567_PersonalApplication.Deal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706120815109_DealSettlementDate.resx">
+      <DependentUpon>201706120815109_DealSettlementDate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

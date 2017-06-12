@@ -109,6 +109,8 @@
     <Compile Include="Configuration\LeadOriginService.cs" />
     <Compile Include="Configuration\LeadOriginDto.cs" />
     <Compile Include="Configuration\LeadOrigin.cs" />
+    <Compile Include="Deals\DealHelper.cs" />
+    <Compile Include="Deals\DealSaveResponse.cs" />
     <Compile Include="FinanceCompanySearch\FinanceCompanySearchRequest.cs" />
     <Compile Include="FinanceCompanySearch\FinanceCompanySearchResponse.cs" />
     <Compile Include="FinanceCompanySearch\FinanceCompanySearchResponseItem.cs" />

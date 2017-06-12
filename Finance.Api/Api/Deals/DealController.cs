@@ -50,6 +50,7 @@ namespace Finance.Api.Api.Deals
                 return Request.InvalidModelStateResponse(ModelState);
 
             var commitResult = this.DealService.Save(dto);
+            
             return commitResult.ToHttpResponseMessage(this.Request);
         }
 

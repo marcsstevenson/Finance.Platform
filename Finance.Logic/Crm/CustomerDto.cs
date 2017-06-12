@@ -25,7 +25,7 @@ namespace Finance.Logic.Crm
         public string LastName { get; set; }
 
         public string MiddleName { get; set; }
-
+        
         public string PreferredName { get; set; }
 
         public string DriversLicenceNumber { get; set; }

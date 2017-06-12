@@ -34,8 +34,8 @@ namespace Finance.Logic.Deals
         /// <summary>
         /// TODO: What is this
         /// </summary>
-        [Required]
-        public int LoanNumber { get; set; }
+        //[Required]
+        //public int LoanNumber { get; set; }
 
         /// <summary>
         /// The staff memeber who is assigned to this deal
@@ -104,6 +104,11 @@ namespace Finance.Logic.Deals
 
         public decimal DealershipClawbackNotes { get; set; }
 
+        /// <summary>
+        /// The date that the deal was set to a settled status
+        /// </summary>
+        public DateTime? SettlementDate { get; set; }
+
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
 
@@ -153,7 +158,7 @@ namespace Finance.Logic.Deals
                 CustomerFirstName = i.Customer.FirstName,
                 CustomerLastName = i.Customer.LastName,
                 Number = i.Number,
-                LoanNumber = i.LoanNumber,
+                //LoanNumber = i.LoanNumber,
                 AssignedToId = i.AssignedTo == null ? null : (Guid?)i.AssignedTo.Id,
                 DealStatus = i.DealStatus,
                 FinanceCompanyId = i.FinanceCompany == null ? null : (Guid?)i.FinanceCompany.Id,
@@ -172,6 +177,7 @@ namespace Finance.Logic.Deals
                 OtherNote = i.OtherNote,
                 DealershipCommission = i.DealershipCommission,
                 DealershipClawbackNotes = i.DealershipClawbackNotes,
+                SettlementDate = i.SettlementDate,
                 DateCreated = i.DateCreated,
                 DateModified = i.DateModified
             };

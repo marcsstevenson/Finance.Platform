@@ -7,16 +7,17 @@ namespace Finance.Logic.Deals
     /// </summary>
     public enum DealStatus
     {
-        [Description("Settled /Paid")]
-        SettledPaid = 0,
-
-        [Description("Settled Awaiting Commission")]
-        SettledAwaitingCommission = 1,
 
         [Description("Pending Sign Up")]
         PendingSignUp = 2,
 
         [Description("Pending Payout")]
-        PendingPayout = 3
+        PendingPayout = 3,
+
+        [Description("Settled /Paid")]
+        SettledPaid = 4,
+
+        [Description("Settled Awaiting Commission")]
+        SettledAwaitingCommission = 5,
     }
 }

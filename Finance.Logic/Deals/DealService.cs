@@ -56,7 +56,7 @@ namespace Finance.Logic.Deals
 
             return query.ToList().Select(i => new DealDto(i)).ToList();
         }
-
+        
         public CommitResult Save(DealDto dto)
         {
             var commitAction = CommitAction.None;
@@ -93,14 +93,23 @@ namespace Finance.Logic.Deals
                     this.RepositoryDealership.FirstOrDefault(i => i.Id == dto.SourceDealershipId) :
                     null;
 
+                if (DealHelper.StatusIsSettled(entity.DealStatus) && !entity.SettlementDate.HasValue)
+                    entity.SettlementDate = DateTime.Now;
+                else
+                    entity.SettlementDate = null;
+
                 commitAction = RepositoryDeal.Save(entity);
 
                 //Set the track date fields on the view model
                 dto.UpdateTracksTime(entity);
             });
-
+            
             //Add the result to the commit actions
             commitResult.CommitActions.Add(entity, commitAction);
+
+            //Return the updated values
+            commitResult.Data.Add("SettlementDate", entity.SettlementDate);
+            commitResult.Data.Add("Number", entity.Number);
 
             return commitResult;
         }
